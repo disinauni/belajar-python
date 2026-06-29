@@ -51,7 +51,7 @@ const copyButtonTransformer = {
 }
 
 export default defineConfig({
-  site: 'https://belajar-cpp.varnimyr.my.id',
+  site: 'https://belajar-python.varnimyr.my.id',
   adapter: vercel(),
 
   vite: {
@@ -80,7 +80,7 @@ export default defineConfig({
     remarkPlugins: [remarkDirective, remarkInfoBox],
     shikiConfig: {
       theme: 'one-dark-pro',
-      langs: ['cpp', 'c', 'javascript', 'bash', 'json'],
+      langs: ['python', 'javascript', 'bash', 'json'],
       wrap: true,
       transformers: [copyButtonTransformer],
     },

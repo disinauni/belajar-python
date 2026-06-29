@@ -1,6 +1,6 @@
 # Changelog
 
-Semua perubahan penting pada proyek belajar-cpp dicatat di file ini. Format mengikuti [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format mengikuti [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
@@ -14,7 +14,7 @@ Semua perubahan penting pada proyek belajar-cpp dicatat di file ini. Format meng
 ## [2026-03-18] (update 16)
 
 ### Added
-- `/api/og.png`: endpoint dinamis untuk generate OG image PNG 1200x630 menggunakan `@vercel/og` (Satori) — menerima query params `title`, `description`, `lang`; desain dark dengan branding Belajar C++
+- `/api/og.png`: endpoint dinamis untuk generate OG image PNG 1200x630 menggunakan `@vercel/og` (Satori) — menerima query params `title`, `description`, `lang`; desain dark dengan branding Belajar Python
 - `src/env.d.ts`: referensi `astro/client` dan `.astro/types.d.ts` untuk fix tipe `import.meta.env` dan modul `astro:content` di CI
 
 ### Changed
@@ -103,7 +103,7 @@ Semua perubahan penting pada proyek belajar-cpp dicatat di file ini. Format meng
 ## [2026-03-18] (update 6)
 
 ### Added
-- Halaman Glosarium C++ (`/id/glossary`, `/en/glossary`) — 42 istilah dalam 7 kategori (Kompilasi, Dasar, Tipe Data, Kontrol Alur, Fungsi, Array & Struct, I/O) dengan definisi bilingual, contoh kode, dan tautan "lihat juga" antar istilah
+- Halaman Glosarium Python (`/id/glossary`, `/en/glossary`) — 42 istilah dalam 7 kategori (Kompilasi, Dasar, Tipe Data, Kontrol Alur, Fungsi, Array & Struct, I/O) dengan definisi bilingual, contoh kode, dan tautan "lihat juga" antar istilah
 - Link Glosarium di Footer navigation
 - `public/robots.txt` — `Allow: /` dengan referensi ke sitemap
 
@@ -135,7 +135,7 @@ Semua perubahan penting pada proyek belajar-cpp dicatat di file ini. Format meng
 
 ### Added
 - SVG diagram `loop-comparison.svg` — perbandingan while, for, do-while dalam flowchart (dark/light mode)
-- SVG diagram `function-anatomy.svg` — anatomi fungsi C++ + call flow diagram
+- SVG diagram `function-anatomy.svg` — anatomi fungsi Python + call flow diagram
 - SVG diagram `array-memory.svg` — visualisasi memori array dengan index
 - Referensi semua gambar (compilation-flow, workflow, variabel-boxes, io-flow, operator, if-else) ke semua lesson EN yang sebelumnya tidak punya gambar
 

@@ -1,10 +1,10 @@
 <div align="center">
 
-  <img src="public/favicon.svg" width="64" height="64" alt="Belajar C++ Logo" />
+  <img src="public/favicon.svg" width="64" height="64" alt="Belajar Python Logo" />
 
-  <h1>Belajar C++</h1>
+  <h1>Belajar Python</h1>
 
-  <p>Platform pembelajaran C++ gratis, interaktif, dan bilingual untuk siswa SMP & SMA Indonesia.</p>
+  <p>Platform pembelajaran Python gratis, interaktif, dan bilingual untuk siswa SMP & SMA Indonesia.</p>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
   [![Version](https://img.shields.io/badge/version-v1.0.0--beta.1-orange)](./CHANGELOG.md)
@@ -13,7 +13,7 @@
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
   [![Tests](https://img.shields.io/badge/unit%20tests-63%20passing-brightgreen?logo=vitest)](./src/__tests__)
   [![E2E](https://img.shields.io/badge/e2e-17%20passing-brightgreen?logo=playwright)](./src/__tests__/e2e)
-  [![Deploy](https://img.shields.io/badge/Live-belajar--cpp.varnimyr.my.id-black?logo=vercel)](https://belajar-cpp.varnimyr.my.id)
+  [![Deploy](https://img.shields.io/badge/Live-belajar--python.varnimyr.my.id-black?logo=vercel)](https://belajar-python.varnimyr.my.id)
 
 </div>
 
@@ -21,20 +21,20 @@
 
 ## Tentang Project
 
-**Belajar C++** hadir untuk mengisi kekosongan tutorial C++ modern dalam Bahasa Indonesia. Kebanyakan sumber yang ada masih mengajarkan pola lama seperti Turbo C++, `<iostream.h>`, atau `void main()` — yang sudah tidak relevan.
+**Belajar Python** hadir untuk mengisi kekosongan tutorial Python modern dalam Bahasa Indonesia. Kebanyakan sumber yang ada masih mengajarkan pola lama seperti Turbo Python, `<iostream.h>`, atau `void main()` — yang sudah tidak relevan.
 
-Platform ini mengajarkan **C++ modern (C++17)** dari nol, langsung bisa dicoba di browser tanpa install apapun.
+Platform ini mengajarkan **Python modern (Python17)** dari nol, langsung bisa dicoba di browser tanpa install apapun.
 
 **Ditujukan untuk:**
-- Siswa SMP & SMA yang belajar C++ untuk pertama kali
+- Siswa SMP & SMA yang belajar Python untuk pertama kali
 - Persiapan kompetisi pemrograman (OSN, ICPC)
-- Siapapun yang ingin belajar C++ dalam Bahasa Indonesia
+- Siapapun yang ingin belajar Python dalam Bahasa Indonesia
 
 ---
 
 ## Fitur
 
-- **Interaktif** — Editor kode langsung di browser, jalankan C++ tanpa install compiler
+- **Interaktif** — Editor kode langsung di browser, jalankan Python tanpa install compiler
 - **Exercise per lesson** — Setiap lesson punya latihan interaktif (fill-blank, multiple-choice, code-output) dengan hint dan penjelasan
 - **Bilingual** — Konten tersedia dalam Bahasa Indonesia dan English (45 lesson × 2 bahasa)
 - **Progresif** — Kurikulum terstruktur dari pemula hingga mahir, 1 proyek mini per unit
@@ -43,7 +43,7 @@ Platform ini mengajarkan **C++ modern (C++17)** dari nol, langsung bisa dicoba d
 - **Dark mode** — Tampilan nyaman di malam hari, didukung diagram SVG adaptive
 - **Diagram visual** — Konsep kunci dijelaskan dengan ilustrasi SVG (alur kompilasi, variabel, I/O, flowchart, loop, fungsi, array)
 - **Progress tracking** — Pantau kemajuan belajar, streak harian, dan badge pencapaian secara lokal
-- **Glosarium** — Kamus 42 istilah C++ bilingual dengan definisi, contoh kode, dan tautan antar istilah
+- **Glosarium** — Kamus 42 istilah Python bilingual dengan definisi, contoh kode, dan tautan antar istilah
 - **Aksesibel** — WCAG 2.1 compliant: skip link, ARIA roles, live regions, keyboard navigable
 
 ---
@@ -53,7 +53,7 @@ Platform ini mengajarkan **C++ modern (C++17)** dari nol, langsung bisa dicoba d
 | Unit | Topik | Lessons | Status |
 |------|-------|:-------:|--------|
 | 0 | Persiapan | 3 | ✅ Tersedia |
-| 1 | Dasar-Dasar C++ | 8 | ✅ Tersedia |
+| 1 | Dasar-Dasar Python | 8 | ✅ Tersedia |
 | 2 | Percabangan | 6 | ✅ Tersedia |
 | 3 | Perulangan | 7 | ✅ Tersedia |
 | 4 | Fungsi | 8 | ✅ Tersedia |
@@ -74,7 +74,7 @@ Platform ini mengajarkan **C++ modern (C++17)** dari nol, langsung bisa dicoba d
 | Code Editor | CodeMirror 6 |
 | Syntax Highlight | Shiki (one-dark-pro theme) |
 | MDX Directives | remark-directive |
-| C++ Execution | [Judge0 API](https://judge0.com) (server-side proxy) |
+| Python Execution | [Judge0 API](https://judge0.com) (server-side proxy) |
 | Unit Testing | Vitest + jsdom (63 unit tests) |
 | E2E Testing | Playwright (17 smoke tests) |
 | Deployment | Vercel |
@@ -92,8 +92,8 @@ Platform ini mengajarkan **C++ modern (C++17)** dari nol, langsung bisa dicoba d
 
 ```bash
 # Clone repository
-git clone https://github.com/zedfar/belajar-cpp.git
-cd belajar-cpp
+git clone https://github.com/zedfar/belajar-python.git
+cd belajar-python
 
 # Install dependencies
 npm install
@@ -114,7 +114,7 @@ Buka **http://localhost:4321** di browser.
 |----------|------------|--------|
 | `JUDGE0_API_URL` | Judge0 endpoint | `https://judge0-ce.p.rapidapi.com` |
 | `JUDGE0_API_KEY` | API key / auth token | `your-key-here` |
-| `PUBLIC_SITE_URL` | URL production | `https://belajar-cpp.varnimyr.my.id` |
+| `PUBLIC_SITE_URL` | URL production | `https://belajar-python.varnimyr.my.id` |
 
 > Untuk self-host Judge0 sendiri (gratis di Oracle Cloud), lihat dokumentasi di folder `.docs/`.
 
@@ -134,7 +134,7 @@ npm run test:e2e   # E2E tests (playwright) — butuh dev server aktif
 ## Struktur Project
 
 ```
-belajar-cpp/
+belajar-python/
 ├── public/
 │   ├── images/              # SVG diagrams (compilation flow, variables, I/O, loop, function, array)
 │   ├── robots.txt           # SEO — allow all, referensi sitemap
@@ -152,7 +152,7 @@ belajar-cpp/
 │   │   ├── lessons-id/      # 45 lesson Bahasa Indonesia (MDX, unit-0 s/d unit-6)
 │   │   └── lessons-en/      # 45 lesson English (MDX, unit-0 s/d unit-6)
 │   ├── data/
-│   │   └── glossary.ts      # 42 istilah C++ bilingual untuk halaman Glosarium
+│   │   └── glossary.ts      # 42 istilah Python bilingual untuk halaman Glosarium
 │   ├── layouts/             # BaseLayout, PageLayout, LessonLayout
 │   ├── lib/                 # i18n, progress, code-runner, curriculum
 │   ├── pages/               # File-based routing Astro
@@ -173,10 +173,10 @@ belajar-cpp/
 
 Kontribusi sangat welcome! Beberapa cara untuk berkontribusi:
 
-- 🐛 **Laporkan bug** — [Buka issue](https://github.com/zedfar/belajar-cpp/issues)
+- 🐛 **Laporkan bug** — [Buka issue](https://github.com/zedfar/belajar-python/issues)
 - ✍️ **Tulis lesson** — Tambah atau perbaiki konten di `src/content/lessons-id/`
 - 🌐 **Terjemahan** — Bantu terjemahkan lesson ke English di `src/content/lessons-en/`
-- 💡 **Saran fitur** — Diskusikan di [Issues](https://github.com/zedfar/belajar-cpp/issues)
+- 💡 **Saran fitur** — Diskusikan di [Issues](https://github.com/zedfar/belajar-python/issues)
 
 ### Menulis Lesson Baru
 
@@ -230,7 +230,7 @@ Tipe exercise yang tersedia: `multiple-choice`, `fill-blank`, `code-output`, `fr
 
 ## Deployment
 
-Project ini di-deploy ke **[belajar-cpp.varnimyr.my.id](https://belajar-cpp.varnimyr.my.id)**. Setiap push ke `main` akan trigger deployment otomatis.
+Project ini di-deploy ke **[belajar-python.varnimyr.my.id](https://belajar-python.varnimyr.my.id)**. Setiap push ke `main` akan trigger deployment otomatis.
 
 ```bash
 # Build production
@@ -251,5 +251,5 @@ Dirilis di bawah [MIT License](./LICENSE). Bebas digunakan, dimodifikasi, dan di
 ---
 
 <div align="center">
-  <sub>Dibuat dengan ❤️ untuk pelajar Indonesia &middot; <a href="https://belajar-cpp.varnimyr.my.id">belajar-cpp.varnimyr.my.id</a></sub>
+  <sub>Dibuat dengan ❤️ untuk pelajar Indonesia &middot; <a href="https://belajar-python.varnimyr.my.id">belajar-python.varnimyr.my.id</a></sub>
 </div>
