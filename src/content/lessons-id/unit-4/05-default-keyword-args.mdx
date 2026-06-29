@@ -1,0 +1,76 @@
+---
+title: "Default & Keyword Args"
+unit: 4
+lesson: 5
+description: "Argumen default dan keyword argument untuk fungsi yang fleksibel"
+objectives:
+  - "Membuat parameter dengan nilai default"
+  - "Memanggil fungsi dengan keyword arguments"
+  - "Memahami aturan urutan parameter"
+estimatedTime: 30
+prerequisites: ["unit-4/04-return-values"]
+difficulty: "beginner"
+tags: ["default-args", "keyword-args", "fungsi-fleksibel"]
+---
+
+# Default & Keyword Arguments
+
+## Nilai Default Parameter
+
+Parameter bisa punya nilai default — digunakan jika argumen tidak diberikan:
+
+```python
+def sapa(nama, salam="Halo"):
+    print(f"{salam}, {nama}!")
+
+sapa("Budi")              # Halo, Budi!
+sapa("Siti", "Selamat pagi")  # Selamat pagi, Siti!
+sapa("Andi", "Hey")      # Hey, Andi!
+```
+
+## Contoh Lebih Kompleks
+
+```python
+def buat_profil(nama, umur=17, kota="Jakarta", aktif=True):
+    status = "Aktif" if aktif else "Tidak Aktif"
+    print(f"Nama: {nama}")
+    print(f"Umur: {umur} tahun")
+    print(f"Kota: {kota}")
+    print(f"Status: {status}")
+    print()
+
+buat_profil("Budi")                          # pakai semua default
+buat_profil("Siti", 16, "Bandung")           # posisi
+buat_profil("Andi", aktif=False)             # keyword arg
+buat_profil("Rina", kota="Surabaya", umur=15) # keyword, bebas urutan
+```
+
+## Keyword Arguments
+
+Kamu bisa menyebut nama parameter saat memanggil fungsi — tidak perlu mengikuti urutan:
+
+```python
+def konversi_suhu(suhu, dari="celsius", ke="fahrenheit"):
+    if dari == "celsius" and ke == "fahrenheit":
+        return (suhu * 9/5) + 32
+    elif dari == "fahrenheit" and ke == "celsius":
+        return (suhu - 32) * 5/9
+    return suhu
+
+print(konversi_suhu(100))                           # C ke F (default)
+print(konversi_suhu(212, ke="celsius", dari="fahrenheit"))  # F ke C
+```
+
+## Aturan Urutan Parameter
+
+Parameter tanpa default harus sebelum parameter dengan default:
+
+```python
+# BENAR
+def fungsi(wajib1, wajib2, opsional=10):
+    pass
+
+# SALAH — SyntaxError!
+# def fungsi(opsional=10, wajib):
+#     pass
+```

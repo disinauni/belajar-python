@@ -1,0 +1,126 @@
+---
+title: "If-Elif-Else"
+unit: 2
+lesson: 2
+description: "Membuat keputusan dalam program dengan if, elif, dan else"
+objectives:
+  - "Menulis blok if-elif-else yang benar"
+  - "Memahami indentasi Python yang wajib"
+  - "Membuat kondisi bersarang (nested if)"
+estimatedTime: 40
+prerequisites: ["unit-2/01-operator-perbandingan"]
+difficulty: "beginner"
+tags: ["if", "elif", "else", "kondisi", "percabangan"]
+---
+
+# If-Elif-Else
+
+Program yang cerdas bisa mengambil keputusan berbeda berdasarkan kondisi. Itulah fungsi `if-elif-else`.
+
+## Struktur Dasar
+
+```python
+if kondisi:
+    # kode yang dijalankan jika kondisi True
+```
+
+**Penting:** Indentasi (4 spasi) wajib di Python! Tanpa indentasi, Python tidak tahu mana kode yang masuk ke blok if.
+
+## If Sederhana
+
+```python
+nilai = 85
+
+if nilai >= 75:
+    print("Lulus!")
+
+print("Selesai")  # selalu dijalankan
+```
+
+## If-Else
+
+```python
+nilai = 60
+
+if nilai >= 75:
+    print("Lulus!")
+else:
+    print("Tidak lulus. Perlu remedial.")
+```
+
+## If-Elif-Else
+
+```python
+nilai = 82
+
+if nilai >= 90:
+    grade = "A"
+elif nilai >= 80:
+    grade = "B"
+elif nilai >= 70:
+    grade = "C"
+elif nilai >= 60:
+    grade = "D"
+else:
+    grade = "E"
+
+print(f"Nilai: {nilai}, Grade: {grade}")
+# Output: Nilai: 82, Grade: B
+```
+
+## Pentingnya Indentasi
+
+```python
+# BENAR
+x = 10
+if x > 5:
+    print("Lebih dari 5")  # indentasi 4 spasi
+    print("Ini juga di dalam if")
+
+print("Ini di luar if")  # tidak diindentasi
+
+# SALAH — IndentationError
+# if x > 5:
+# print("Error!")  # tidak ada indentasi
+```
+
+## Nested If (Kondisi Bersarang)
+
+```python
+umur = 17
+punya_sim = False
+
+if umur >= 17:
+    if punya_sim:
+        print("Boleh mengemudi")
+    else:
+        print("Umur cukup tapi belum punya SIM")
+else:
+    print("Belum cukup umur")
+```
+
+## Contoh Program: Kategori BMI
+
+```python
+berat = float(input("Berat badan (kg): "))
+tinggi = float(input("Tinggi badan (m): "))
+
+bmi = berat / (tinggi ** 2)
+
+print(f"\nBMI kamu: {bmi:.1f}")
+
+if bmi < 18.5:
+    print("Kategori: Kurus")
+    print("Saran: Tingkatkan asupan kalori")
+elif bmi < 25:
+    print("Kategori: Normal")
+    print("Saran: Pertahankan gaya hidup sehat!")
+elif bmi < 30:
+    print("Kategori: Gemuk")
+    print("Saran: Olahraga rutin dan kurangi makanan berlemak")
+else:
+    print("Kategori: Obesitas")
+    print("Saran: Konsultasikan dengan dokter")
+```
+
+Di pelajaran berikutnya: **Operator Logika** — menggabungkan beberapa kondisi!

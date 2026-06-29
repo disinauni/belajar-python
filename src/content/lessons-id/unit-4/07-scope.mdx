@@ -1,0 +1,88 @@
+---
+title: "Scope & Variabel Global"
+unit: 4
+lesson: 7
+description: "Memahami scope variabel: local, global, dan LEGB rule"
+objectives:
+  - "Memahami konsep local dan global scope"
+  - "Menggunakan keyword global"
+  - "Menghindari bug yang berkaitan dengan scope"
+estimatedTime: 25
+prerequisites: ["unit-4/06-args-kwargs"]
+difficulty: "beginner"
+tags: ["scope", "global", "local", "variabel"]
+---
+
+# Scope & Variabel Global
+
+**Scope** menentukan di mana sebuah variabel bisa diakses.
+
+## Local vs Global
+
+```python
+x = "global"  # variabel global — bisa diakses di mana saja
+
+def fungsi():
+    y = "local"  # variabel local — hanya ada di dalam fungsi
+    print(x)     # bisa akses variabel global dari dalam fungsi
+    print(y)
+
+fungsi()
+print(x)  # bisa
+# print(y)  # NameError! y tidak ada di luar fungsi
+```
+
+## Scope Lokal Mengutamakan Diri Sendiri
+
+```python
+nama = "Global Budi"
+
+def fungsi():
+    nama = "Local Siti"  # variabel baru di scope lokal
+    print(nama)          # Local Siti (bukan Global Budi)
+
+fungsi()
+print(nama)  # Global Budi (tidak berubah)
+```
+
+## Keyword `global`
+
+```python
+hitung = 0
+
+def tambah():
+    global hitung       # beritahu Python: gunakan variabel global
+    hitung += 1
+
+tambah()
+tambah()
+tambah()
+print(hitung)  # 3
+```
+
+:::warning
+Hindari penggunaan `global` terlalu banyak — ini sering tanda bahwa program perlu direfaktor. Lebih baik kirim data lewat parameter dan kembalikan lewat return.
+:::
+
+## LEGB Rule
+
+Python mencari variabel dalam urutan:
+1. **L**ocal — di fungsi saat ini
+2. **E**nclosing — di fungsi luar (untuk nested function)
+3. **G**lobal — di level modul
+4. **B**uilt-in — di built-in Python (len, print, dll)
+
+```python
+x = "global"
+
+def luar():
+    x = "enclosing"
+    
+    def dalam():
+        # x = "local"  # jika ada ini, pakai local
+        print(x)       # jika tidak ada, cari di enclosing
+    
+    dalam()
+
+luar()  # Output: enclosing
+```

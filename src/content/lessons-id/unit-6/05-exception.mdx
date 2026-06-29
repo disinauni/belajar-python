@@ -1,0 +1,110 @@
+---
+title: "Exception Handling"
+unit: 6
+lesson: 5
+description: "Menangani error dengan try, except, else, dan finally"
+objectives:
+  - "Menggunakan try-except untuk menangani error"
+  - "Menangkap jenis error yang spesifik"
+  - "Menggunakan finally untuk cleanup"
+estimatedTime: 35
+prerequisites: ["unit-6/04-file-write"]
+difficulty: "beginner"
+tags: ["exception", "error", "try", "except", "finally"]
+---
+
+# Exception Handling
+
+Error adalah bagian normal dari programming. **Exception handling** memungkinkan programmu tetap berjalan meskipun terjadi error.
+
+## Tanpa Exception Handling
+
+```python
+angka = int(input("Masukkan angka: "))
+# Jika user ketik "abc" → ValueError dan program crash!
+print(f"Angkamu: {angka}")
+```
+
+## Dengan try-except
+
+```python
+try:
+    angka = int(input("Masukkan angka: "))
+    print(f"Angkamu: {angka}")
+except ValueError:
+    print("Itu bukan angka! Masukkan angka yang valid.")
+
+print("Program tetap berjalan!")
+```
+
+## Menangkap Banyak Exception
+
+```python
+try:
+    a = int(input("Angka 1: "))
+    b = int(input("Angka 2: "))
+    hasil = a / b
+    print(f"Hasil: {hasil}")
+
+except ValueError:
+    print("Input harus berupa angka!")
+except ZeroDivisionError:
+    print("Tidak bisa dibagi nol!")
+except Exception as e:
+    print(f"Error tidak terduga: {e}")
+```
+
+## else dan finally
+
+```python
+try:
+    file = open("data.txt", "r")
+    konten = file.read()
+
+except FileNotFoundError:
+    print("File tidak ditemukan!")
+
+else:
+    # Dijalankan jika TIDAK ada exception
+    print(f"File berhasil dibaca: {len(konten)} karakter")
+
+finally:
+    # Selalu dijalankan, exception atau tidak
+    print("Selesai memproses file")
+    file.close()
+```
+
+## Contoh Lengkap: Input Validasi Robust
+
+```python
+def minta_int(pesan, min_val=None, max_val=None):
+    while True:
+        try:
+            nilai = int(input(pesan))
+            if min_val is not None and nilai < min_val:
+                print(f"Nilai harus >= {min_val}")
+                continue
+            if max_val is not None and nilai > max_val:
+                print(f"Nilai harus <= {max_val}")
+                continue
+            return nilai
+        except ValueError:
+            print("Masukkan angka yang valid!")
+
+umur = minta_int("Umur (0-150): ", 0, 150)
+nilai = minta_int("Nilai (0-100): ", 0, 100)
+
+print(f"Umur: {umur}, Nilai: {nilai}")
+```
+
+## Exception Umum di Python
+
+| Exception | Penyebab |
+|-----------|----------|
+| `ValueError` | Konversi tipe gagal (`int("abc")`) |
+| `TypeError` | Operasi salah tipe (`"a" + 1`) |
+| `ZeroDivisionError` | Bagi dengan nol |
+| `FileNotFoundError` | File tidak ada |
+| `IndexError` | Indeks di luar range |
+| `KeyError` | Key tidak ada di dict |
+| `NameError` | Variabel tidak ditemukan |

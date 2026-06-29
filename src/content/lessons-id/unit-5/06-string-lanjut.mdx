@@ -1,0 +1,106 @@
+---
+title: "String Lanjut"
+unit: 5
+lesson: 6
+description: "Teknik string lanjutan: f-string, format(), join/split, regex dasar"
+objectives:
+  - "Menggunakan f-string dengan format kompleks"
+  - "Menguasai teknik join dan split"
+  - "Memahami string methods yang sering dipakai"
+estimatedTime: 30
+prerequisites: ["unit-5/05-dictionary"]
+difficulty: "beginner"
+tags: ["string", "f-string", "format", "lanjutan"]
+---
+
+# String Lanjut
+
+## F-String Format Kompleks
+
+```python
+nama = "Budi"
+nilai = 87.654321
+saldo = 1500000
+
+# Format angka desimal
+print(f"Nilai: {nilai:.2f}")         # Nilai: 87.65
+print(f"Nilai: {nilai:.0f}")         # Nilai: 88
+
+# Format lebar dan alignment
+print(f"|{nama:<10}|")              # |Budi      | (kiri)
+print(f"|{nama:>10}|")              # |      Budi| (kanan)
+print(f"|{nama:^10}|")              # |   Budi   | (tengah)
+print(f"|{nama:*^10}|")             # |***Budi***| (isi dengan *)
+
+# Format angka dengan pemisah ribuan
+print(f"Saldo: Rp {saldo:,}")       # Saldo: Rp 1,500,000
+print(f"Saldo: Rp {saldo:_.0f}")    # Saldo: Rp 1_500_000
+
+# Format persen
+rasio = 0.856
+print(f"Persentase: {rasio:.1%}")   # Persentase: 85.6%
+```
+
+## Join & Split
+
+```python
+# split() — string ke list
+kalimat = "Python adalah bahasa yang mudah"
+kata = kalimat.split()  # split by whitespace
+print(kata)  # ['Python', 'adalah', 'bahasa', 'yang', 'mudah']
+
+csv_baris = "Budi,17,Jakarta,85"
+data = csv_baris.split(",")
+print(data)  # ['Budi', '17', 'Jakarta', '85']
+
+# join() — list ke string
+buah = ["apel", "mangga", "jeruk"]
+print(", ".join(buah))   # apel, mangga, jeruk
+print(" | ".join(buah))  # apel | mangga | jeruk
+print("".join(buah))     # apelmangkajeruk
+```
+
+## String Methods Berguna
+
+```python
+teks = "  Hello, World! Hello, Python!  "
+
+# Strip whitespace
+print(teks.strip())
+print(teks.lstrip())
+print(teks.rstrip())
+
+# Replace
+print(teks.replace("Hello", "Halo"))
+
+# Cek isi
+print("  ".isspace())   # True
+print("123".isdigit())  # True
+print("abc".isalpha())  # True
+print("abc123".isalnum()) # True
+
+# Starts/ends with
+url = "https://python.org"
+print(url.startswith("https"))  # True
+print(url.endswith(".org"))     # True
+
+# Count & find
+print(teks.count("Hello"))  # 2
+print(teks.find("World"))   # 9 (indeks)
+print(teks.index("Hello"))  # 2
+```
+
+## Multiline String Processing
+
+```python
+laporan = """
+Nama: Budi Santoso
+Nilai: 85
+Kelas: X IPA 2
+"""
+
+for baris in laporan.strip().splitlines():
+    if baris.strip():
+        key, value = baris.split(": ")
+        print(f"  {key.strip()!r}: {value.strip()!r}")
+```

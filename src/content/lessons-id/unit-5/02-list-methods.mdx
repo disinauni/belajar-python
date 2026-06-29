@@ -1,0 +1,100 @@
+---
+title: "Metode List"
+unit: 5
+lesson: 2
+description: "Memanipulasi list dengan berbagai method bawaan Python"
+objectives:
+  - "Menambah dan menghapus elemen list"
+  - "Mengurutkan list"
+  - "Menggabungkan dan menyalin list"
+estimatedTime: 35
+prerequisites: ["unit-5/01-list-dasar"]
+difficulty: "beginner"
+tags: ["list", "method", "sort", "append"]
+---
+
+# Metode List
+
+## Menambah Elemen
+
+```python
+buah = ["apel", "mangga"]
+
+# Tambah di akhir
+buah.append("jeruk")
+print(buah)  # ["apel", "mangga", "jeruk"]
+
+# Tambah di posisi tertentu
+buah.insert(1, "pisang")
+print(buah)  # ["apel", "pisang", "mangga", "jeruk"]
+
+# Gabungkan dua list
+buah.extend(["melon", "semangka"])
+print(buah)  # [..., "melon", "semangka"]
+
+# Operasi +
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+gabungan = list1 + list2
+print(gabungan)  # [1, 2, 3, 4, 5, 6]
+```
+
+## Menghapus Elemen
+
+```python
+buah = ["apel", "mangga", "jeruk", "mangga"]
+
+# Hapus berdasarkan nilai (pertama yang ditemukan)
+buah.remove("mangga")
+print(buah)  # ["apel", "jeruk", "mangga"]
+
+# Hapus berdasarkan indeks
+del buah[0]
+print(buah)  # ["jeruk", "mangga"]
+
+# pop() — hapus dan kembalikan elemen
+item = buah.pop()      # hapus terakhir
+print(item)  # mangga
+item = buah.pop(0)     # hapus di indeks 0
+print(item)  # jeruk
+
+# clear() — hapus semua
+buah = ["apel", "mangga"]
+buah.clear()
+print(buah)  # []
+```
+
+## Mengurutkan
+
+```python
+angka = [3, 1, 4, 1, 5, 9, 2, 6]
+
+# sort() — ubah list secara in-place
+angka.sort()
+print(angka)  # [1, 1, 2, 3, 4, 5, 6, 9]
+
+angka.sort(reverse=True)  # urutan terbalik
+print(angka)  # [9, 6, 5, 4, 3, 2, 1, 1]
+
+# sorted() — buat list baru, tidak ubah aslinya
+asli = [3, 1, 4, 1, 5]
+terurut = sorted(asli)
+print(asli)    # [3, 1, 4, 1, 5] (tidak berubah)
+print(terurut) # [1, 1, 3, 4, 5]
+```
+
+## Method Lainnya
+
+```python
+angka = [3, 1, 4, 1, 5, 1, 9]
+
+print(angka.count(1))    # 3 (berapa kali 1 muncul)
+print(angka.index(4))    # 2 (indeks pertama nilai 4)
+print(min(angka))         # 1
+print(max(angka))         # 9
+print(sum(angka))         # 24
+
+# Membalik list
+angka.reverse()
+print(angka)  # [9, 1, 5, 1, 4, 1, 3]
+```

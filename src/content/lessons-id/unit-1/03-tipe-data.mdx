@@ -1,0 +1,222 @@
+---
+title: "Tipe Data"
+unit: 1
+lesson: 3
+description: "Mengenal tipe data dasar Python: int, float, str, dan bool"
+objectives:
+  - "Memahami empat tipe data dasar Python"
+  - "Menggunakan fungsi type() untuk mengecek tipe data"
+  - "Memahami perbedaan integer, float, string, dan boolean"
+estimatedTime: 40
+prerequisites: ["unit-1/02-komentar-variabel"]
+difficulty: "beginner"
+tags: ["tipe-data", "int", "float", "str", "bool"]
+---
+
+# Tipe Data
+
+Setiap nilai di Python punya **tipe data** — jenis data tersebut. Seperti di dunia nyata: angka berbeda dengan kata-kata, dan keduanya berbeda dengan jawaban ya/tidak.
+
+Python punya empat tipe data dasar yang perlu kamu kuasai:
+
+## 1. Integer (`int`) — Bilangan Bulat
+
+Integer adalah bilangan bulat — positif, negatif, atau nol:
+
+```python
+nilai = 95
+suhu = -5
+jumlah = 0
+populasi = 270000000
+
+print(type(nilai))     # Output: <class 'int'>
+print(type(populasi))  # Output: <class 'int'>
+```
+
+Integer tidak punya titik desimal. `95` adalah int, tapi `95.0` bukan.
+
+**Operasi pada integer:**
+```python
+a = 10
+b = 3
+
+print(a + b)   # 13 (penjumlahan)
+print(a - b)   # 7  (pengurangan)
+print(a * b)   # 30 (perkalian)
+print(a // b)  # 3  (pembagian bulat/floor division)
+print(a % b)   # 1  (modulo/sisa bagi)
+print(a ** b)  # 1000 (pemangkatan)
+```
+
+## 2. Float — Bilangan Desimal
+
+Float adalah bilangan dengan titik desimal:
+
+```python
+tinggi = 1.75
+berat = 65.3
+pi = 3.14159
+suhu = -2.5
+
+print(type(tinggi))  # Output: <class 'float'>
+```
+
+**Hati-hati dengan presisi float:**
+```python
+print(0.1 + 0.2)  # Output: 0.30000000000000004 (bukan 0.3!)
+```
+
+Ini bukan bug Python — ini adalah keterbatasan representasi floating point di komputer. Untuk perhitungan keuangan yang membutuhkan presisi tinggi, gunakan modul `decimal`.
+
+**Operasi pada float:**
+```python
+x = 10.5
+y = 3.2
+
+print(x + y)   # 13.7
+print(x * y)   # 33.6
+print(x / y)   # 3.28125 (pembagian biasa — selalu float)
+```
+
+## 3. String (`str`) — Teks
+
+String adalah urutan karakter — teks, kata, kalimat:
+
+```python
+nama = "Budi"
+kota = 'Jakarta'
+kalimat = "Saya belajar Python!"
+kosong = ""
+
+print(type(nama))  # Output: <class 'str'>
+```
+
+**Membuat string:**
+```python
+# Tanda kutip ganda
+s1 = "Hello, World!"
+
+# Tanda kutip tunggal
+s2 = 'Hello, World!'
+
+# Tanda kutip tiga (multi-baris)
+s3 = """Baris pertama
+Baris kedua
+Baris ketiga"""
+```
+
+**Operasi pada string:**
+```python
+depan = "Halo"
+belakang = "Dunia"
+
+print(depan + " " + belakang)  # Halo Dunia (concatenation)
+print(depan * 3)               # HaloHaloHalo (repetisi)
+print(len(depan))              # 4 (panjang string)
+print(depan.upper())           # HALO
+print(depan.lower())           # halo
+```
+
+## 4. Boolean (`bool`) — Nilai Benar/Salah
+
+Boolean hanya punya dua nilai: `True` atau `False`:
+
+```python
+lulus = True
+sudah_makan = False
+lebih_besar = 10 > 5  # True
+
+print(type(lulus))         # Output: <class 'bool'>
+print(type(lebih_besar))   # Output: <class 'bool'>
+print(10 > 5)              # True
+print(10 < 5)              # False
+print(10 == 10)            # True
+```
+
+:::note
+`True` dan `False` ditulis dengan huruf kapital pertama. `true` (huruf kecil) akan menyebabkan error di Python!
+:::
+
+## Mengecek Tipe Data dengan `type()`
+
+Fungsi `type()` mengembalikan tipe data dari suatu nilai:
+
+```python
+print(type(42))        # <class 'int'>
+print(type(3.14))      # <class 'float'>
+print(type("Hello"))   # <class 'str'>
+print(type(True))      # <class 'bool'>
+
+angka = 100
+print(type(angka))     # <class 'int'>
+```
+
+## Dynamic Typing — Keunikan Python
+
+Di Python, variabel tidak punya tipe tetap — tipenya mengikuti nilai yang disimpan:
+
+```python
+x = 10        # x adalah int
+print(type(x))  # <class 'int'>
+
+x = 3.14      # x sekarang float
+print(type(x))  # <class 'float'>
+
+x = "Hello"   # x sekarang str
+print(type(x))  # <class 'str'>
+```
+
+Ini disebut **dynamic typing** — sangat fleksibel, tapi harus hati-hati agar tidak salah tipe saat melakukan operasi.
+
+## Merangkum Semua Tipe
+
+```python
+# Contoh program biodata dengan berbagai tipe data
+nama = "Siti Rahayu"      # str
+umur = 16                 # int
+nilai_rata = 87.5         # float
+aktif = True              # bool
+
+print("Nama:", nama)
+print("Umur:", umur, "tahun")
+print("Nilai rata-rata:", nilai_rata)
+print("Status aktif:", aktif)
+print()
+print("Tipe data:")
+print("nama:", type(nama))
+print("umur:", type(umur))
+print("nilai_rata:", type(nilai_rata))
+print("aktif:", type(aktif))
+```
+
+## Latihan
+
+import { Exercise } from '@/components/learn/Exercise'
+
+<Exercise client:load
+  id="u1l3-ex1"
+  title="Identifikasi Tipe Data"
+  description="Apa tipe data dari nilai <code>3.14</code> di Python?"
+  type="multiple-choice"
+  options={[
+    "int",
+    "float",
+    "str",
+    "bool"
+  ]}
+  correctIndex={1}
+  hints={["Perhatikan apakah ada titik desimal", "Bilangan dengan titik desimal memiliki tipe tertentu"]}
+  explanation="3.14 adalah float karena memiliki titik desimal. Integer (int) tidak memiliki titik desimal."
+  lang="id"
+/>
+
+## Ringkasan
+
+| Tipe | Contoh | Kegunaan |
+|------|--------|----------|
+| `int` | `42`, `-5`, `0` | Bilangan bulat |
+| `float` | `3.14`, `-2.5` | Bilangan desimal |
+| `str` | `"Hello"`, `'Halo'` | Teks |
+| `bool` | `True`, `False` | Nilai benar/salah |
+
+Di pelajaran berikutnya: **Input & Output** — cara menerima masukan dari pengguna dengan `input()`!

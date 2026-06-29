@@ -1,0 +1,89 @@
+---
+title: "Class & Object"
+unit: 6
+lesson: 1
+description: "Pengenalan pemrograman berorientasi objek dengan class Python"
+objectives:
+  - "Memahami konsep class dan object"
+  - "Membuat class sederhana"
+  - "Membuat object dari class"
+estimatedTime: 40
+prerequisites: ["unit-5/07-project-buku-nilai"]
+difficulty: "beginner"
+tags: ["OOP", "class", "object", "pemrograman-objek"]
+---
+
+# Class & Object
+
+**Object-Oriented Programming (OOP)** adalah paradigma pemrograman yang mengorganisir kode ke dalam "objek" — entitas yang punya data (atribut) dan perilaku (method).
+
+## Analogi Dunia Nyata
+
+- **Class** = Cetakan/blueprint (contoh: desain mobil)
+- **Object** = Produk dari cetakan (contoh: mobil merah tertentu)
+
+Dari satu class, bisa dibuat banyak object.
+
+## Membuat Class Sederhana
+
+```python
+class Kucing:
+    # class body
+    pass
+
+# Membuat object dari class
+kucing1 = Kucing()
+kucing2 = Kucing()
+
+print(type(kucing1))  # <class '__main__.Kucing'>
+print(kucing1 == kucing2)  # False (object berbeda)
+```
+
+## `__init__` — Constructor
+
+`__init__` dipanggil otomatis saat object dibuat:
+
+```python
+class Siswa:
+    def __init__(self, nama, kelas, nilai):
+        self.nama = nama      # atribut
+        self.kelas = kelas
+        self.nilai = nilai
+    
+    def perkenalan(self):
+        print(f"Halo! Saya {self.nama} dari kelas {self.kelas}")
+        print(f"Nilai saya: {self.nilai}")
+
+# Buat object
+s1 = Siswa("Budi", "X IPA 2", 85)
+s2 = Siswa("Siti", "X IPS 1", 92)
+
+# Akses atribut
+print(s1.nama)    # Budi
+print(s2.nilai)   # 92
+
+# Panggil method
+s1.perkenalan()
+s2.perkenalan()
+```
+
+## Keuntungan OOP
+
+```python
+# Tanpa OOP — data terpisah-pisah
+nama1 = "Budi"
+nilai1 = 85
+nama2 = "Siti"
+nilai2 = 92
+
+# Dengan OOP — data terorganisir dalam object
+class Siswa:
+    def __init__(self, nama, nilai):
+        self.nama = nama
+        self.nilai = nilai
+
+s1 = Siswa("Budi", 85)
+s2 = Siswa("Siti", 92)
+
+# Kode lebih terorganisir dan mudah dikelola!
+```

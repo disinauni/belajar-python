@@ -2,32 +2,27 @@
 title: "Hello, World!"
 unit: 1
 lesson: 1
-description: "Menulis program C++ pertamamu dan memahami setiap barisnya"
+description: "Menulis program Python pertamamu dan memahami fungsi print()"
 objectives:
   - "Menulis dan menjalankan program Hello World"
-  - "Memahami fungsi #include, main(), cout, dan return"
-  - "Mengenal konsep namespace std"
-estimatedTime: 30
-prerequisites: ["unit-0/03"]
+  - "Memahami cara kerja fungsi print()"
+  - "Mengenal konsep string dan escape character"
+estimatedTime: 25
+prerequisites: ["unit-0/03-tour-playground"]
 difficulty: "beginner"
-tags: ["hello-world", "iostream", "cout", "main", "basics"]
+tags: ["hello-world", "print", "string", "basics"]
 ---
 
 # Hello, World!
 
-Ada tradisi di dunia programming: program pertama yang kamu tulis dalam bahasa baru haruslah program yang menampilkan "Hello, World!" di layar. Tradisi ini dimulai dari buku legenda "The C Programming Language" tahun 1978. Sekarang giliranmu melanjutkan tradisi ini!
+Ada tradisi di dunia programming: program pertama yang kamu tulis dalam bahasa baru haruslah program yang menampilkan "Hello, World!" di layar. Tradisi ini dimulai dari buku legenda "The C Programming Language" tahun 1978. Sekarang giliranmu melanjutkan tradisi ini — dalam Python!
 
 ## Program Pertamamu
 
-Berikut program Hello World dalam C++:
+Berikut program Hello World dalam Python:
 
-```cpp
-#include <iostream>
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
+```python
+print("Hello, World!")
 ```
 
 Ketik kode ini di playground, lalu klik **Run**. Kamu akan melihat:
@@ -36,168 +31,122 @@ Ketik kode ini di playground, lalu klik **Run**. Kamu akan melihat:
 Hello, World!
 ```
 
-Selamat! Kamu baru saja menulis program C++ pertamamu! Mungkin terlihat sederhana, tapi ada banyak hal yang terjadi di balik layar. Mari kita bedah **setiap baris**.
+Selamat! Hanya satu baris, tapi itu sudah program yang valid!
 
-## Membedah Setiap Baris
+## Memahami `print()`
 
-### Baris 1: `#include <iostream>`
+`print()` adalah **fungsi** bawaan Python yang tugasnya menampilkan sesuatu ke layar. 
 
-```cpp
-#include <iostream>
-```
-
-Baris ini adalah **preprocessor directive** — instruksi untuk compiler agar "menyertakan" file header bernama `iostream`. File ini berisi definisi untuk `cout` (output ke layar) dan `cin` (input dari keyboard).
-
-Bayangkan begini: kamu mau memasak, tapi pisaumu ada di laci. `#include` itu seperti membuka laci dan mengeluarkan alat yang dibutuhkan. Tanpa `#include <iostream>`, kamu tidak bisa menggunakan `cout` untuk menampilkan teks.
-
-**Fakta penting:**
-- `#include` selalu dimulai dengan tanda pagar `#`
-- `<iostream>` artinya "input/output stream" — stream data masuk/keluar
-- Nama file header diapit tanda `<` dan `>` (bukan tanda kutip)
-- Baris ini **tidak** diakhiri titik koma (`;`)
-
-### Baris 3: `int main() {`
-
-```cpp
-int main() {
-```
-
-Ini adalah **fungsi main** — pintu masuk program. Setiap program C++ **harus** punya fungsi `main()`. Ketika kamu menjalankan program, komputer akan mencari fungsi ini dan mulai mengeksekusi kode di dalamnya.
-
-Bayangkan programmu adalah sebuah gedung. `main()` adalah pintu depan — tidak peduli seberapa besar gedungnya, semua orang masuk lewat pintu depan. Begitu juga program: tidak peduli seberapa kompleks kodenya, eksekusi selalu dimulai dari `main()`.
-
-Mari pecah bagian-bagiannya:
-- `int` — tipe data yang dikembalikan fungsi (integer/bilangan bulat). `main()` mengembalikan angka ke sistem operasi (0 artinya sukses)
-- `main` — nama fungsi. Nama ini **wajib** `main`, tidak bisa diganti
-- `()` — tanda kurung untuk parameter (kosong artinya tidak menerima parameter)
-- `{` — kurung kurawal pembuka, menandai awal *body* fungsi
-
-### Baris 4: `std::cout << "Hello, World!" << std::endl;`
-
-```cpp
-    std::cout << "Hello, World!" << std::endl;
-```
-
-Ini adalah baris yang melakukan aksi sebenarnya — menampilkan teks ke layar. Cukup banyak yang terjadi di sini, jadi mari pecah satu per satu:
-
-**`std::cout`** — ini adalah objek "output stream". Bayangkan `cout` seperti **megaphone** — apa pun yang kamu "kirim" ke megaphone, akan terdengar (dalam hal ini, muncul di layar). `cout` singkatan dari "**c**haracter **out**put".
-
-**`<<`** — ini adalah **insertion operator** atau operator "kirim ke". Bayangkan seperti panah: kamu mengirim sesuatu KE `cout`. Arah panahnya `<<` menunjuk ke kiri, ke arah `cout`.
-
-**`"Hello, World!"`** — ini adalah **string literal** — teks yang diapit tanda kutip ganda. Apa pun yang ada di dalam tanda kutip akan ditampilkan persis seperti yang kamu tulis.
-
-**`<< std::endl`** — `endl` singkatan dari "**end** **l**ine". Ini menambahkan baris baru setelah teks, seperti menekan Enter. Tanpa `endl`, teks berikutnya akan muncul di baris yang sama.
-
-**`;`** — titik koma di akhir baris. Di C++, **setiap statement harus diakhiri titik koma**. Ini seperti titik di akhir kalimat bahasa Indonesia — memberitahu compiler bahwa instruksi ini sudah selesai.
-
-:::note
-**Tentang `std::`** — `std` adalah singkatan dari "standard". `std::cout` artinya "cout yang ada di standard library". Prefiks `std::` ini disebut **namespace** — cara C++ mengelompokkan nama-nama agar tidak bentrok. Untuk sekarang, cukup ingat: setiap kali pakai `cout`, `cin`, `endl`, dan `string`, tulis `std::` di depannya.
-:::
-
-### Baris 5: `return 0;`
-
-```cpp
-    return 0;
-}
-```
-
-`return 0;` memberitahu sistem operasi bahwa program berjalan **sukses**. Angka 0 adalah konvensi universal untuk "semua baik-baik saja". Kalau program mengembalikan angka selain 0, artinya ada kesalahan.
-
-Bayangkan kamu disuruh belanja oleh orang tua. Setelah selesai, kamu bilang "Sudah, semua beres!" — itu sama dengan `return 0`. Kalau kamu bilang "Ada masalah, tokonya tutup" — itu seperti `return 1`.
-
-**`}`** — kurung kurawal penutup, menandai akhir body fungsi `main()`.
-
-## Visualisasi Lengkap
-
-```cpp
-#include <iostream>     // 1. Ambil alat yang dibutuhkan (cout, endl)
-
-int main() {            // 2. Pintu masuk program
-    std::cout << "Hello, World!" << std::endl;  // 3. Tampilkan teks ke layar
-    return 0;           // 4. Lapor ke OS: "Sukses!"
-}                       // 5. Akhir program
-```
-
-## Variasi Hello World
-
-Sekarang coba beberapa variasi untuk memantapkan pemahamanmu.
-
-**Menampilkan beberapa baris:**
-
-```cpp
-#include <iostream>
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << "Nama saya Budi." << std::endl;
-    std::cout << "Saya sedang belajar C++!" << std::endl;
-    return 0;
-}
+```python
+print("Halo, Dunia!")
+print("Nama saya Budi.")
+print("Saya sedang belajar Python!")
 ```
 
 Output:
 ```
-Hello, World!
+Halo, Dunia!
 Nama saya Budi.
-Saya sedang belajar C++!
+Saya sedang belajar Python!
 ```
 
-**Menggabungkan teks dalam satu `cout`:**
+Setiap pemanggilan `print()` otomatis pindah ke baris baru.
 
-```cpp
-#include <iostream>
+## Anatomi `print("Hello, World!")`
 
-int main() {
-    std::cout << "Hello" << " " << "World!" << std::endl;
-    return 0;
-}
+Mari bedah bagian-bagiannya:
+
+- **`print`** — nama fungsi. Python sudah mengenal kata ini secara bawaan.
+- **`(`** dan **`)`** — tanda kurung wajib saat memanggil fungsi.
+- **`"Hello, World!"`** — ini adalah **string** (teks). Diapit tanda kutip ganda.
+
+:::note
+Di Python, tanda kutip tunggal `'` dan ganda `"` bisa digunakan bergantian untuk string. `print('Hello')` dan `print("Hello")` menghasilkan hal yang sama. Pilih salah satu dan konsisten!
+:::
+
+## print() dengan Banyak Nilai
+
+Kamu bisa mengirim beberapa nilai ke `print()`, dipisahkan koma:
+
+```python
+print("Nama:", "Budi")
+print("Umur:", 17)
+print("Nilai:", 85.5)
 ```
 
-Kamu bisa menggunakan `<<` berulang kali untuk mengirim beberapa bagian teks ke `cout` dalam satu statement.
-
-**Tanpa `std::endl` (menggunakan `\n`):**
-
-```cpp
-#include <iostream>
-
-int main() {
-    std::cout << "Baris pertama\n";
-    std::cout << "Baris kedua\n";
-    return 0;
-}
+Output:
+```
+Nama: Budi
+Umur: 17
+Nilai: 85.5
 ```
 
-`\n` adalah **escape character** untuk baris baru. Fungsinya mirip `std::endl`, tapi lebih ringkas. Kita akan bahas perbedaannya lebih detail di pelajaran tentang input/output.
+Python otomatis menambahkan spasi di antara nilai-nilai tersebut.
+
+## Escape Character
+
+Escape character adalah karakter khusus yang diawali backslash `\`:
+
+```python
+print("Baris pertama\nBaris kedua")
+print("Tab\tdi sini")
+print("Dia berkata \"Halo!\"")
+```
+
+Output:
+```
+Baris pertama
+Baris kedua
+Tab	di sini
+Dia berkata "Halo!"
+```
+
+| Escape | Arti |
+|--------|------|
+| `\n` | Baris baru |
+| `\t` | Tab |
+| `\"` | Tanda kutip ganda |
+| `\'` | Tanda kutip tunggal |
+| `\\` | Backslash |
+
+## print() dengan `sep` dan `end`
+
+`print()` punya parameter opsional:
+
+```python
+# sep: pemisah antar nilai (default: spasi)
+print("apel", "mangga", "jeruk", sep=", ")
+
+# end: karakter di akhir (default: newline \n)
+print("Ini ", end="")
+print("satu baris")
+```
+
+Output:
+```
+apel, mangga, jeruk
+Ini satu baris
+```
 
 ## Kesalahan Umum
 
-Saat menulis program pertama, ada beberapa kesalahan yang sering terjadi:
-
-**1. Lupa titik koma:**
-```cpp
-std::cout << "Hello" << std::endl  // ERROR: missing ';'
+**1. Lupa tanda kurung:**
+```python
+print "Hello"  # ERROR di Python 3! (ini sintaks Python 2)
 ```
 
-**2. Salah tulis `cout`:**
-```cpp
-std::cot << "Hello" << std::endl;  // ERROR: 'cot' bukan 'cout'
+**2. Lupa tanda kutip:**
+```python
+print(Hello)  # ERROR: Python mengira Hello adalah variabel
 ```
 
-**3. Lupa `#include <iostream>`:**
-```cpp
-int main() {
-    std::cout << "Hello" << std::endl;  // ERROR: cout tidak dikenal
-    return 0;
-}
-```
-
-**4. Pakai tanda kutip tunggal untuk string:**
-```cpp
-std::cout << 'Hello' << std::endl;  // ERROR: tanda kutip tunggal hanya untuk SATU karakter
+**3. Kutip tidak matching:**
+```python
+print("Hello')  # ERROR: buka dengan " tapi tutup dengan '
 ```
 
 :::tip
-Kalau menemui error, jangan panik. Baca pesan errornya — biasanya compiler menunjukkan baris yang bermasalah. Bandingkan kode kamu dengan contoh yang benar, cari perbedaannya.
+Kalau menemui error `SyntaxError`, periksa tanda kurung dan tanda kutipmu — biasanya di situlah masalahnya.
 :::
 
 ## Latihan
@@ -207,49 +156,41 @@ import { Exercise } from '@/components/learn/Exercise'
 <Exercise client:load
   id="u1l1-ex1"
   title="Ubah Output Hello World"
-  description="Ubah program Hello World agar menampilkan teks <code>Halo, C++!</code> persis seperti yang diminta."
+  description="Ubah program agar menampilkan teks <code>Halo, Python!</code> persis seperti yang diminta."
   type="code-output"
-  expectedOutput="Halo, C++!"
-  starterCode={`#include <iostream>
-
-int main() {
-    // Ubah baris berikut agar outputnya: Halo, C++!
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}`}
-  hints={["Ganti teks di dalam tanda kutip ganda", "Pastikan tulisannya persis: Halo, C++!", "Jangan ubah bagian lain dari program"]}
-  explanation="std::cout mencetak teks yang ada di dalam tanda kutip ganda persis seperti apa adanya. Cukup ganti isi string-nya saja."
+  expectedOutput="Halo, Python!"
+  starterCode={`# Ubah baris berikut agar outputnya: Halo, Python!
+print("Hello, World!")`}
+  hints={["Ganti teks di dalam tanda kutip", "Pastikan tulisannya persis: Halo, Python!", "Jangan ubah bagian lain dari program"]}
+  explanation="print() mencetak teks yang ada di dalam tanda kutip persis seperti apa adanya. Cukup ganti isi string-nya."
   lang="id"
 />
 
 <Exercise client:load
   id="u1l1-ex2"
-  title="Identifikasi Elemen Program"
-  description="Apa fungsi dari baris <code>return 0;</code> di dalam fungsi <code>main()</code>?"
+  title="Identifikasi Fungsi print()"
+  description="Apa yang terjadi jika kamu memanggil print() tanpa argumen apapun, seperti ini: print()?"
   type="multiple-choice"
   options={[
-    "Mengakhiri loop program",
-    "Memberitahu sistem operasi bahwa program berjalan sukses",
-    "Mendeklarasikan variabel bertipe int",
-    "Memulai eksekusi program dari awal"
+    "Program akan error",
+    "Tidak ada yang terjadi",
+    "Mencetak baris kosong (newline)",
+    "Mencetak kata 'None'"
   ]}
-  correctIndex={1}
-  hints={["Angka 0 adalah konvensi universal untuk 'semua baik-baik saja'", "main() harus mengembalikan nilai ke sistem operasi"]}
-  explanation="return 0; mengembalikan nilai 0 ke sistem operasi, yang berarti program berakhir dengan sukses. Nilai selain 0 menandakan ada kesalahan."
+  correctIndex={2}
+  hints={["Coba jalankan print() di playground", "print() selalu mengakhiri dengan newline"]}
+  explanation="print() tanpa argumen hanya mencetak newline — menghasilkan baris kosong. Ini berguna untuk memberi jarak antar output."
   lang="id"
 />
 
 ## Ringkasan
 
-| Elemen | Fungsi |
+| Konsep | Contoh |
 |--------|--------|
-| `#include <iostream>` | Menyertakan library input/output |
-| `int main()` | Fungsi utama, pintu masuk program |
-| `std::cout` | Objek untuk menampilkan output ke layar |
-| `<<` | Operator "kirim ke" |
-| `std::endl` | Pindah ke baris baru |
-| `return 0` | Memberitahu OS program sukses |
-| `;` | Penanda akhir statement |
-| `{ }` | Menandai awal dan akhir blok kode |
+| Cetak teks | `print("Hello")` |
+| Cetak angka | `print(42)` |
+| Banyak nilai | `print("a", "b", "c")` |
+| Baris baru | `\n` dalam string |
+| Custom separator | `print("a", "b", sep="-")` |
 
-Kamu sudah berhasil menulis dan memahami program C++ pertamamu! Di pelajaran berikutnya, kita akan belajar tentang **komentar** — cara menambahkan catatan di dalam kode — dan memahami **struktur program C++** secara lebih mendalam.
+Di pelajaran berikutnya, kita akan belajar tentang **komentar dan variabel** — fondasi dari semua program Python!

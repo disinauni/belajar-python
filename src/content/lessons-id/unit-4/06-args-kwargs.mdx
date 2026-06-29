@@ -1,0 +1,67 @@
+---
+title: "*args dan **kwargs"
+unit: 4
+lesson: 6
+description: "Membuat fungsi yang menerima jumlah argumen tak terbatas"
+objectives:
+  - "Menggunakan *args untuk argumen posisional tak terbatas"
+  - "Menggunakan **kwargs untuk keyword argument tak terbatas"
+  - "Menggabungkan keduanya dalam satu fungsi"
+estimatedTime: 25
+prerequisites: ["unit-4/05-default-keyword-args"]
+difficulty: "beginner"
+tags: ["args", "kwargs", "variadic", "fungsi"]
+---
+
+# *args dan **kwargs
+
+Bagaimana jika kamu tidak tahu berapa banyak argumen yang akan diterima fungsi?
+
+## `*args` — Argumen Tak Terbatas
+
+```python
+def jumlahkan(*angka):
+    print(f"Menjumlahkan: {angka}")
+    return sum(angka)
+
+print(jumlahkan(1, 2))           # 3
+print(jumlahkan(1, 2, 3, 4, 5)) # 15
+print(jumlahkan(10))             # 10
+```
+
+`*args` mengumpulkan semua argumen posisional menjadi **tuple**.
+
+```python
+def cetak_semua(*items):
+    for i, item in enumerate(items, 1):
+        print(f"{i}. {item}")
+
+cetak_semua("apel", "mangga", "jeruk")
+cetak_semua("Python", "JavaScript", "Go", "Rust")
+```
+
+## `**kwargs` — Keyword Argument Tak Terbatas
+
+```python
+def buat_kartu(**info):
+    print("=" * 20)
+    for kunci, nilai in info.items():
+        print(f"{kunci}: {nilai}")
+    print("=" * 20)
+
+buat_kartu(nama="Budi", umur=17, kota="Jakarta")
+buat_kartu(produk="Laptop", harga=8000000, stok=5)
+```
+
+`**kwargs` mengumpulkan keyword arguments menjadi **dictionary**.
+
+## Kombinasi
+
+```python
+def fungsi_lengkap(wajib, *args, **kwargs):
+    print(f"Wajib: {wajib}")
+    print(f"Args: {args}")
+    print(f"Kwargs: {kwargs}")
+
+fungsi_lengkap("hello", 1, 2, 3, nama="Budi", umur=17)
+```

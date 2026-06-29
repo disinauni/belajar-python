@@ -1,0 +1,206 @@
+---
+title: "Komentar & Variabel"
+unit: 1
+lesson: 2
+description: "Belajar menulis komentar dan menyimpan data dalam variabel Python"
+objectives:
+  - "Menulis komentar satu baris dan multi-baris"
+  - "Membuat dan menggunakan variabel"
+  - "Memahami aturan penamaan variabel"
+estimatedTime: 25
+prerequisites: ["unit-1/01-hello-world"]
+difficulty: "beginner"
+tags: ["komentar", "variabel", "naming", "basics"]
+---
+
+# Komentar & Variabel
+
+## Komentar
+
+**Komentar** adalah teks di dalam kode yang **tidak dijalankan** oleh Python. Komentar digunakan untuk menjelaskan kode agar mudah dipahami — oleh dirimu sendiri di masa depan, atau oleh orang lain.
+
+### Komentar Satu Baris
+
+Gunakan tanda pagar `#` untuk komentar satu baris:
+
+```python
+# Ini adalah komentar
+print("Hello!")  # Komentar juga bisa di akhir baris kode
+
+# Python akan mengabaikan semua yang ada setelah #
+# Ini tidak akan dijalankan: print("tidak muncul")
+```
+
+### Komentar Multi-Baris (Docstring)
+
+Untuk komentar panjang, gunakan tiga tanda kutip:
+
+```python
+"""
+Ini adalah docstring.
+Bisa banyak baris.
+Biasanya digunakan di awal program atau fungsi.
+"""
+
+print("Program berjalan!")
+```
+
+:::tip
+Biasakan menulis komentar! Kode yang kamu tulis hari ini mungkin membingungkan dirimu sendiri 3 bulan kemudian. Komentar membantu menjelaskan **mengapa** kamu menulis kode seperti itu, bukan hanya **apa** yang dilakukan kode.
+:::
+
+## Variabel
+
+**Variabel** adalah "kotak" untuk menyimpan data. Bayangkan variabel seperti sebuah kotak berlabel — kamu bisa menyimpan sesuatu di dalamnya, dan mengambilnya kembali dengan menyebut labelnya.
+
+### Membuat Variabel
+
+Di Python, membuat variabel sangat mudah:
+
+```python
+nama = "Budi"
+umur = 17
+nilai = 85.5
+```
+
+Ini disebut **assignment** (penugasan). Tanda `=` bukan berarti "sama dengan" seperti di matematika, tapi "simpan nilai ini ke variabel".
+
+### Menggunakan Variabel
+
+```python
+nama = "Budi"
+umur = 17
+
+print(nama)          # Output: Budi
+print(umur)          # Output: 17
+print("Halo,", nama) # Output: Halo, Budi
+```
+
+### Mengubah Nilai Variabel
+
+```python
+skor = 0
+print(skor)  # Output: 0
+
+skor = 100
+print(skor)  # Output: 100
+
+skor = skor + 10  # Tambahkan 10 ke nilai skor saat ini
+print(skor)  # Output: 110
+```
+
+Variabel bisa diubah nilainya kapan saja. Itulah mengapa disebut **vari**-abel (bisa bervariasi).
+
+## Aturan Penamaan Variabel
+
+### Boleh:
+```python
+nama = "Budi"
+nilai_akhir = 95
+umur2024 = 17
+_catatan = "private"
+namaDepan = "Budi"     # camelCase
+nama_depan = "Budi"    # snake_case (lebih Python-ic)
+```
+
+### Tidak Boleh:
+```python
+2nilai = 95        # ERROR: tidak boleh dimulai angka
+nilai-akhir = 90   # ERROR: tanda - bukan diperbolehkan
+nama depan = "Budi" # ERROR: tidak boleh ada spasi
+class = "X"        # ERROR: 'class' adalah kata kunci Python
+```
+
+### Konvensi Python (PEP 8)
+
+Python punya gaya penulisan resmi yang disebut **PEP 8**. Untuk nama variabel, konvensinya adalah **snake_case** (huruf kecil semua, pisah dengan underscore):
+
+```python
+# Direkomendasikan (snake_case):
+nama_depan = "Budi"
+nilai_akhir = 95
+jumlah_siswa = 30
+
+# Tidak direkomendasikan untuk variabel:
+NamaDepan = "Budi"   # ini untuk nama class
+NILAI = 95           # ini untuk konstanta
+```
+
+## Contoh Program Lengkap
+
+```python
+# Program biodata sederhana
+
+nama = "Siti Rahayu"
+umur = 16
+kelas = "X IPA 2"
+sekolah = "SMA Negeri 1 Jakarta"
+
+print("=== Biodata Siswa ===")
+print("Nama:", nama)
+print("Umur:", umur, "tahun")
+print("Kelas:", kelas)
+print("Sekolah:", sekolah)
+```
+
+Output:
+```
+=== Biodata Siswa ===
+Nama: Siti Rahayu
+Umur: 16 tahun
+Kelas: X IPA 2
+Sekolah: SMA Negeri 1 Jakarta
+```
+
+## Latihan
+
+import { Exercise } from '@/components/learn/Exercise'
+
+<Exercise client:load
+  id="u1l2-ex1"
+  title="Buat Program Biodata"
+  description="Buat program yang menyimpan nama, kota asal, dan hobi dalam variabel, lalu tampilkan dengan format yang rapi."
+  type="code-output"
+  expectedOutput="Nama: Andi
+Kota: Bandung
+Hobi: Membaca"
+  starterCode={`# Simpan data dalam variabel
+nama = "Andi"
+# Tambahkan variabel kota dan hobi di sini
+
+# Tampilkan hasilnya
+print("Nama:", nama)
+# Tampilkan kota dan hobi`}
+  hints={["Buat variabel kota dengan nilai 'Bandung'", "Buat variabel hobi dengan nilai 'Membaca'", "Gunakan print() dengan format yang sama untuk kota dan hobi"]}
+  explanation="Variabel menyimpan data sehingga bisa digunakan berkali-kali. Dengan memberi nama yang deskriptif, kode menjadi lebih mudah dibaca."
+  lang="id"
+/>
+
+<Exercise client:load
+  id="u1l2-ex2"
+  title="Nama Variabel yang Valid"
+  description="Manakah nama variabel yang VALID di Python?"
+  type="multiple-choice"
+  options={[
+    "2nilai",
+    "nilai_akhir",
+    "nilai-akhir",
+    "nilai akhir"
+  ]}
+  correctIndex={1}
+  hints={["Variabel tidak boleh dimulai dengan angka", "Tanda hubung (-) tidak bisa digunakan dalam nama variabel", "Spasi tidak boleh ada dalam nama variabel"]}
+  explanation="nilai_akhir adalah nama variabel yang valid. Menggunakan snake_case (huruf kecil dengan underscore) adalah konvensi Python yang direkomendasikan."
+  lang="id"
+/>
+
+## Ringkasan
+
+| Konsep | Contoh |
+|--------|--------|
+| Komentar satu baris | `# ini komentar` |
+| Komentar multi-baris | `"""ini komentar"""` |
+| Buat variabel | `nama = "Budi"` |
+| Ubah variabel | `skor = skor + 10` |
+| Konvensi nama | snake_case: `nama_depan` |
+
+Di pelajaran berikutnya: **Tipe Data** — jenis-jenis data yang bisa disimpan dalam variabel Python!

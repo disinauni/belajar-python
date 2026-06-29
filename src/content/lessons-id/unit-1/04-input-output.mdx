@@ -1,338 +1,150 @@
 ---
-title: "Input dan Output"
+title: "Input & Output"
 unit: 1
 lesson: 4
-description: "Belajar menerima input dari user dan menampilkan output dengan cout dan cin"
+description: "Menerima input dari pengguna dengan input() dan menampilkan output dengan print()"
 objectives:
-  - "Menggunakan std::cout untuk output dan std::cin untuk input"
-  - "Memahami operator << (insertion) dan >> (extraction)"
-  - "Mengetahui perbedaan std::endl dan \\n"
+  - "Menggunakan fungsi input() untuk menerima masukan pengguna"
+  - "Mengkonversi tipe data input"
+  - "Memformat output dengan f-string"
 estimatedTime: 30
-prerequisites: ["unit-1/03"]
+prerequisites: ["unit-1/03-tipe-data"]
 difficulty: "beginner"
-tags: ["input", "output", "cout", "cin", "endl", "io"]
+tags: ["input", "output", "f-string", "interaktif"]
 ---
 
-# Input dan Output
+# Input & Output
 
-Sampai sekarang, program kita berjalan sendiri — menampilkan teks yang sudah kita tentukan. Tapi program yang benar-benar berguna bisa **berinteraksi** dengan pengguna. Program bertanya, pengguna menjawab, lalu program merespons berdasarkan jawaban itu.
+Program yang menarik adalah program yang bisa **berinteraksi** dengan pengguna — menerima masukan dan memberikan output yang relevan. Python menyediakan `input()` untuk ini.
 
-Di pelajaran ini, kita akan belajar dua alat utama komunikasi program C++: `std::cout` untuk **output** (menampilkan) dan `std::cin` untuk **input** (menerima).
+## Fungsi `input()`
 
-## Mendalami `std::cout` (Output)
+`input()` menghentikan program dan menunggu pengguna mengetik sesuatu, lalu menekan Enter:
 
-Kita sudah kenal `std::cout` dari pelajaran-pelajaran sebelumnya. Sekarang mari kita pahami lebih dalam.
-
-`std::cout` adalah **character output stream** — aliran data yang mengalir dari program ke layar. Bayangkan seperti selang air: kamu "mendorong" data melalui selang, dan data itu muncul di ujung yang lain (layar).
-
-### Operator `<<` — "Kirim Ke"
-
-Operator `<<` disebut **insertion operator**. Cara membacanya: "kirim ke". Data di sebelah kanan "dikirim ke" `cout` di sebelah kiri.
-
-```cpp
-std::cout << "Hello";     // "Kirim 'Hello' ke layar"
-std::cout << 42;          // "Kirim angka 42 ke layar"
-std::cout << 3.14;        // "Kirim 3.14 ke layar"
-```
-
-Kamu bisa **merangkai** beberapa data dalam satu statement:
-
-```cpp
-std::cout << "Umur saya " << 17 << " tahun" << std::endl;
-```
-
-Ini dibaca: kirim "Umur saya " ke layar, lalu kirim 17, lalu kirim " tahun", lalu kirim endl (baris baru).
-
-Output:
-```
-Umur saya 17 tahun
-```
-
-### Menampilkan Variabel
-
-`std::cout` bisa menampilkan nilai variabel langsung:
-
-```cpp
-#include <iostream>
-#include <string>
-
-int main() {
-    std::string nama = "Dian";
-    int umur = 16;
-    double tinggi = 158.5;
-
-    std::cout << "Nama: " << nama << std::endl;
-    std::cout << "Umur: " << umur << " tahun" << std::endl;
-    std::cout << "Tinggi: " << tinggi << " cm" << std::endl;
-
-    return 0;
-}
-```
-
-Output:
-```
-Nama: Dian
-Umur: 16 tahun
-Tinggi: 158.5 cm
-```
-
-## `std::endl` vs `"\n"`
-
-Kedua cara ini membuat baris baru, tapi ada perbedaan penting:
-
-### `std::endl`
-
-```cpp
-std::cout << "Baris satu" << std::endl;
-std::cout << "Baris dua" << std::endl;
-```
-
-`std::endl` melakukan **dua hal**:
-1. Menambah karakter baris baru
-2. Mem-**flush** buffer (memaksa semua data segera ditampilkan di layar)
-
-### `"\n"` atau `'\n'`
-
-```cpp
-std::cout << "Baris satu\n";
-std::cout << "Baris dua\n";
-```
-
-`\n` **hanya** menambah karakter baris baru, tanpa flush buffer. Ini sedikit lebih cepat dari `std::endl`.
-
-:::tip
-**Kapan pakai yang mana?**
-- `"\n"` — untuk kebanyakan kasus, lebih cepat
-- `std::endl` — saat kamu butuh output langsung muncul (misalnya sebelum program meminta input, atau saat debugging)
-
-Untuk pelajaran-pelajaran ini, keduanya boleh dipakai. Perbedaan performanya hanya terasa di program yang menulis output sangat banyak.
-:::
-
-### Perbandingan
-
-```cpp
-#include <iostream>
-
-int main() {
-    // Menggunakan endl
-    std::cout << "Satu" << std::endl;
-    std::cout << "Dua" << std::endl;
-
-    // Menggunakan \n
-    std::cout << "Tiga\n";
-    std::cout << "Empat\n";
-
-    // Campuran juga bisa
-    std::cout << "Lima" << "\n";
-
-    return 0;
-}
-```
-
-Output (identik untuk kedua cara):
-```
-Satu
-Dua
-Tiga
-Empat
-Lima
-```
-
-## `std::cin` — Menerima Input
-
-Sekarang bagian yang seru: membuat program yang bisa **menerima input** dari pengguna!
-
-`std::cin` adalah **character input stream** — aliran data dari keyboard ke program. Kalau `cout` adalah megaphone (bicara ke luar), `cin` adalah microphone (mendengarkan dari luar).
-
-![Alur I/O C++: Keyboard ke cin, Program ke cout, lalu tampil di Layar](/images/io-flow.svg)
-
-### Operator `>>` — "Ambil Dari"
-
-Operator `>>` disebut **extraction operator**. Cara membacanya: "ambil dari". Data diambil dari `cin` (keyboard) dan disimpan ke variabel di sebelah kanan.
-
-```cpp
-int umur;
-std::cin >> umur;    // "Ambil input dari keyboard, simpan ke variabel 'umur'"
-```
-
-Perhatikan arah panahnya:
-- `cout <<` — panah menuju `cout` (kirim data KE layar)
-- `cin >>` — panah menjauh dari `cin` (ambil data DARI keyboard)
-
-### Contoh: Program Sapaan
-
-```cpp
-#include <iostream>
-#include <string>
-
-int main() {
-    std::string nama;
-
-    std::cout << "Siapa namamu? ";
-    std::cin >> nama;
-
-    std::cout << "Halo, " << nama << "! Selamat belajar C++!" << std::endl;
-
-    return 0;
-}
+```python
+nama = input("Masukkan namamu: ")
+print("Halo,", nama)
 ```
 
 Saat dijalankan:
 ```
-Siapa namamu? Budi
-Halo, Budi! Selamat belajar C++!
+Masukkan namamu: Budi
+Halo, Budi
 ```
 
-Program berhenti sejenak di baris `std::cin >> nama;` — menunggu user mengetik sesuatu dan menekan Enter. Setelah itu, program melanjutkan ke baris berikutnya.
+### Cara Kerja `input()`
 
-### Input Beberapa Nilai
-
-Kamu bisa meminta beberapa input satu per satu:
-
-```cpp
-#include <iostream>
-#include <string>
-
-int main() {
-    std::string nama;
-    int umur;
-
-    std::cout << "Masukkan nama: ";
-    std::cin >> nama;
-
-    std::cout << "Masukkan umur: ";
-    std::cin >> umur;
-
-    std::cout << "\nHasil:" << std::endl;
-    std::cout << "Nama: " << nama << std::endl;
-    std::cout << "Umur: " << umur << " tahun" << std::endl;
-
-    return 0;
-}
-```
-
-Atau merangkai beberapa `>>` dalam satu baris:
-
-```cpp
-int a, b;
-std::cout << "Masukkan dua angka: ";
-std::cin >> a >> b;  // User ketik: 5 10 (dipisah spasi)
-```
-
-Saat user mengetik `5 10` dan menekan Enter, `a` akan berisi `5` dan `b` akan berisi `10`. `cin` menggunakan spasi/enter sebagai pemisah antar input.
-
-### `getline()` — Input Teks dengan Spasi
-
-Ada satu masalah dengan `cin >>`: dia berhenti membaca saat bertemu **spasi**. Jadi kalau user mengetik "Budi Santoso", `cin >>` hanya mengambil "Budi".
-
-Untuk membaca seluruh baris (termasuk spasi), gunakan `std::getline()`:
-
-```cpp
-#include <iostream>
-#include <string>
-
-int main() {
-    std::string namaLengkap;
-
-    std::cout << "Masukkan nama lengkap: ";
-    std::getline(std::cin, namaLengkap);
-
-    std::cout << "Halo, " << namaLengkap << "!" << std::endl;
-
-    return 0;
-}
-```
-
-```
-Masukkan nama lengkap: Budi Santoso
-Halo, Budi Santoso!
-```
-
-`getline()` membaca seluruh baris sampai user menekan Enter, termasuk spasi di tengah.
+1. Python menampilkan teks prompt (opsional)
+2. Program berhenti, menunggu pengguna mengetik
+3. Pengguna tekan Enter
+4. Apa yang diketik disimpan sebagai **string**
 
 :::warning
-**Hati-hati mencampur `cin >>` dan `getline()`!** Setelah `cin >>`, ada karakter newline (`\n`) yang tertinggal di buffer. `getline()` akan membaca newline itu dan langsung selesai (menghasilkan string kosong). Solusinya: tambahkan `std::cin.ignore()` sebelum `getline()`.
-
-```cpp
-int umur;
-std::cin >> umur;
-std::cin.ignore();  // Buang newline yang tersisa
-
-std::string nama;
-std::getline(std::cin, nama);  // Sekarang bisa membaca dengan benar
-```
+`input()` **selalu mengembalikan string** — bahkan jika pengguna mengetik angka! Ini penting dan sering jadi sumber bug bagi pemula.
 :::
 
-## Contoh Program Lengkap: Biodata
+## Konversi Tipe Input
 
-```cpp
-#include <iostream>
-#include <string>
+Karena `input()` selalu mengembalikan string, kamu perlu **mengkonversi** ke tipe yang dibutuhkan:
 
-int main() {
-    // Variabel untuk menyimpan data
-    std::string nama;
-    int umur;
-    double tinggi;
-    std::string kota;
+```python
+# Salah — ini string, bukan integer!
+usia_str = input("Masukkan usia: ")
+# usia_str + 1  <-- ERROR! tidak bisa tambah string dengan angka
 
-    // Minta input dari user
-    std::cout << "=== Program Biodata ===" << std::endl;
-    std::cout << std::endl;
-
-    std::cout << "Nama lengkap: ";
-    std::getline(std::cin, nama);
-
-    std::cout << "Umur: ";
-    std::cin >> umur;
-
-    std::cout << "Tinggi badan (cm): ";
-    std::cin >> tinggi;
-
-    std::cin.ignore();  // Bersihkan buffer sebelum getline
-
-    std::cout << "Kota asal: ";
-    std::getline(std::cin, kota);
-
-    // Tampilkan hasil
-    std::cout << "\n=== Biodata Kamu ===" << std::endl;
-    std::cout << "Nama   : " << nama << std::endl;
-    std::cout << "Umur   : " << umur << " tahun" << std::endl;
-    std::cout << "Tinggi : " << tinggi << " cm" << std::endl;
-    std::cout << "Kota   : " << kota << std::endl;
-    std::cout << "=====================" << std::endl;
-
-    return 0;
-}
+# Benar — konversi ke integer dulu
+usia = int(input("Masukkan usia: "))
+tahun_lahir = 2024 - usia
+print("Kamu lahir tahun:", tahun_lahir)
 ```
 
-Contoh interaksi:
+### Fungsi Konversi Tipe
+
+| Fungsi | Kegunaan | Contoh |
+|--------|----------|--------|
+| `int()` | String → Integer | `int("42")` → `42` |
+| `float()` | String → Float | `float("3.14")` → `3.14` |
+| `str()` | Angka → String | `str(42)` → `"42"` |
+| `bool()` | → Boolean | `bool(1)` → `True` |
+
+```python
+umur = int(input("Umur: "))
+tinggi = float(input("Tinggi (cm): "))
+nama = input("Nama: ")
+
+print("Nama:", nama)
+print("Umur:", umur, "tahun")
+print("Tinggi:", tinggi, "cm")
 ```
-=== Program Biodata ===
 
-Nama lengkap: Rina Sari
-Umur: 16
-Tinggi badan (cm): 162.5
-Kota asal: Bandung
+## F-String — Format Output Modern
 
-=== Biodata Kamu ===
-Nama   : Rina Sari
-Umur   : 16 tahun
-Tinggi : 162.5 cm
-Kota   : Bandung
-=====================
+**F-string** (formatted string literal) adalah cara paling elegan untuk memformat output di Python:
+
+```python
+nama = "Budi"
+umur = 17
+nilai = 87.5
+
+# Cara lama (concatenation)
+print("Nama: " + nama + ", umur: " + str(umur))
+
+# Cara f-string (lebih rapi!)
+print(f"Nama: {nama}, umur: {umur}")
+print(f"Nilai rata-rata: {nilai:.2f}")  # 2 angka desimal
 ```
 
-## Ringkasan Operator I/O
+Output:
+```
+Nama: Budi, umur: 17
+Nilai rata-rata: 87.50
+```
 
-| Operator | Nama | Arah | Contoh |
-|----------|------|------|--------|
-| `<<` | Insertion | Program → Layar | `cout << "Hello"` |
-| `>>` | Extraction | Keyboard → Program | `cin >> umur` |
+### Kelebihan F-String
 
-Cara mengingat arahnya:
-- `<<` panah menuju `cout` (output, keluar)
-- `>>` panah menuju variabel (input, masuk)
+1. **Lebih mudah dibaca** — tidak perlu banyak tanda `+` atau `str()`
+2. **Bisa ekspresi** — bisa langsung hitung di dalam kurung kurawal
+3. **Format angka** — bisa atur jumlah desimal, padding, dll
+
+```python
+a = 10
+b = 3
+
+print(f"{a} + {b} = {a + b}")
+print(f"{a} / {b} = {a / b:.3f}")  # 3 angka desimal
+print(f"Pi ≈ {3.14159:.2f}")
+
+nama = "budi"
+print(f"Halo, {nama.upper()}!")  # bisa panggil method di dalam f-string
+```
+
+Output:
+```
+10 + 3 = 13
+10 / 3 = 3.333
+Pi ≈ 3.14
+Halo, BUDI!
+```
+
+## Program Interaktif Sederhana
+
+```python
+# Program BMI Calculator
+print("=== Kalkulator BMI ===")
+
+nama = input("Nama: ")
+berat = float(input("Berat badan (kg): "))
+tinggi = float(input("Tinggi badan (cm): "))
+
+tinggi_m = tinggi / 100  # konversi cm ke meter
+bmi = berat / (tinggi_m ** 2)
+
+print()
+print(f"Hasil BMI untuk {nama}:")
+print(f"Berat: {berat} kg")
+print(f"Tinggi: {tinggi} cm")
+print(f"BMI: {bmi:.1f}")
+```
 
 ## Latihan
 
@@ -340,47 +152,25 @@ import { Exercise } from '@/components/learn/Exercise'
 
 <Exercise client:load
   id="u1l4-ex1"
-  title="Arah Operator I/O"
-  description="Operator manakah yang digunakan untuk <strong>menerima input</strong> dari keyboard ke dalam variabel?"
-  type="multiple-choice"
-  options={["cout <<", "cin >>", "cout >>", "cin <<"]}
-  correctIndex={1}
-  hints={["cin adalah character input stream", "Arah panah >> menjauh dari cin, menuju variabel"]}
-  explanation="cin >> digunakan untuk menerima input dari keyboard. Panah >> menunjuk ke arah variabel tujuan — data 'diambil dari' cin dan disimpan ke variabel."
-  lang="id"
-/>
-
-<Exercise client:load
-  id="u1l4-ex2"
-  title="Program Output Sederhana"
-  description="Lengkapi program agar mencetak dua baris output: <code>Nama: Andi</code> lalu <code>Kota: Jakarta</code>"
+  title="Program Salam Personal"
+  description="Buat program yang meminta nama pengguna dan menampilkan salam dengan format: <code>Selamat datang, [nama]! Semoga harimu menyenangkan.</code>"
   type="code-output"
-  expectedOutput="Nama: Andi
-Kota: Jakarta"
-  starterCode={`#include <iostream>
-#include <string>
-
-int main() {
-    std::string nama = "Andi";
-    std::string kota = "Jakarta";
-
-    // Tampilkan kedua variabel dengan format yang benar
-
-    return 0;
-}`}
-  hints={['Gunakan std::cout << "Nama: " << nama << std::endl;', "Lakukan hal yang sama untuk kota", "Pastikan format persis: Nama: Andi dan Kota: Jakarta"]}
-  explanation="std::cout dapat menggabungkan string literal dan variabel menggunakan operator <<. Setiap cout dengan endl menghasilkan satu baris output."
+  expectedOutput="Selamat datang, Rina! Semoga harimu menyenangkan."
+  starterCode={`nama = input("Siapa namamu? ")
+# Tampilkan salam menggunakan f-string`}
+  hints={["Gunakan f-string untuk memformat output", "Format yang diinginkan: 'Selamat datang, [nama]! Semoga harimu menyenangkan.'"]}
+  explanation="F-string memungkinkan kita menyisipkan variabel langsung ke dalam string dengan sintaks {variabel}."
   lang="id"
 />
 
 ## Ringkasan
 
-- `std::cout <<` menampilkan output ke layar
-- `std::cin >>` menerima input dari keyboard
-- `<<` dibaca "kirim ke", `>>` dibaca "ambil dari"
-- `std::endl` membuat baris baru dan flush buffer
-- `"\n"` membuat baris baru tanpa flush (lebih cepat)
-- `std::getline()` untuk membaca teks lengkap termasuk spasi
-- Hati-hati mencampur `cin >>` dan `getline()` — gunakan `cin.ignore()`
+| Konsep | Contoh |
+|--------|--------|
+| Input string | `nama = input("Nama: ")` |
+| Input integer | `umur = int(input("Umur: "))` |
+| Input float | `nilai = float(input("Nilai: "))` |
+| F-string dasar | `f"Halo, {nama}"` |
+| F-string format | `f"{nilai:.2f}"` |
 
-Di pelajaran berikutnya, kita akan belajar tentang **operasi aritmatika** — cara membuat program yang bisa menghitung!
+Di pelajaran berikutnya: **Operasi Aritmatika** — semua operator matematika di Python!

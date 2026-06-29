@@ -1,0 +1,118 @@
+---
+title: "Match-Case"
+unit: 2
+lesson: 4
+description: "Pattern matching modern dengan match-case (Python 3.10+)"
+objectives:
+  - "Menggunakan match-case untuk multiple kondisi"
+  - "Memahami kapan menggunakan match vs if-elif"
+  - "Menggunakan wildcard _ dalam match-case"
+estimatedTime: 25
+prerequisites: ["unit-2/03-operator-logika"]
+difficulty: "beginner"
+tags: ["match", "case", "pattern-matching"]
+---
+
+# Match-Case
+
+Python 3.10 memperkenalkan `match-case` — cara yang lebih elegan untuk menangani banyak kondisi berbeda.
+
+## Sintaks Dasar
+
+```python
+hari = "Senin"
+
+match hari:
+    case "Senin":
+        print("Awal minggu, semangat!")
+    case "Jumat":
+        print("Hampir akhir pekan!")
+    case "Sabtu" | "Minggu":
+        print("Hari libur!")
+    case _:
+        print("Hari biasa")
+```
+
+`case _` adalah **wildcard** — menangkap semua nilai yang tidak cocok dengan case lainnya.
+
+## Perbandingan dengan if-elif
+
+```python
+# Dengan if-elif
+kode = "A"
+if kode == "A":
+    grade = "Sangat Baik"
+elif kode == "B":
+    grade = "Baik"
+elif kode == "C":
+    grade = "Cukup"
+else:
+    grade = "Tidak Diketahui"
+
+# Dengan match-case (lebih bersih)
+match kode:
+    case "A":
+        grade = "Sangat Baik"
+    case "B":
+        grade = "Baik"
+    case "C":
+        grade = "Cukup"
+    case _:
+        grade = "Tidak Diketahui"
+
+print(grade)
+```
+
+## Match dengan Angka
+
+```python
+bulan = int(input("Masukkan nomor bulan (1-12): "))
+
+match bulan:
+    case 1:
+        print("Januari")
+    case 2:
+        print("Februari")
+    case 3:
+        print("Maret")
+    case 4:
+        print("April")
+    case 5:
+        print("Mei")
+    case 6:
+        print("Juni")
+    case 7:
+        print("Juli")
+    case 8:
+        print("Agustus")
+    case 9:
+        print("September")
+    case 10:
+        print("Oktober")
+    case 11:
+        print("November")
+    case 12:
+        print("Desember")
+    case _:
+        print("Bulan tidak valid")
+```
+
+## Kapan Gunakan match vs if-elif?
+
+- **match-case**: Ketika membandingkan satu variabel dengan banyak nilai spesifik
+- **if-elif**: Ketika kondisi lebih kompleks (range, ekspresi, dll)
+
+```python
+# Gunakan match untuk nilai diskrit:
+match perintah:
+    case "start": ...
+    case "stop": ...
+
+# Gunakan if-elif untuk range:
+if nilai >= 90: ...
+elif nilai >= 80: ...
+```
+
+:::note
+`match-case` membutuhkan Python 3.10 atau lebih baru. Playground di situs ini mendukung Python 3.
+:::

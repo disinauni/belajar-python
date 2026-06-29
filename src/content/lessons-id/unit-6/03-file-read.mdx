@@ -1,0 +1,93 @@
+---
+title: "Membaca File"
+unit: 6
+lesson: 3
+description: "Membaca konten file teks dengan open() dan berbagai mode baca"
+objectives:
+  - "Membuka dan membaca file dengan open()"
+  - "Menggunakan context manager (with)"
+  - "Membaca file baris per baris"
+estimatedTime: 30
+prerequisites: ["unit-6/02-method-attribute"]
+difficulty: "beginner"
+tags: ["file", "open", "read", "IO"]
+---
+
+# Membaca File
+
+Python memudahkan membaca dan menulis file. Ini penting untuk program yang perlu menyimpan data secara permanen.
+
+## Membuka File dengan `open()`
+
+```python
+# Cara manual — harus ditutup sendiri
+file = open("data.txt", "r")  # r = read
+konten = file.read()
+file.close()  # WAJIB tutup!
+
+# Cara yang lebih baik — with statement
+with open("data.txt", "r") as file:
+    konten = file.read()
+# File otomatis ditutup saat keluar blok with
+```
+
+`with open()` adalah cara yang direkomendasikan — file selalu ditutup, bahkan jika terjadi error.
+
+## Mode Pembukaan File
+
+| Mode | Keterangan |
+|------|------------|
+| `"r"` | Read (default) |
+| `"w"` | Write (hapus konten lama) |
+| `"a"` | Append (tambah di akhir) |
+| `"x"` | Create (error jika sudah ada) |
+| `"b"` | Binary mode (tambahkan ke mode lain) |
+
+## Cara Membaca
+
+```python
+with open("siswa.txt", "r") as f:
+    # read() — baca semua sekaligus
+    semua = f.read()
+    
+with open("siswa.txt", "r") as f:
+    # readline() — baca satu baris
+    baris1 = f.readline()
+    
+with open("siswa.txt", "r") as f:
+    # readlines() — baca semua baris sebagai list
+    semua_baris = f.readlines()
+
+with open("siswa.txt", "r") as f:
+    # iterasi langsung — paling efisien untuk file besar
+    for baris in f:
+        print(baris.strip())  # strip() hapus \n
+```
+
+## Contoh Lengkap
+
+```python
+# Asumsikan file siswa.txt berisi:
+# Budi,85
+# Siti,92
+# Andi,78
+
+data_siswa = []
+
+with open("siswa.txt", "r") as file:
+    for baris in file:
+        baris = baris.strip()
+        if baris:  # skip baris kosong
+            bagian = baris.split(",")
+            nama = bagian[0]
+            nilai = int(bagian[1])
+            data_siswa.append({"nama": nama, "nilai": nilai})
+
+for siswa in data_siswa:
+    grade = "Lulus" if siswa["nilai"] >= 75 else "Gagal"
+    print(f"{siswa['nama']}: {siswa['nilai']} — {grade}")
+```
+
+:::note
+Di Playground online, operasi file nyata tidak bisa dilakukan. Untuk belajar operasi file, kamu perlu Python terinstall di komputer. Tapi logikanya sama!
+:::

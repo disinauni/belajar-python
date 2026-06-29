@@ -1,0 +1,82 @@
+---
+title: "Tuple & Set"
+unit: 5
+lesson: 4
+description: "Dua koleksi khusus Python: tuple yang immutable dan set yang unik"
+objectives:
+  - "Membuat dan menggunakan tuple"
+  - "Memahami perbedaan list vs tuple"
+  - "Menggunakan set untuk data unik"
+estimatedTime: 30
+prerequisites: ["unit-5/03-list-comprehension"]
+difficulty: "beginner"
+tags: ["tuple", "set", "immutable", "unik"]
+---
+
+# Tuple & Set
+
+## Tuple — Koleksi Tak Bisa Diubah
+
+Tuple seperti list, tapi **immutable** (tidak bisa diubah setelah dibuat):
+
+```python
+koordinat = (3, 7)
+warna = ("merah", "hijau", "biru")
+data_siswa = ("Budi", 17, "Jakarta")  # nama, umur, kota
+
+print(koordinat[0])    # 3
+print(len(warna))      # 3
+
+# Ini akan ERROR — tuple tidak bisa diubah!
+# koordinat[0] = 10  # TypeError!
+```
+
+### Kapan Pakai Tuple?
+
+- Data yang tidak boleh berubah (koordinat, konstanta)
+- Return beberapa nilai dari fungsi
+- Sebagai key dictionary (list tidak bisa jadi key)
+
+```python
+def min_max(data):
+    return min(data), max(data)  # mengembalikan tuple
+
+hasil = min_max([3, 1, 4, 1, 5, 9])
+print(hasil)          # (1, 9)
+minimum, maksimum = hasil  # tuple unpacking
+print(minimum, maksimum)   # 1 9
+```
+
+## Set — Koleksi Nilai Unik
+
+Set menyimpan nilai **tanpa duplikat** dan **tidak berurutan**:
+
+```python
+buah = {"apel", "mangga", "jeruk", "apel", "mangga"}
+print(buah)  # {'apel', 'mangga', 'jeruk'} — duplikat dihapus!
+
+# Cek keanggotaan (sangat cepat!)
+print("apel" in buah)   # True
+print("pisang" in buah) # False
+```
+
+### Operasi Set
+
+```python
+a = {1, 2, 3, 4, 5}
+b = {3, 4, 5, 6, 7}
+
+print(a | b)   # Union: {1,2,3,4,5,6,7}
+print(a & b)   # Intersection: {3,4,5}
+print(a - b)   # Difference: {1,2}
+print(a ^ b)   # Symmetric diff: {1,2,6,7}
+```
+
+### Menghilangkan Duplikat
+
+```python
+nilai = [85, 92, 85, 78, 92, 65, 78]
+unik = list(set(nilai))
+unik.sort()
+print(unik)  # [65, 78, 85, 92]
+```

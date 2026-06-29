@@ -1,0 +1,106 @@
+---
+title: "Method & Atribut"
+unit: 6
+lesson: 2
+description: "Menambahkan method dan atribut pada class"
+objectives:
+  - "Membedakan atribut instance dan class"
+  - "Membuat method yang berguna"
+  - "Menggunakan self dengan benar"
+estimatedTime: 35
+prerequisites: ["unit-6/01-class-object"]
+difficulty: "beginner"
+tags: ["method", "atribut", "self", "OOP"]
+---
+
+# Method & Atribut
+
+## Atribut Instance vs Class
+
+```python
+class Mobil:
+    # Atribut class — sama untuk semua object
+    jumlah_roda = 4
+    jenis = "kendaraan"
+    
+    def __init__(self, merek, warna, tahun):
+        # Atribut instance — berbeda untuk setiap object
+        self.merek = merek
+        self.warna = warna
+        self.tahun = tahun
+        self.km = 0  # default 0
+
+mobil1 = Mobil("Toyota", "merah", 2020)
+mobil2 = Mobil("Honda", "putih", 2022)
+
+print(mobil1.merek)     # Toyota
+print(Mobil.jumlah_roda)  # 4 (atribut class)
+print(mobil1.jumlah_roda)  # 4 (bisa akses via object juga)
+```
+
+## Method
+
+```python
+class BankAccount:
+    def __init__(self, nama, saldo=0):
+        self.nama = nama
+        self.saldo = saldo
+        self.transaksi = []
+    
+    def setor(self, jumlah):
+        if jumlah <= 0:
+            print("Jumlah harus positif!")
+            return
+        self.saldo += jumlah
+        self.transaksi.append(f"+{jumlah:,}")
+        print(f"Berhasil setor Rp {jumlah:,}. Saldo: Rp {self.saldo:,}")
+    
+    def tarik(self, jumlah):
+        if jumlah > self.saldo:
+            print("Saldo tidak cukup!")
+            return
+        self.saldo -= jumlah
+        self.transaksi.append(f"-{jumlah:,}")
+        print(f"Berhasil tarik Rp {jumlah:,}. Saldo: Rp {self.saldo:,}")
+    
+    def info(self):
+        print(f"\n=== Rekening {self.nama} ===")
+        print(f"Saldo: Rp {self.saldo:,}")
+        print(f"Transaksi: {self.transaksi}")
+    
+    def __str__(self):
+        return f"BankAccount({self.nama}, Rp {self.saldo:,})"
+
+# Gunakan class
+rekening = BankAccount("Budi", 100000)
+rekening.setor(500000)
+rekening.tarik(200000)
+rekening.info()
+print(rekening)  # menggunakan __str__
+```
+
+## Method Khusus (Dunder Methods)
+
+```python
+class Vektor:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __str__(self):     # str(obj) atau print(obj)
+        return f"({self.x}, {self.y})"
+    
+    def __add__(self, other):  # obj1 + obj2
+        return Vektor(self.x + other.x, self.y + other.y)
+    
+    def panjang(self):
+        return (self.x**2 + self.y**2) ** 0.5
+
+v1 = Vektor(3, 4)
+v2 = Vektor(1, 2)
+v3 = v1 + v2
+
+print(v1)           # (3, 4)
+print(v3)           # (4, 6)
+print(v1.panjang()) # 5.0
+```

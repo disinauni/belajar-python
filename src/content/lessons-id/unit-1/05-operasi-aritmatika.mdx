@@ -2,344 +2,157 @@
 title: "Operasi Aritmatika"
 unit: 1
 lesson: 5
-description: "Belajar operasi matematika dasar dan aturan prioritas operator di C++"
+description: "Operator matematika Python: +, -, *, /, //, %, ** dan operator assignment"
 objectives:
-  - "Menggunakan operator aritmatika: +, -, *, /, %"
-  - "Memahami integer division dan modulo"
-  - "Mengenal operator precedence"
+  - "Menggunakan semua operator aritmatika Python"
+  - "Memahami perbedaan / dan // (pembagian biasa vs floor division)"
+  - "Menggunakan operator assignment gabungan (+=, -=, dll)"
 estimatedTime: 30
-prerequisites: ["unit-1/04"]
+prerequisites: ["unit-1/04-input-output"]
 difficulty: "beginner"
-tags: ["arithmetic", "operators", "math", "modulo", "precedence"]
+tags: ["aritmatika", "operator", "matematika"]
 ---
 
 # Operasi Aritmatika
 
-Komputer pada dasarnya adalah mesin hitung yang sangat cepat — kata "computer" sendiri berasal dari "to compute" (menghitung). Jadi wajar kalau C++ punya kemampuan matematika yang kuat. Di pelajaran ini, kita akan belajar operator aritmatika dasar yang akan kamu pakai di hampir setiap program.
+Python bisa digunakan sebagai kalkulator yang sangat powerful. Mari pelajari semua operator aritmatika yang tersedia.
 
-## Operator Aritmatika Dasar
+## Operator Dasar
 
-C++ menyediakan lima operator aritmatika dasar:
+```python
+a = 10
+b = 3
 
-| Operator | Nama | Contoh | Hasil |
-|----------|------|--------|-------|
-| `+` | Penjumlahan | `5 + 3` | `8` |
-| `-` | Pengurangan | `10 - 4` | `6` |
-| `*` | Perkalian | `6 * 7` | `42` |
-| `/` | Pembagian | `15 / 3` | `5` |
-| `%` | Modulo (sisa bagi) | `17 % 5` | `2` |
-
-Mari kita bahas masing-masing dengan contoh kode yang bisa kamu jalankan.
-
-### Penjumlahan (`+`) dan Pengurangan (`-`)
-
-```cpp
-#include <iostream>
-
-int main() {
-    int a = 15;
-    int b = 7;
-
-    int jumlah = a + b;
-    int selisih = a - b;
-
-    std::cout << a << " + " << b << " = " << jumlah << std::endl;
-    std::cout << a << " - " << b << " = " << selisih << std::endl;
-
-    return 0;
-}
+print(f"{a} + {b} = {a + b}")   # 13
+print(f"{a} - {b} = {a - b}")   # 7
+print(f"{a} * {b} = {a * b}")   # 30
+print(f"{a} / {b} = {a / b}")   # 3.3333...
+print(f"{a} // {b} = {a // b}") # 3 (floor division)
+print(f"{a} % {b} = {a % b}")   # 1 (modulo/sisa bagi)
+print(f"{a} ** {b} = {a ** b}") # 1000 (pemangkatan)
 ```
 
-Output:
-```
-15 + 7 = 22
-15 - 7 = 8
-```
+## Pembagian: `/` vs `//`
 
-Tidak ada kejutan di sini — sama persis seperti matematika yang kamu kenal.
+Ini perbedaan penting yang sering membingungkan:
 
-### Perkalian (`*`)
-
-Di matematika kita pakai `x` atau `.` untuk perkalian. Di C++ (dan hampir semua bahasa pemrograman), kita pakai **asterisk** (`*`):
-
-```cpp
-#include <iostream>
-
-int main() {
-    int panjang = 8;
-    int lebar = 5;
-    int luas = panjang * lebar;
-
-    std::cout << "Luas persegi panjang: " << luas << " cm2" << std::endl;
-
-    return 0;
-}
+```python
+print(10 / 3)   # 3.3333333333333335 — hasil float
+print(10 // 3)  # 3 — hanya bagian bulatnya
+print(7 / 2)    # 3.5 — hasil float
+print(7 // 2)   # 3 — floor division
 ```
 
-Output:
-```
-Luas persegi panjang: 40 cm2
-```
+- `/` (division) — selalu menghasilkan **float**
+- `//` (floor division) — membulatkan **ke bawah**, hasilnya int
 
-### Pembagian (`/`)
-
-Di sinilah mulai menarik. Pembagian di C++ punya **perilaku berbeda** tergantung tipe datanya:
-
-```cpp
-#include <iostream>
-
-int main() {
-    // Pembagian integer (bilangan bulat)
-    int a = 7;
-    int b = 2;
-    std::cout << "7 / 2 = " << a / b << std::endl;
-
-    // Pembagian double (bilangan desimal)
-    double c = 7.0;
-    double d = 2.0;
-    std::cout << "7.0 / 2.0 = " << c / d << std::endl;
-
-    return 0;
-}
+```python
+# Contoh: pembagian jam dan menit
+total_menit = 150
+jam = total_menit // 60    # 2 jam
+menit = total_menit % 60   # 30 menit
+print(f"{total_menit} menit = {jam} jam {menit} menit")
+# Output: 150 menit = 2 jam 30 menit
 ```
 
-Output:
-```
-7 / 2 = 3
-7.0 / 2.0 = 3.5
-```
+## Modulo `%` — Sangat Berguna!
 
-Tunggu — `7 / 2 = 3`? Bukan 3.5?
+Modulo (%) memberikan **sisa pembagian**:
 
-:::warning
-**Integer Division Trap!** Saat kedua operand bertipe `int`, C++ melakukan **integer division** — hasilnya dipotong (bukan dibulatkan), bagian desimal dibuang. `7 / 2` menghasilkan `3`, bukan `3.5`. Ini adalah salah satu "jebakan" paling umum untuk pemula C++!
-:::
-
-**Cara mendapatkan hasil desimal:**
-
-```cpp
-// Opsi 1: Gunakan tipe double
-double hasil1 = 7.0 / 2.0;    // 3.5
-
-// Opsi 2: Casting salah satu operand ke double
-int x = 7, y = 2;
-double hasil2 = (double)x / y;  // 3.5
-
-// Opsi 3: Minimal satu operand harus double
-double hasil3 = 7.0 / 2;       // 3.5
-double hasil4 = 7 / 2.0;       // 3.5
+```python
+print(10 % 3)  # 1 (10 = 3*3 + 1)
+print(15 % 5)  # 0 (15 habis dibagi 5)
+print(7 % 2)   # 1 (bilangan ganjil)
+print(8 % 2)   # 0 (bilangan genap)
 ```
 
-Selama **minimal satu** dari dua angka bertipe `double`, hasilnya akan berupa `double` juga.
-
-### Modulo (`%`) — Sisa Pembagian
-
-Operator modulo mengembalikan **sisa** dari pembagian. Ini mungkin terdengar asing, tapi sebenarnya sangat sering dipakai di programming.
-
-Bayangkan begini: kamu punya 17 kue dan ingin membaginya rata ke 5 orang.
-- Setiap orang dapat: `17 / 5 = 3` kue (integer division)
-- Sisa kue: `17 % 5 = 2` kue
-
-```cpp
-#include <iostream>
-
-int main() {
-    std::cout << "17 % 5 = " << 17 % 5 << std::endl;  // 2
-    std::cout << "10 % 3 = " << 10 % 3 << std::endl;  // 1
-    std::cout << "20 % 4 = " << 20 % 4 << std::endl;  // 0 (habis dibagi)
-    std::cout << "7 % 10 = " << 7 % 10 << std::endl;  // 7
-
-    return 0;
-}
+**Trik umum dengan modulo:**
+```python
+# Cek apakah angka genap atau ganjil
+angka = 17
+if angka % 2 == 0:
+    print("Genap")
+else:
+    print("Ganjil")
 ```
 
-Output:
-```
-17 % 5 = 2
-10 % 3 = 1
-20 % 4 = 0
-7 % 10 = 7
-```
+## Pemangkatan `**`
 
-**Kegunaan modulo yang sering ditemui:**
-
-1. **Cek ganjil/genap:** `angka % 2` — kalau hasilnya 0, genap; kalau 1, ganjil
-2. **Cek kelipatan:** `angka % 3 == 0` — true kalau angka kelipatan 3
-3. **Membatasi range:** `angka % 12` — hasilnya selalu 0-11 (berguna untuk jam)
-4. **Mengambil digit terakhir:** `angka % 10` — memberikan digit satuan
-
-```cpp
-#include <iostream>
-
-int main() {
-    int angka = 17;
-
-    if (angka % 2 == 0) {
-        std::cout << angka << " adalah genap" << std::endl;
-    } else {
-        std::cout << angka << " adalah ganjil" << std::endl;
-    }
-
-    std::cout << "Digit terakhir dari " << angka << " adalah " << angka % 10 << std::endl;
-
-    return 0;
-}
-```
-
-Output:
-```
-17 adalah ganjil
-Digit terakhir dari 17 adalah 7
-```
-
-:::note
-Operator `%` hanya bisa dipakai dengan **integer** (`int`). Kamu tidak bisa melakukan `7.5 % 2` — itu akan menghasilkan error.
-:::
-
-## Operator Precedence (Prioritas Operator)
-
-Sama seperti matematika, C++ punya aturan urutan operasi. Perkalian dan pembagian dikerjakan **sebelum** penjumlahan dan pengurangan:
-
-```cpp
-#include <iostream>
-
-int main() {
-    int hasil1 = 2 + 3 * 4;     // 2 + 12 = 14 (bukan 20!)
-    int hasil2 = (2 + 3) * 4;   // 5 * 4 = 20 (pakai kurung)
-
-    std::cout << "2 + 3 * 4 = " << hasil1 << std::endl;
-    std::cout << "(2 + 3) * 4 = " << hasil2 << std::endl;
-
-    return 0;
-}
-```
-
-Output:
-```
-2 + 3 * 4 = 14
-(2 + 3) * 4 = 20
-```
-
-### Tabel Prioritas (Simplified)
-
-| Prioritas | Operator | Contoh |
-|-----------|----------|--------|
-| 1 (tertinggi) | `()` (kurung) | `(2 + 3)` |
-| 2 | `*`, `/`, `%` | `4 * 5`, `10 / 2`, `7 % 3` |
-| 3 (terendah) | `+`, `-` | `3 + 4`, `8 - 2` |
-
-Operator dengan prioritas sama dikerjakan **dari kiri ke kanan**:
-
-```cpp
-int hasil = 20 / 4 * 2;  // (20 / 4) * 2 = 5 * 2 = 10
+```python
+print(2 ** 3)    # 8 (2 pangkat 3)
+print(3 ** 2)    # 9 (3 kuadrat)
+print(16 ** 0.5) # 4.0 (akar kuadrat = pangkat 0.5)
+print(2 ** 10)   # 1024
 ```
 
 :::tip
-**Tips praktis:** Kalau kamu ragu tentang urutan operasi, **pakai kurung**. Kurung membuat kode lebih jelas dan mencegah bug. Tidak ada yang salah dengan menulis `(a * b) + c` meskipun hasilnya sama tanpa kurung — kejelasan lebih penting dari keringkasan.
+Untuk akar kuadrat, kamu bisa gunakan `** 0.5` atau import modul math: `import math; math.sqrt(16)`.
 :::
 
-## Operasi dengan Variabel
+## Urutan Operasi (PEMDAS)
 
-Tentu saja, operator aritmatika bisa digunakan dengan variabel, bukan hanya angka literal:
+Python mengikuti urutan operasi matematika standar:
 
-```cpp
-#include <iostream>
-
-int main() {
-    double harga = 25000;
-    int jumlah = 3;
-    double diskon = 0.1;  // 10%
-
-    double subtotal = harga * jumlah;
-    double potongan = subtotal * diskon;
-    double total = subtotal - potongan;
-
-    std::cout << "Harga satuan : Rp " << harga << std::endl;
-    std::cout << "Jumlah       : " << jumlah << std::endl;
-    std::cout << "Subtotal     : Rp " << subtotal << std::endl;
-    std::cout << "Diskon (10%) : Rp " << potongan << std::endl;
-    std::cout << "Total bayar  : Rp " << total << std::endl;
-
-    return 0;
-}
-```
-
-Output:
-```
-Harga satuan : Rp 25000
-Jumlah       : 3
-Subtotal     : Rp 75000
-Diskon (10%) : Rp 7500
-Total bayar  : Rp 67500
+```python
+# Urutan: Parentheses, Exponents, Multiply/Divide, Add/Subtract
+print(2 + 3 * 4)      # 14 (bukan 20!) — perkalian dulu
+print((2 + 3) * 4)    # 20 — kurung dulu
+print(2 ** 3 ** 2)    # 512 (2^(3^2) = 2^9) — pangkat dari kanan
+print(10 - 3 - 2)     # 5 — kiri ke kanan
 ```
 
 ## Operator Assignment Gabungan
 
-C++ punya shortcut untuk operasi yang umum — mengubah nilai variabel berdasarkan nilai lamanya:
+Python punya shortcut untuk operasi umum:
 
-```cpp
-int skor = 100;
+```python
+skor = 100
 
-skor = skor + 10;   // Cara panjang
-skor += 10;          // Cara pendek (sama hasilnya)
+skor += 10   # sama dengan: skor = skor + 10
+print(skor)  # 110
 
-skor = skor - 5;     // Cara panjang
-skor -= 5;           // Cara pendek
+skor -= 5    # sama dengan: skor = skor - 5
+print(skor)  # 105
+
+skor *= 2    # sama dengan: skor = skor * 2
+print(skor)  # 210
+
+skor //= 3   # sama dengan: skor = skor // 3
+print(skor)  # 70
+
+skor %= 50   # sama dengan: skor = skor % 50
+print(skor)  # 20
+
+skor **= 2   # sama dengan: skor = skor ** 2
+print(skor)  # 400
 ```
 
-| Operator | Artinya | Contoh | Sama dengan |
-|----------|---------|--------|------------|
-| `+=` | Tambah dan simpan | `x += 5` | `x = x + 5` |
-| `-=` | Kurang dan simpan | `x -= 3` | `x = x - 3` |
-| `*=` | Kali dan simpan | `x *= 2` | `x = x * 2` |
-| `/=` | Bagi dan simpan | `x /= 4` | `x = x / 4` |
-| `%=` | Modulo dan simpan | `x %= 3` | `x = x % 3` |
+## Operasi Campuran Int dan Float
 
-Dan ada dua operator spesial yang sangat sering dipakai:
-
-```cpp
-int counter = 0;
-
-counter++;    // Increment: counter = counter + 1 (sekarang 1)
-counter++;    // Increment lagi (sekarang 2)
-counter--;    // Decrement: counter = counter - 1 (sekarang 1)
+```python
+print(5 + 2.0)    # 7.0 (int + float = float)
+print(10 / 2)     # 5.0 (selalu float)
+print(10 // 2)    # 5 (int)
+print(type(5 + 2))    # <class 'int'>
+print(type(5 + 2.0))  # <class 'float'>
 ```
 
-`++` (increment) dan `--` (decrement) menambah atau mengurangi variabel sebesar 1. Ngomong-ngomong, inilah asal nama **C++** — "C yang ditambah 1".
+**Aturan:** Jika ada float dalam operasi, hasilnya float.
 
-## Program Lengkap: Kalkulator Rumus Matematika
+## Contoh Program: Kalkulator Sederhana
 
-```cpp
-#include <iostream>
+```python
+print("=== Kalkulator Sederhana ===")
+a = float(input("Angka pertama: "))
+b = float(input("Angka kedua: "))
 
-int main() {
-    // Hitung luas dan keliling lingkaran
-    double pi = 3.14159;
-    double jariJari;
-
-    std::cout << "Masukkan jari-jari lingkaran: ";
-    std::cin >> jariJari;
-
-    double luas = pi * jariJari * jariJari;
-    double keliling = 2 * pi * jariJari;
-
-    std::cout << "\nHasil:" << std::endl;
-    std::cout << "Jari-jari : " << jariJari << std::endl;
-    std::cout << "Luas      : " << luas << std::endl;
-    std::cout << "Keliling  : " << keliling << std::endl;
-
-    return 0;
-}
-```
-
-Contoh interaksi:
-```
-Masukkan jari-jari lingkaran: 7
-
-Hasil:
-Jari-jari : 7
-Luas      : 153.938
-Keliling  : 43.9823
+print(f"\n{a} + {b} = {a + b}")
+print(f"{a} - {b} = {a - b}")
+print(f"{a} × {b} = {a * b}")
+if b != 0:
+    print(f"{a} ÷ {b} = {a / b:.4f}")
+else:
+    print("Tidak bisa dibagi nol!")
 ```
 
 ## Latihan
@@ -348,44 +161,29 @@ import { Exercise } from '@/components/learn/Exercise'
 
 <Exercise client:load
   id="u1l5-ex1"
-  title="Hasil Integer Division"
-  description="Apa hasil dari ekspresi <code>9 / 2</code> jika kedua angka bertipe <code>int</code>?"
-  type="multiple-choice"
-  options={["4.5", "4", "5", "Error"]}
-  correctIndex={1}
-  hints={["Integer division memotong bagian desimal", "Hasilnya bukan dibulatkan, melainkan dipotong ke bawah"]}
-  explanation="Saat kedua operand bertipe int, C++ melakukan integer division — bagian desimal dibuang. Jadi 9 / 2 = 4, bukan 4.5. Untuk mendapatkan 4.5, setidaknya satu operand harus bertipe double: 9.0 / 2 atau 9 / 2.0."
-  lang="id"
-/>
-
-<Exercise client:load
-  id="u1l5-ex2"
-  title="Hitung Luas Persegi Panjang"
-  description="Lengkapi program untuk menghitung luas persegi panjang. Output harus persis: <code>Luas: 50</code>"
+  title="Konversi Suhu"
+  description="Buat program yang mengkonversi suhu dari Celsius ke Fahrenheit. Rumus: F = (C × 9/5) + 32. Input: 100, Output harus: <code>100.0°C = 212.0°F</code>"
   type="code-output"
-  expectedOutput="Luas: 50"
-  starterCode={`#include <iostream>
-
-int main() {
-    int panjang = 10;
-    int lebar = 5;
-
-    // Hitung luas dan tampilkan dengan format: Luas: 50
-
-    return 0;
-}`}
-  hints={["Luas = panjang * lebar", 'Gunakan std::cout << "Luas: " << luas << std::endl;', "Simpan hasil perkalian ke variabel int luas"]}
-  explanation="Operator * digunakan untuk perkalian. Luas = panjang * lebar = 10 * 5 = 50. Hasil disimpan ke variabel lalu dicetak dengan cout."
+  expectedOutput="100.0°C = 212.0°F"
+  starterCode={`celsius = float(input("Masukkan suhu Celsius: "))
+# Hitung fahrenheit menggunakan rumus F = (C × 9/5) + 32
+fahrenheit = 0  # ganti ini dengan rumus yang benar
+print(f"{celsius}°C = {fahrenheit}°F")`}
+  hints={["Rumus: fahrenheit = (celsius * 9/5) + 32", "Gunakan f-string untuk format output"]}
+  explanation="Konversi suhu: F = (C × 9/5) + 32. Untuk 100°C: F = (100 × 9/5) + 32 = 180 + 32 = 212°F."
   lang="id"
 />
 
 ## Ringkasan
 
-- Operator aritmatika: `+`, `-`, `*`, `/`, `%`
-- **Integer division** memotong desimal: `7 / 2 = 3`
-- **Modulo** (`%`) mengembalikan sisa pembagian: `17 % 5 = 2`
-- Prioritas: kurung > perkalian/pembagian/modulo > penjumlahan/pengurangan
-- Operator gabungan: `+=`, `-=`, `*=`, `/=`, `%=`
-- Increment (`++`) dan decrement (`--`) menambah/kurang 1
+| Operator | Nama | Contoh | Hasil |
+|----------|------|--------|-------|
+| `+` | Penjumlahan | `5 + 3` | `8` |
+| `-` | Pengurangan | `5 - 3` | `2` |
+| `*` | Perkalian | `5 * 3` | `15` |
+| `/` | Pembagian | `5 / 3` | `1.666...` |
+| `//` | Floor division | `5 // 3` | `1` |
+| `%` | Modulo | `5 % 3` | `2` |
+| `**` | Pemangkatan | `5 ** 3` | `125` |
 
-Di pelajaran berikutnya, kita akan belajar tentang **string** secara lebih mendalam — bukan hanya menampilkannya, tapi juga memanipulasinya!
+Di pelajaran berikutnya: **String Dasar** — manipulasi teks yang powerful di Python!

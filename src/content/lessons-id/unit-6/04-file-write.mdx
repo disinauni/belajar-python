@@ -1,0 +1,88 @@
+---
+title: "Menulis File"
+unit: 6
+lesson: 4
+description: "Menulis data ke file teks dan menyimpan program secara permanen"
+objectives:
+  - "Menulis data ke file dengan mode w dan a"
+  - "Membaca dan menulis CSV sederhana"
+  - "Menyimpan dan memuat data JSON"
+estimatedTime: 25
+prerequisites: ["unit-6/03-file-read"]
+difficulty: "beginner"
+tags: ["file", "write", "csv", "json"]
+---
+
+# Menulis File
+
+## Menulis dengan Mode `w`
+
+```python
+# Mode "w" — buat baru atau timpa yang ada
+with open("output.txt", "w") as f:
+    f.write("Halo, Dunia!\n")
+    f.write("Ini baris kedua.\n")
+
+# Cek hasilnya
+with open("output.txt", "r") as f:
+    print(f.read())
+```
+
+## Menambah dengan Mode `a`
+
+```python
+# Mode "a" — tambahkan di akhir file
+with open("log.txt", "a") as f:
+    f.write("Log baru ditambahkan\n")
+```
+
+## Menulis CSV Sederhana
+
+```python
+import csv
+
+siswa = [
+    ["Budi", 17, 85],
+    ["Siti", 16, 92],
+    ["Andi", 17, 78],
+]
+
+# Tulis CSV
+with open("siswa.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Nama", "Umur", "Nilai"])  # header
+    writer.writerows(siswa)
+
+# Baca CSV
+with open("siswa.csv", "r") as f:
+    reader = csv.reader(f)
+    header = next(reader)  # skip header
+    for baris in reader:
+        print(f"{baris[0]}: {baris[2]}")
+```
+
+## JSON — Format Data Modern
+
+```python
+import json
+
+data = {
+    "sekolah": "SMA N 1 Jakarta",
+    "siswa": [
+        {"nama": "Budi", "nilai": 85},
+        {"nama": "Siti", "nilai": 92},
+    ]
+}
+
+# Simpan ke JSON
+with open("data.json", "w") as f:
+    json.dump(data, f, indent=2, ensure_ascii=False)
+
+# Muat dari JSON
+with open("data.json", "r") as f:
+    data_muat = json.load(f)
+
+print(data_muat["sekolah"])
+for s in data_muat["siswa"]:
+    print(f"{s['nama']}: {s['nilai']}")
+```

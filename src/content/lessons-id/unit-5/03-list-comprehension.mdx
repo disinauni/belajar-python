@@ -1,0 +1,87 @@
+---
+title: "List Comprehension"
+unit: 5
+lesson: 3
+description: "Membuat list baru dengan cara ringkas dan elegan"
+objectives:
+  - "Menulis list comprehension dasar"
+  - "Menambahkan kondisi dalam list comprehension"
+  - "Membandingkan dengan for loop biasa"
+estimatedTime: 35
+prerequisites: ["unit-5/02-list-methods"]
+difficulty: "beginner"
+tags: ["list-comprehension", "python-idiom", "elegan"]
+---
+
+# List Comprehension
+
+List comprehension adalah cara **ringkas dan elegan** untuk membuat list baru dari list lain.
+
+## Sintaks
+
+```python
+[ekspresi for item in iterable]
+[ekspresi for item in iterable if kondisi]
+```
+
+## Perbandingan
+
+```python
+angka = [1, 2, 3, 4, 5]
+
+# Cara biasa dengan for loop
+kuadrat_biasa = []
+for n in angka:
+    kuadrat_biasa.append(n ** 2)
+
+# List comprehension — lebih ringkas!
+kuadrat = [n ** 2 for n in angka]
+
+print(kuadrat)  # [1, 4, 9, 16, 25]
+```
+
+## Dengan Kondisi (Filter)
+
+```python
+angka = range(1, 21)
+
+# Hanya angka genap
+genap = [n for n in angka if n % 2 == 0]
+print(genap)  # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+# Nilai yang lulus (>= 75)
+nilai = [85, 60, 92, 45, 78, 55, 88]
+lulus = [n for n in nilai if n >= 75]
+print(lulus)  # [85, 92, 78, 88]
+```
+
+## Transformasi String
+
+```python
+nama = ["budi", "siti", "andi", "rina"]
+
+# Capitalize semua nama
+nama_rapi = [n.capitalize() for n in nama]
+print(nama_rapi)  # ['Budi', 'Siti', 'Andi', 'Rina']
+
+# Panjang setiap kata
+panjang = [len(n) for n in nama]
+print(panjang)  # [4, 4, 4, 4]
+```
+
+## Contoh Program
+
+```python
+# Konversi nilai ke grade
+nilai_list = [85, 92, 60, 78, 45, 88]
+
+grade = ["A" if n >= 90 else "B" if n >= 80 else "C" if n >= 70 else "D" if n >= 60 else "E"
+         for n in nilai_list]
+
+for n, g in zip(nilai_list, grade):
+    print(f"Nilai {n} → Grade {g}")
+```
+
+:::tip
+List comprehension sangat Python-ic dan efisien, tapi jangan dipaksakan jika membuat kode susah dibaca. Jika logic terlalu kompleks, lebih baik pakai for loop biasa.
+:::

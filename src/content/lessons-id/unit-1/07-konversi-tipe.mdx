@@ -1,0 +1,155 @@
+---
+title: "Konversi Tipe Data"
+unit: 1
+lesson: 7
+description: "Mengkonversi data antar tipe: int(), float(), str(), bool()"
+objectives:
+  - "Mengkonversi string ke angka dan sebaliknya"
+  - "Memahami implicit vs explicit conversion"
+  - "Menangani error konversi yang umum"
+estimatedTime: 20
+prerequisites: ["unit-1/06-string-dasar"]
+difficulty: "beginner"
+tags: ["konversi", "type-casting", "int", "float", "str"]
+---
+
+# Konversi Tipe Data
+
+Sering kali kamu perlu mengubah data dari satu tipe ke tipe lain. Python menyediakan fungsi bawaan untuk ini.
+
+## Fungsi Konversi
+
+### `int()` — Konversi ke Integer
+
+```python
+# String ke integer
+print(int("42"))      # 42
+print(int("100"))     # 100
+
+# Float ke integer (membulatkan ke bawah)
+print(int(3.9))       # 3 (bukan 4!)
+print(int(-2.7))      # -2 (bukan -3!)
+
+# Boolean ke integer
+print(int(True))      # 1
+print(int(False))     # 0
+
+# GAGAL — tidak bisa konversi string non-angka
+# int("hello")  # ValueError!
+# int("3.14")   # ValueError! (pakai float() dulu)
+```
+
+### `float()` — Konversi ke Float
+
+```python
+print(float("3.14"))  # 3.14
+print(float("42"))    # 42.0
+print(float(10))      # 10.0
+print(float(True))    # 1.0
+```
+
+### `str()` — Konversi ke String
+
+```python
+print(str(42))        # "42"
+print(str(3.14))      # "3.14"
+print(str(True))      # "True"
+print(str(None))      # "None"
+
+# Berguna untuk concatenation
+umur = 17
+pesan = "Umur saya " + str(umur) + " tahun"
+print(pesan)  # Umur saya 17 tahun
+# (atau lebih baik pakai f-string: f"Umur saya {umur} tahun")
+```
+
+### `bool()` — Konversi ke Boolean
+
+```python
+# Nilai yang dianggap False:
+print(bool(0))        # False
+print(bool(0.0))      # False
+print(bool(""))       # False (string kosong)
+print(bool(None))     # False
+print(bool([]))       # False (list kosong)
+
+# Semua nilai lain dianggap True:
+print(bool(1))        # True
+print(bool(-1))       # True
+print(bool("hello"))  # True
+print(bool([1, 2]))   # True
+```
+
+## Implicit vs Explicit Conversion
+
+**Implicit conversion** (otomatis oleh Python):
+```python
+hasil = 5 + 2.0   # Python otomatis konversi 5 ke 5.0
+print(hasil)       # 7.0
+print(type(hasil)) # <class 'float'>
+```
+
+**Explicit conversion** (kamu yang mengkonversi):
+```python
+angka_str = "42"
+angka_int = int(angka_str)  # kamu yang konversi
+print(angka_int + 8)        # 50
+```
+
+## Pola Umum: Input dan Konversi
+
+```python
+# Pola yang sering digunakan:
+umur = int(input("Masukkan umur: "))
+nilai = float(input("Masukkan nilai: "))
+nama = input("Masukkan nama: ")  # input() sudah string, tidak perlu str()
+
+# Hitung dengan data yang sudah dikonversi
+tahun_lulus = 2024 + (18 - umur)
+print(f"Kamu akan lulus sekitar tahun {tahun_lulus}")
+print(f"Nilai kamu: {nilai:.1f}")
+```
+
+## Menangani Error Konversi
+
+```python
+# Aman dengan try-except (akan dipelajari di Unit 6)
+teks = "bukan angka"
+try:
+    angka = int(teks)
+    print(angka)
+except ValueError:
+    print(f"'{teks}' tidak bisa dikonversi ke integer")
+
+# Untuk sekarang, pastikan input yang kamu konversi memang angka
+```
+
+## Contoh Program
+
+```python
+# Kalkulator sederhana dengan validasi tipe
+print("=== Kalkulator ===")
+a_str = input("Angka 1: ")
+b_str = input("Angka 2: ")
+
+a = float(a_str)
+b = float(b_str)
+
+print(f"\nHasil:")
+print(f"{a} + {b} = {a + b}")
+print(f"{a} - {b} = {a - b}")
+print(f"{a} × {b} = {a * b}")
+if b != 0:
+    print(f"{a} ÷ {b} = {a / b:.4f}")
+```
+
+## Ringkasan
+
+| Fungsi | Dari | Ke | Catatan |
+|--------|------|----|---------|
+| `int()` | str, float, bool | int | Float dibulatkan ke bawah |
+| `float()` | str, int, bool | float | Selalu ada titik desimal |
+| `str()` | int, float, bool | str | Untuk concatenation |
+| `bool()` | int, float, str | bool | 0, "", None → False |
+
+Di pelajaran berikutnya: **Project Kalkulator** — menggabungkan semua yang sudah dipelajari!

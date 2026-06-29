@@ -1,0 +1,91 @@
+---
+title: "Ekspresi Kondisional"
+unit: 2
+lesson: 5
+description: "Menulis kondisi ringkas dalam satu baris dengan ternary expression"
+objectives:
+  - "Menggunakan ekspresi kondisional Python (ternary)"
+  - "Memahami kapan menggunakannya vs if biasa"
+  - "Menulis kode yang lebih ringkas dan elegan"
+estimatedTime: 15
+prerequisites: ["unit-2/04-match-case"]
+difficulty: "beginner"
+tags: ["ternary", "ekspresi-kondisional", "inline-if"]
+---
+
+# Ekspresi Kondisional
+
+Python punya cara ringkas untuk menulis if-else dalam **satu baris**, disebut **ekspresi kondisional** (atau ternary expression).
+
+## Sintaks
+
+```python
+nilai_jika_true if kondisi else nilai_jika_false
+```
+
+## Contoh
+
+```python
+umur = 17
+
+# Cara biasa (3 baris)
+if umur >= 17:
+    status = "Dewasa"
+else:
+    status = "Anak-anak"
+
+# Cara ringkas (1 baris)
+status = "Dewasa" if umur >= 17 else "Anak-anak"
+
+print(status)  # Dewasa
+```
+
+## Penggunaan Umum
+
+```python
+# Dalam print()
+nilai = 85
+print("Lulus" if nilai >= 75 else "Tidak Lulus")
+
+# Nilai absolut sederhana
+x = -5
+absolut = x if x >= 0 else -x
+print(absolut)  # 5
+
+# Dalam f-string
+nama = "Budi"
+print(f"Selamat datang, {'Admin' if nama == 'admin' else nama}!")
+
+# Cek genap/ganjil
+angka = 42
+print(f"{angka} adalah {'genap' if angka % 2 == 0 else 'ganjil'}")
+```
+
+## Kapan Menggunakannya?
+
+**Gunakan ekspresi kondisional ketika:**
+- Kondisi sederhana (satu kondisi)
+- Nilai yang dikembalikan singkat
+- Ingin kode lebih ringkas
+
+**Jangan gunakan ketika:**
+- Kondisi kompleks (lebih baik pakai if-elif biasa)
+- Kode di dalamnya panjang (susah dibaca)
+- Ada lebih dari dua kemungkinan nilai
+
+```python
+# Baik — sederhana dan mudah dibaca
+pesan = "Ya" if setuju else "Tidak"
+
+# Kurang baik — terlalu panjang, sulit dibaca
+hasil = fungsi_a() if kondisi_kompleks and kondisi_lain else fungsi_b() if kondisi_lagi else fungsi_c()
+```
+
+## Ringkasan
+
+```python
+# Format: nilai_A if kondisi else nilai_B
+tipe = "genap" if angka % 2 == 0 else "ganjil"
+label = "Lulus" if nilai >= 60 else "Gagal"
+kata = "ya" if benar else "tidak"
+```

@@ -1,0 +1,92 @@
+---
+title: "List Dasar"
+unit: 5
+lesson: 1
+description: "Menyimpan kumpulan data dengan list Python"
+objectives:
+  - "Membuat dan mengakses list"
+  - "Menggunakan indexing dan slicing pada list"
+  - "Membuat list bertipe campuran"
+estimatedTime: 40
+prerequisites: ["unit-4/08-project-batu-gunting-kertas"]
+difficulty: "beginner"
+tags: ["list", "koleksi", "indexing"]
+---
+
+# List Dasar
+
+List adalah salah satu struktur data paling penting di Python — cara menyimpan **banyak data** dalam satu variabel.
+
+## Membuat List
+
+```python
+# List angka
+nilai = [85, 92, 78, 88, 65]
+
+# List string
+nama = ["Budi", "Siti", "Andi", "Rina"]
+
+# List campuran
+data = ["Budi", 17, True, 85.5]
+
+# List kosong
+kosong = []
+
+print(nilai)  # [85, 92, 78, 88, 65]
+print(len(nilai))  # 5
+```
+
+## Mengakses Elemen (Indexing)
+
+```python
+buah = ["apel", "mangga", "jeruk", "pisang", "melon"]
+#indeks  0        1         2        3         4
+
+print(buah[0])    # apel
+print(buah[2])    # jeruk
+print(buah[-1])   # melon (dari belakang)
+print(buah[-2])   # pisang
+```
+
+## Slicing
+
+```python
+angka = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(angka[2:5])    # [2, 3, 4]
+print(angka[:3])     # [0, 1, 2]
+print(angka[7:])     # [7, 8, 9]
+print(angka[::2])    # [0, 2, 4, 6, 8] (setiap 2)
+print(angka[::-1])   # [9, 8, 7, ..., 0] (dibalik)
+```
+
+## Mengubah Elemen
+
+```python
+nilai = [85, 92, 78]
+nilai[1] = 95   # ubah elemen indeks 1
+print(nilai)    # [85, 95, 78]
+```
+
+## Iterasi List
+
+```python
+buah = ["apel", "mangga", "jeruk"]
+
+for b in buah:
+    print(b)
+
+# Dengan indeks
+for i, b in enumerate(buah, 1):
+    print(f"{i}. {b}")
+```
+
+## Cek Keberadaan
+
+```python
+buah = ["apel", "mangga", "jeruk"]
+
+print("apel" in buah)     # True
+print("pisang" in buah)   # False
+print("pisang" not in buah)  # True
+```

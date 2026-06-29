@@ -1,0 +1,81 @@
+---
+title: "enumerate() & zip()"
+unit: 3
+lesson: 6
+description: "Fungsi bantu loop yang powerful: enumerate dan zip"
+objectives:
+  - "Menggunakan enumerate() untuk mendapatkan indeks sekaligus nilai"
+  - "Menggunakan zip() untuk iterasi paralel dua list"
+  - "Menggabungkan enumerate dan zip dalam program nyata"
+estimatedTime: 30
+prerequisites: ["unit-3/05-nested-loops"]
+difficulty: "beginner"
+tags: ["enumerate", "zip", "loop", "built-in"]
+---
+
+# enumerate() & zip()
+
+Dua fungsi built-in Python yang membuat loop lebih powerful dan elegan.
+
+## `enumerate()` — Indeks + Nilai
+
+Sering kita butuh indeks dan nilai sekaligus saat iterasi:
+
+```python
+buah = ["apel", "mangga", "jeruk", "pisang"]
+
+# Tanpa enumerate — repot
+for i in range(len(buah)):
+    print(f"{i+1}. {buah[i]}")
+
+# Dengan enumerate — lebih elegan
+for nomor, nama in enumerate(buah, start=1):
+    print(f"{nomor}. {nama}")
+```
+
+Output:
+```
+1. apel
+2. mangga
+3. jeruk
+4. pisang
+```
+
+## `zip()` — Iterasi Paralel
+
+`zip()` menggabungkan dua atau lebih list untuk diiterasi bersamaan:
+
+```python
+nama = ["Budi", "Siti", "Andi"]
+nilai = [85, 92, 78]
+kelas = ["X-A", "X-B", "X-A"]
+
+for n, v, k in zip(nama, nilai, kelas):
+    print(f"{n} ({k}): {v}")
+```
+
+Output:
+```
+Budi (X-A): 85
+Siti (X-B): 92
+Andi (X-A): 78
+```
+
+## Contoh Program: Laporan Nilai
+
+```python
+nama_siswa = ["Budi", "Siti", "Andi", "Rina", "Dodi"]
+nilai_siswa = [85, 92, 78, 88, 65]
+
+print("=" * 35)
+print(f"{'No':>3} {'Nama':<10} {'Nilai':>6} {'Ket':>6}")
+print("=" * 35)
+
+for no, (nama, nilai) in enumerate(zip(nama_siswa, nilai_siswa), 1):
+    ket = "Lulus" if nilai >= 75 else "Gagal"
+    print(f"{no:>3} {nama:<10} {nilai:>6} {ket:>6}")
+
+rata = sum(nilai_siswa) / len(nilai_siswa)
+print("=" * 35)
+print(f"Rata-rata kelas: {rata:.1f}")
+```

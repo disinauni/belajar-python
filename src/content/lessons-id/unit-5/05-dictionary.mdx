@@ -1,0 +1,118 @@
+---
+title: "Dictionary"
+unit: 5
+lesson: 5
+description: "Menyimpan data berpasangan key-value dengan dictionary"
+objectives:
+  - "Membuat dan mengakses dictionary"
+  - "Menambah, mengubah, dan menghapus pasangan key-value"
+  - "Mengiterasi dictionary"
+estimatedTime: 40
+prerequisites: ["unit-5/04-tuple-set"]
+difficulty: "beginner"
+tags: ["dictionary", "dict", "key-value", "mapping"]
+---
+
+# Dictionary
+
+Dictionary menyimpan data sebagai pasangan **key: value** — seperti kamus yang mencari definisi berdasarkan kata.
+
+## Membuat Dictionary
+
+```python
+# Profil siswa
+siswa = {
+    "nama": "Budi Santoso",
+    "umur": 17,
+    "kelas": "X IPA 2",
+    "nilai": 88.5
+}
+
+# Dictionary kosong
+data = {}
+data2 = dict()
+```
+
+## Mengakses Nilai
+
+```python
+siswa = {"nama": "Budi", "umur": 17, "kota": "Jakarta"}
+
+print(siswa["nama"])    # Budi
+print(siswa["umur"])    # 17
+
+# get() — lebih aman, tidak error jika key tidak ada
+print(siswa.get("nilai", "Belum ada"))  # Belum ada
+print(siswa.get("nama"))   # Budi
+```
+
+## Mengubah & Menambah
+
+```python
+siswa = {"nama": "Budi", "umur": 17}
+
+siswa["umur"] = 18          # ubah nilai
+siswa["kota"] = "Jakarta"   # tambah key baru
+siswa.update({"nilai": 90, "aktif": True})  # tambah banyak
+
+print(siswa)
+# {'nama': 'Budi', 'umur': 18, 'kota': 'Jakarta', 'nilai': 90, 'aktif': True}
+```
+
+## Menghapus
+
+```python
+siswa = {"nama": "Budi", "umur": 17, "kota": "Jakarta"}
+
+del siswa["kota"]           # hapus key
+umur = siswa.pop("umur")    # hapus dan ambil nilainya
+print(umur)   # 17
+```
+
+## Mengiterasi Dictionary
+
+```python
+siswa = {"nama": "Budi", "umur": 17, "kota": "Jakarta"}
+
+# Iterasi keys
+for key in siswa:
+    print(key)
+
+# Iterasi values
+for value in siswa.values():
+    print(value)
+
+# Iterasi key-value pairs
+for key, value in siswa.items():
+    print(f"{key}: {value}")
+```
+
+## Dictionary Comprehension
+
+```python
+angka = [1, 2, 3, 4, 5]
+kuadrat = {n: n**2 for n in angka}
+print(kuadrat)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+## Contoh Program: Data Nilai Kelas
+
+```python
+nilai_kelas = {
+    "Budi": 85,
+    "Siti": 92,
+    "Andi": 78,
+    "Rina": 88,
+    "Dodi": 65
+}
+
+print("=== Laporan Nilai ===")
+for nama, nilai in sorted(nilai_kelas.items(), key=lambda x: x[1], reverse=True):
+    grade = "A" if nilai >= 90 else "B" if nilai >= 80 else "C" if nilai >= 70 else "D"
+    print(f"{nama:<10}: {nilai:3d} ({grade})")
+
+rata = sum(nilai_kelas.values()) / len(nilai_kelas)
+print(f"\nRata-rata kelas: {rata:.1f}")
+print(f"Nilai tertinggi: {max(nilai_kelas, key=nilai_kelas.get)}")
+print(f"Nilai terendah: {min(nilai_kelas, key=nilai_kelas.get)}")
+```
