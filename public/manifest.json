@@ -1,7 +1,7 @@
 {
-  "name": "Belajar C++",
-  "short_name": "BelajarC++",
-  "description": "Platform pembelajaran C++ gratis, interaktif, dan bilingual untuk siswa SMP & SMA Indonesia",
+  "name": "Belajar Python",
+  "short_name": "BelajarPy",
+  "description": "Platform pembelajaran Python gratis, interaktif, dan bilingual untuk siswa SMP & SMA Indonesia",
   "start_url": "/id/",
   "scope": "/",
   "display": "standalone",

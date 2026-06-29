@@ -58,7 +58,7 @@
   <rect width="820" height="200" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
 
   <!-- Label top -->
-  <text x="410" y="26" text-anchor="middle" fill="var(--text-sub)" font-size="11" font-weight="600" letter-spacing="0.5">ALUR INPUT / OUTPUT C++</text>
+  <text x="410" y="26" text-anchor="middle" fill="var(--text-sub)" font-size="11" font-weight="600" letter-spacing="0.5">ALUR INPUT / OUTPUT PYTHON</text>
 
   <!-- === Keyboard Box === -->
   <g filter="url(#io-shadow)">
@@ -82,11 +82,11 @@
   <text x="96" y="138" text-anchor="middle" fill="white" font-size="13" font-weight="700">Keyboard</text>
   <text x="96" y="153" text-anchor="middle" fill="rgba(255,255,255,0.72)" font-size="10.5">User mengetik</text>
 
-  <!-- cin >> arrow + label -->
+  <!-- input() arrow + label -->
   <line x1="173" y1="100" x2="238" y2="100" stroke="#06b6d4" stroke-width="2.5" marker-end="url(#io-arrow-cin)"/>
   <!-- operator pill -->
   <rect x="185" y="83" width="62" height="28" rx="8" fill="var(--card-bg)" stroke="#06b6d4" stroke-width="1.5"/>
-  <text x="216" y="102" text-anchor="middle" fill="#06b6d4" font-size="12" font-weight="700" font-family="'JetBrains Mono', monospace">cin &gt;&gt;</text>
+  <text x="216" y="102" text-anchor="middle" fill="#06b6d4" font-size="12" font-weight="700" font-family="'JetBrains Mono', monospace">input()</text>
   <!-- label -->
   <text x="216" y="73" text-anchor="middle" fill="#06b6d4" font-size="9.5" font-weight="600">ambil dari keyboard</text>
 
@@ -95,17 +95,17 @@
     <rect x="242" y="44" width="336" height="112" rx="12" fill="url(#io-g-prog)"/>
   </g>
   <!-- Code-style content -->
-  <text x="410" y="83" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="'JetBrains Mono', monospace">// program C++ kamu</text>
+  <text x="410" y="83" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="'JetBrains Mono', monospace"># program Python kamu</text>
   <rect x="272" y="90" width="276" height="34" rx="7" fill="rgba(0,0,0,0.2)"/>
-  <text x="410" y="113" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="600" font-family="'JetBrains Mono', monospace">cin &gt;&gt; nama;   cout &lt;&lt; nama;</text>
-  <text x="410" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="700">Program C++</text>
+  <text x="410" y="113" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="600" font-family="'JetBrains Mono', monospace">input("Nama: ")   print(nama)</text>
+  <text x="410" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="700">Program Python</text>
   <text x="410" y="153" text-anchor="middle" fill="rgba(255,255,255,0)" font-size="0">spacer</text>
 
-  <!-- cout << arrow + label -->
+  <!-- print() arrow + label -->
   <line x1="581" y1="100" x2="646" y2="100" stroke="#10b981" stroke-width="2.5" marker-end="url(#io-arrow-cout)"/>
   <!-- operator pill -->
   <rect x="581" y="83" width="66" height="28" rx="8" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.5"/>
-  <text x="614" y="102" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700" font-family="'JetBrains Mono', monospace">cout &lt;&lt;</text>
+  <text x="614" y="102" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700" font-family="'JetBrains Mono', monospace">print()</text>
   <!-- label -->
   <text x="614" y="73" text-anchor="middle" fill="#10b981" font-size="9.5" font-weight="600">kirim ke layar</text>
 

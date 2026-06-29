@@ -46,34 +46,37 @@
   <circle cx="712" cy="138" r="6" fill="#f59e0b" opacity="0.8"/>
   <circle cx="734" cy="138" r="6" fill="#22c55e" opacity="0.8"/>
   <!-- Filename -->
-  <text x="760" y="143" font-family="monospace" font-size="13" fill="#64748b">main.cpp</text>
+  <text x="760" y="143" font-family="monospace" font-size="13" fill="#64748b">main.py</text>
 
   <!-- Code lines -->
   <text x="680" y="186" font-family="monospace" font-size="14" fill="#64748b">1</text>
-  <text x="706" y="186" font-family="monospace" font-size="14" fill="#c792ea">#include </text>
-  <text x="800" y="186" font-family="monospace" font-size="14" fill="#c3e88d">&lt;iostream&gt;</text>
+  <text x="706" y="186" font-family="monospace" font-size="14" fill="#64748b"># belajar-python</text>
 
   <text x="680" y="210" font-family="monospace" font-size="14" fill="#64748b">2</text>
 
   <text x="680" y="234" font-family="monospace" font-size="14" fill="#64748b">3</text>
-  <text x="706" y="234" font-family="monospace" font-size="14" fill="#82aaff">int </text>
-  <text x="744" y="234" font-family="monospace" font-size="14" fill="#f78c6c">main</text>
-  <text x="789" y="234" font-family="monospace" font-size="14" fill="#89ddff">() {</text>
+  <text x="706" y="234" font-family="monospace" font-size="14" fill="#82aaff">print</text>
+  <text x="746" y="234" font-family="monospace" font-size="14" fill="#89ddff">(</text>
+  <text x="756" y="234" font-family="monospace" font-size="14" fill="#c3e88d">"Halo, Dunia!"</text>
+  <text x="884" y="234" font-family="monospace" font-size="14" fill="#89ddff">)</text>
 
   <text x="680" y="258" font-family="monospace" font-size="14" fill="#64748b">4</text>
-  <text x="706" y="258" font-family="monospace" font-size="14" fill="#94a3b8">    std::</text>
-  <text x="762" y="258" font-family="monospace" font-size="14" fill="#82aaff">cout</text>
-  <text x="797" y="258" font-family="monospace" font-size="14" fill="#89ddff"> &lt;&lt; </text>
-  <text x="831" y="258" font-family="monospace" font-size="14" fill="#c3e88d">"Halo!"</text>
-  <text x="895" y="258" font-family="monospace" font-size="14" fill="#89ddff">;</text>
+  <text x="706" y="258" font-family="monospace" font-size="14" fill="#f78c6c">nama</text>
+  <text x="742" y="258" font-family="monospace" font-size="14" fill="#89ddff"> = </text>
+  <text x="768" y="258" font-family="monospace" font-size="14" fill="#82aaff">input</text>
+  <text x="808" y="258" font-family="monospace" font-size="14" fill="#89ddff">(</text>
+  <text x="818" y="258" font-family="monospace" font-size="14" fill="#c3e88d">"Nama: "</text>
+  <text x="882" y="258" font-family="monospace" font-size="14" fill="#89ddff">)</text>
 
   <text x="680" y="282" font-family="monospace" font-size="14" fill="#64748b">5</text>
-  <text x="706" y="282" font-family="monospace" font-size="14" fill="#82aaff">    return </text>
-  <text x="791" y="282" font-family="monospace" font-size="14" fill="#f78c6c">0</text>
-  <text x="802" y="282" font-family="monospace" font-size="14" fill="#89ddff">;</text>
+  <text x="706" y="282" font-family="monospace" font-size="14" fill="#82aaff">print</text>
+  <text x="746" y="282" font-family="monospace" font-size="14" fill="#89ddff">(</text>
+  <text x="756" y="282" font-family="monospace" font-size="14" fill="#c3e88d">f"Halo, </text>
+  <text x="834" y="282" font-family="monospace" font-size="14" fill="#f78c6c">{nama}</text>
+  <text x="878" y="282" font-family="monospace" font-size="14" fill="#c3e88d">!"</text>
+  <text x="902" y="282" font-family="monospace" font-size="14" fill="#89ddff">)</text>
 
   <text x="680" y="306" font-family="monospace" font-size="14" fill="#64748b">6</text>
-  <text x="706" y="306" font-family="monospace" font-size="14" fill="#89ddff">}</text>
 
   <!-- Output panel -->
   <rect x="660" y="340" width="480" height="120" rx="0" fill="#0a0f1a" opacity="0.8"/>
@@ -94,10 +97,10 @@
 
   <!-- Title -->
   <text x="80" y="290" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="56" fill="white">Belajar</text>
-  <text x="80" y="354" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="56" fill="url(#accent)">C++</text>
+  <text x="80" y="354" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="56" fill="url(#accent)">Python</text>
 
   <!-- Tagline -->
-  <text x="80" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#94a3b8">Platform belajar C++ gratis &amp; interaktif</text>
+  <text x="80" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#94a3b8">Platform belajar Python gratis &amp; interaktif</text>
   <text x="80" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">untuk siswa Indonesia</text>
 
   <!-- Feature pills -->
@@ -114,5 +117,5 @@
   <rect x="0" y="610" width="1200" height="4" fill="url(#accent)"/>
 
   <!-- URL -->
-  <text x="80" y="598" font-family="monospace" font-size="16" fill="#475569">belajar-cpp.varnimyr.my.id</text>
+  <text x="80" y="598" font-family="monospace" font-size="16" fill="#475569">belajar-python.varnimyr.my.id</text>
 </svg>

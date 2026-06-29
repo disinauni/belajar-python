@@ -27,7 +27,7 @@
   <!-- Active tab -->
   <rect x="114" y="12" width="112" height="28" rx="5" fill="#1e1e2e"/>
   <circle cx="120" cy="26" r="3" fill="#89ddff" opacity="0.6"/>
-  <text x="130" y="31" font-family="monospace" font-size="11" fill="#cdd3de">main.cpp</text>
+  <text x="130" y="31" font-family="monospace" font-size="11" fill="#cdd3de">main.py</text>
 
   <!-- ── Gutter (line numbers bg) ── -->
   <rect x="20" y="48" width="48" height="278" fill="#181825"/>
@@ -50,48 +50,45 @@
     <text x="60" y="292">11</text>
   </g>
 
-  <!-- ── Code content — tiap token dengan x eksplisit ── -->
-  <!-- Line 1: #include <iostream> -->
-  <text x="78" y="72" font-family="'JetBrains Mono', monospace" font-size="12.5" fill="#89ddff">#include &lt;iostream&gt;</text>
+  <!-- ── Code content — Python version ── -->
+  <!-- Line 1: # belajar Python -->
+  <text x="78" y="72" font-family="'JetBrains Mono', monospace" font-size="12.5" fill="#64748b"># program Python interaktif</text>
 
   <!-- Line 2: (blank) -->
 
-  <!-- Line 3: int main() { -->
+  <!-- Line 3: nama = input("Nama: ") -->
   <text x="78" y="116" font-family="'JetBrains Mono', monospace" font-size="12.5">
-    <tspan fill="#c792ea">int</tspan><tspan fill="#82aaff"> main</tspan><tspan fill="#cdd3de">() {</tspan>
+    <tspan fill="#f78c6c">nama</tspan><tspan fill="#cdd3de"> = </tspan><tspan fill="#82aaff">input</tspan><tspan fill="#89ddff">(</tspan><tspan fill="#c3e88d">"Nama: "</tspan><tspan fill="#89ddff">)</tspan>
   </text>
 
-  <!-- Line 4:     std::string nama = "Budi"; -->
-  <!-- indent = 78 + 4*7.5 = 108 -->
-  <text x="108" y="138" font-family="'JetBrains Mono', monospace" font-size="12.5">
-    <tspan fill="#89ddff">std::</tspan><tspan fill="#cdd3de">string nama = </tspan><tspan fill="#c3e88d">"Budi"</tspan><tspan fill="#cdd3de">;</tspan>
+  <!-- Line 4: umur = int(input("Umur: ")) -->
+  <text x="78" y="138" font-family="'JetBrains Mono', monospace" font-size="12.5">
+    <tspan fill="#f78c6c">umur</tspan><tspan fill="#cdd3de"> = </tspan><tspan fill="#c792ea">int</tspan><tspan fill="#89ddff">(</tspan><tspan fill="#82aaff">input</tspan><tspan fill="#89ddff">(</tspan><tspan fill="#c3e88d">"Umur: "</tspan><tspan fill="#89ddff">))</tspan>
   </text>
 
-  <!-- Line 5:     int umur = 17; -->
-  <text x="108" y="160" font-family="'JetBrains Mono', monospace" font-size="12.5">
-    <tspan fill="#c792ea">int</tspan><tspan fill="#cdd3de"> umur = </tspan><tspan fill="#f78c6c">17</tspan><tspan fill="#cdd3de">;</tspan>
+  <!-- Line 5: (blank) -->
+
+  <!-- Line 6: print(f"Halo, {nama}!") -->
+  <text x="78" y="182" font-family="'JetBrains Mono', monospace" font-size="12.5">
+    <tspan fill="#82aaff">print</tspan><tspan fill="#89ddff">(</tspan><tspan fill="#c3e88d">f"Halo, </tspan><tspan fill="#f78c6c">{nama}</tspan><tspan fill="#c3e88d">!"</tspan><tspan fill="#89ddff">)</tspan>
   </text>
 
-  <!-- Line 6: (blank) -->
-
-  <!-- Line 7:     std::cout << "Halo, " << nama << "!" -->
-  <text x="108" y="204" font-family="'JetBrains Mono', monospace" font-size="12.5">
-    <tspan fill="#89ddff">std::</tspan><tspan fill="#cdd3de">cout &lt;&lt; </tspan><tspan fill="#c3e88d">"Halo, "</tspan><tspan fill="#cdd3de"> &lt;&lt; nama</tspan>
+  <!-- Line 7: print(f"Umur: {umur} tahun") -->
+  <text x="78" y="204" font-family="'JetBrains Mono', monospace" font-size="12.5">
+    <tspan fill="#82aaff">print</tspan><tspan fill="#89ddff">(</tspan><tspan fill="#c3e88d">f"Umur: </tspan><tspan fill="#f78c6c">{umur}</tspan><tspan fill="#c3e88d"> tahun"</tspan><tspan fill="#89ddff">)</tspan>
   </text>
 
-  <!-- Line 8:               << "!" << std::endl; -->
-  <!-- aligned to << above: "    std::cout << " = 108 + ~10chars*7.5 = 183 -->
-  <text x="183" y="226" font-family="'JetBrains Mono', monospace" font-size="12.5">
-    <tspan fill="#cdd3de">&lt;&lt; </tspan><tspan fill="#c3e88d">"!"</tspan><tspan fill="#cdd3de"> &lt;&lt; </tspan><tspan fill="#89ddff">std::</tspan><tspan fill="#cdd3de">endl;</tspan>
+  <!-- Line 8: (blank) -->
+
+  <!-- Line 9: if umur >= 17: -->
+  <text x="78" y="248" font-family="'JetBrains Mono', monospace" font-size="12.5">
+    <tspan fill="#c792ea">if</tspan><tspan fill="#cdd3de"> umur &gt;= </tspan><tspan fill="#f78c6c">17</tspan><tspan fill="#cdd3de">:</tspan>
   </text>
 
-  <!-- Line 9:     return 0; -->
-  <text x="108" y="248" font-family="'JetBrains Mono', monospace" font-size="12.5">
-    <tspan fill="#c792ea">return</tspan><tspan fill="#cdd3de"> </tspan><tspan fill="#f78c6c">0</tspan><tspan fill="#cdd3de">;</tspan>
+  <!-- Line 10:     print("Kamu sudah dewasa!") -->
+  <text x="108" y="270" font-family="'JetBrains Mono', monospace" font-size="12.5">
+    <tspan fill="#82aaff">print</tspan><tspan fill="#89ddff">(</tspan><tspan fill="#c3e88d">"Kamu sudah dewasa!"</tspan><tspan fill="#89ddff">)</tspan>
   </text>
-
-  <!-- Line 10: } -->
-  <text x="78" y="270" font-family="'JetBrains Mono', monospace" font-size="12.5" fill="#cdd3de">}</text>
 
   <!-- Cursor -->
   <rect x="90" y="278" width="2" height="13" fill="#89ddff" opacity="0.75">
