@@ -7,9 +7,9 @@ import type { Language } from '@/types/lesson'
 export const uiStrings = {
   id: {
     meta: {
-      siteTitle: 'Belajar C++',
-      siteDescription: 'Website pembelajaran C++ untuk siswa SMP dan SMA Indonesia. Dari nol hingga bisa membuat project sederhana.',
-      ogTitle: 'Belajar C++ — Untuk SMP/SMA Indonesia',
+      siteTitle: 'Belajar Python',
+      siteDescription: 'Website pembelajaran Python untuk siswa SMP dan SMA Indonesia. Dari nol hingga bisa membuat project sederhana.',
+      ogTitle: 'Belajar Python — Untuk SMP/SMA Indonesia',
     },
     nav: {
       home: 'Beranda',
@@ -40,7 +40,7 @@ export const uiStrings = {
       reset: 'Reset',
       openInPlayground: 'Buka di Playground',
       executionTime: 'Waktu: {time}ms',
-      compilationError: 'Error Kompilasi',
+      compilationError: 'Error Sintaks',
       runtimeError: 'Runtime Error',
       noOutput: '(Tidak ada output)',
       apiUnavailable: 'Server tidak tersedia. Coba lagi nanti atau gunakan OnlineGDB.',
@@ -77,7 +77,7 @@ export const uiStrings = {
       startLearning: 'Mulai Belajar',
     },
     curriculum: {
-      title: 'Kurikulum C++',
+      title: 'Kurikulum Python',
       subtitle: 'Dari nol hingga project sederhana',
       totalTime: 'Total ~{hours} jam',
       unitN: 'Unit {n}',
@@ -91,9 +91,9 @@ export const uiStrings = {
     },
     home: {
       hero: {
-        title: 'Belajar C++',
+        title: 'Belajar Python',
         subtitle: 'Dari SMP/SMA, mulai dari nol',
-        description: 'Platform belajar C++ dalam Bahasa Indonesia. Interaktif, gratis, dan dirancang khusus untuk pelajar Indonesia.',
+        description: 'Platform belajar Python dalam Bahasa Indonesia. Interaktif, gratis, dan dirancang khusus untuk pelajar Indonesia.',
         cta: 'Mulai Belajar',
         ctaSecondary: 'Lihat Kurikulum',
       },
@@ -117,14 +117,14 @@ export const uiStrings = {
       },
     },
     playground: {
-      title: 'Playground C++',
-      description: 'Eksperimen dengan kode C++ secara bebas.',
-      defaultCode: '#include <iostream>\n\nint main() {\n    std::cout << "Halo, Dunia!" << std::endl;\n    return 0;\n}',
+      title: 'Playground Python',
+      description: 'Eksperimen dengan kode Python secara bebas.',
+      defaultCode: 'print("Halo, Dunia!")',
       tips: 'Tips: Klik "Jalankan" untuk melihat output kode kamu.',
     },
     about: {
-      title: 'Tentang Belajar C++',
-      description: 'Platform pembelajaran C++ gratis untuk siswa SMP dan SMA Indonesia.',
+      title: 'Tentang Belajar Python',
+      description: 'Platform pembelajaran Python gratis untuk siswa SMP dan SMA Indonesia.',
     },
     errors: {
       lessonNotFound: 'Pelajaran tidak ditemukan.',
@@ -157,9 +157,9 @@ export const uiStrings = {
   },
   en: {
     meta: {
-      siteTitle: 'Learn C++',
-      siteDescription: 'C++ learning platform for Indonesian middle and high school students. From zero to building simple projects.',
-      ogTitle: 'Learn C++ — For Indonesian Students',
+      siteTitle: 'Learn Python',
+      siteDescription: 'Python learning platform for Indonesian middle and high school students. From zero to building simple projects.',
+      ogTitle: 'Learn Python — For Indonesian Students',
     },
     nav: {
       home: 'Home',
@@ -190,7 +190,7 @@ export const uiStrings = {
       reset: 'Reset',
       openInPlayground: 'Open in Playground',
       executionTime: 'Time: {time}ms',
-      compilationError: 'Compilation Error',
+      compilationError: 'Syntax Error',
       runtimeError: 'Runtime Error',
       noOutput: '(No output)',
       apiUnavailable: 'Server unavailable. Try again later or use OnlineGDB.',
@@ -227,7 +227,7 @@ export const uiStrings = {
       startLearning: 'Start Learning',
     },
     curriculum: {
-      title: 'C++ Curriculum',
+      title: 'Python Curriculum',
       subtitle: 'From zero to a simple project',
       totalTime: 'Total ~{hours} hours',
       unitN: 'Unit {n}',
@@ -241,16 +241,16 @@ export const uiStrings = {
     },
     home: {
       hero: {
-        title: 'Learn C++',
+        title: 'Learn Python',
         subtitle: 'For Middle & High School Students',
-        description: 'A C++ learning platform in Bahasa Indonesia (and English). Interactive, free, and designed for Indonesian learners.',
+        description: 'A Python learning platform in Bahasa Indonesia (and English). Interactive, free, and designed for Indonesian learners.',
         cta: 'Start Learning',
         ctaSecondary: 'View Curriculum',
       },
       features: {
         interactive: {
           title: 'Interactive Code',
-          description: 'Run C++ code directly in the browser without installing anything.',
+          description: 'Run Python code directly in the browser without installing anything.',
         },
         bilingual: {
           title: 'Bahasa Indonesia',
@@ -267,14 +267,14 @@ export const uiStrings = {
       },
     },
     playground: {
-      title: 'C++ Playground',
-      description: 'Experiment freely with C++ code.',
-      defaultCode: '#include <iostream>\n\nint main() {\n    std::cout << "Hello, World!" << std::endl;\n    return 0;\n}',
+      title: 'Python Playground',
+      description: 'Experiment freely with Python code.',
+      defaultCode: 'print("Hello, World!")',
       tips: 'Tip: Click "Run" to see your code output.',
     },
     about: {
-      title: 'About Learn C++',
-      description: 'A free C++ learning platform for Indonesian middle and high school students.',
+      title: 'About Learn Python',
+      description: 'A free Python learning platform for Indonesian middle and high school students.',
     },
     errors: {
       lessonNotFound: 'Lesson not found.',
