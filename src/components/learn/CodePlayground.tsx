@@ -37,15 +37,15 @@ function useCodeMirror(
     Promise.all([
       import('@codemirror/view'),
       import('@codemirror/state'),
-      import('@codemirror/lang-cpp'),
+      import('@codemirror/lang-python'),
       import('@codemirror/theme-one-dark'),
       import('codemirror'),
-    ]).then(([viewMod, stateMod, cppMod, themeMod, setupMod]) => {
+    ]).then(([viewMod, stateMod, pyMod, themeMod, setupMod]) => {
       if (cancelled) return
 
       const { EditorView } = viewMod
       const { EditorState } = stateMod
-      const { cpp } = cppMod
+      const { python } = pyMod
       const { oneDark } = themeMod
       const { basicSetup } = setupMod
 
@@ -53,7 +53,7 @@ function useCodeMirror(
         doc: code,
         extensions: [
           basicSetup,
-          cpp(),
+          python(),
           oneDark,
           EditorView.editable.of(!readOnly),
           EditorView.theme({
@@ -167,7 +167,7 @@ export function CodePlayground({
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'code.cpp'
+    a.download = 'code.py'
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -216,7 +216,7 @@ export function CodePlayground({
     <div className="rounded-lg border border-slate-700 overflow-hidden my-4">
       {/* Toolbar */}
       <div className="flex items-center justify-between bg-slate-800 px-3 py-2">
-        <span className="text-xs text-slate-400 font-mono">C++</span>
+        <span className="text-xs text-slate-400 font-mono">Python</span>
         <div className="flex items-center gap-1.5">
           {!readOnly && (
             <Button
