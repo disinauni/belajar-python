@@ -4,6 +4,27 @@ Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format m
 
 ## [Unreleased]
 
+## [2026-06-29] — Python Migration
+
+### Changed (Breaking — full rewrite from belajar-cpp)
+- Seluruh kurikulum 45 lessons-id ditulis ulang dari C++ ke Python (unit-0 s/d unit-6)
+- 45 lessons-en diganti dengan Python stubs (`translationStatus: "draft"`)
+- Judge0 language_id: 54 (C++) → 71 (Python 3)
+- CodeMirror editor: `@codemirror/lang-cpp` → `@codemirror/lang-python`
+- Semua string i18n dan kurikulum metadata diubah ke Python
+- 8 playground snippets ditulis ulang ke Python (hello world, input/output, if-else, loops, function, list, dict)
+- Glosarium: istilah C++ (cout, cin, std, endl) diganti ekuivalen Python (print, input, f-string, builtins, File I/O)
+- localStorage keys: `belajar-cpp-*` → `belajar-python-*`
+- SVG diagrams diperbarui untuk Python: workflow (hapus compile step), function-anatomy (def syntax), compilation-flow (interpreter), io-flow (print/input), hero-code-editor
+- OG image: judul, kode snippet, dan URL diperbarui ke Python
+
+### Fixed
+- `@astrojs/vercel` upgrade v10 → v11: resolves ERESOLVE di CI (`npm ci`) karena v10 hanya support `peer astro@^6` sedangkan `astro@latest` sudah 7.x
+- Playwright locator `h1` → `main h1` di curriculum test: strict mode violation karena DevTools panel inject `h1` tambahan
+- Unit test `STORAGE_KEY` diperbarui ke `belajar-python-progress`
+- E2E smoke test title assertions: `/Belajar C\+\+/` → `/Belajar Python/`
+- CI `PUBLIC_SITE_URL` diperbarui ke `https://belajar-python.varnimyr.my.id`
+
 ## [2026-03-18] (update 17)
 
 ### Fixed

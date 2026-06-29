@@ -8,7 +8,7 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
   [![Version](https://img.shields.io/badge/version-v1.0.0--beta.1-orange)](./CHANGELOG.md)
-  [![Astro](https://img.shields.io/badge/Astro-v5-FF5D01?logo=astro&logoColor=white)](https://astro.build)
+  [![Astro](https://img.shields.io/badge/Astro-v7-FF5D01?logo=astro&logoColor=white)](https://astro.build)
   [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
   [![Tests](https://img.shields.io/badge/unit%20tests-63%20passing-brightgreen?logo=vitest)](./src/__tests__)
@@ -21,9 +21,9 @@
 
 ## Tentang Project
 
-**Belajar Python** hadir untuk mengisi kekosongan tutorial Python modern dalam Bahasa Indonesia. Kebanyakan sumber yang ada masih mengajarkan pola lama seperti Turbo Python, `<iostream.h>`, atau `void main()` — yang sudah tidak relevan.
+**Belajar Python** hadir untuk mengisi kekosongan tutorial Python modern dalam Bahasa Indonesia. Kebanyakan sumber yang ada masih menggunakan penjelasan yang rumit, tidak interaktif, atau tidak relevan dengan kebutuhan siswa saat ini.
 
-Platform ini mengajarkan **Python modern (Python17)** dari nol, langsung bisa dicoba di browser tanpa install apapun.
+Platform ini mengajarkan **Python modern (Python 3)** dari nol, langsung bisa dicoba di browser tanpa install apapun.
 
 **Ditujukan untuk:**
 - Siswa SMP & SMA yang belajar Python untuk pertama kali
@@ -57,8 +57,8 @@ Platform ini mengajarkan **Python modern (Python17)** dari nol, langsung bisa di
 | 2 | Percabangan | 6 | ✅ Tersedia |
 | 3 | Perulangan | 7 | ✅ Tersedia |
 | 4 | Fungsi | 8 | ✅ Tersedia |
-| 5 | Array & Data | 7 | ✅ Tersedia |
-| 6 | Struct & File I/O | 6 | ✅ Tersedia |
+| 5 | List, Dict & Data | 7 | ✅ Tersedia |
+| 6 | OOP, File I/O & Exception | 6 | ✅ Tersedia |
 
 **45 lessons tersedia** · ~55-60 jam belajar · 1 proyek mini per unit
 
@@ -68,7 +68,7 @@ Platform ini mengajarkan **Python modern (Python17)** dari nol, langsung bisa di
 
 | Layer | Teknologi |
 |-------|-----------|
-| Framework | [Astro v5](https://astro.build) + React islands |
+| Framework | [Astro v7](https://astro.build) + React islands |
 | Language | TypeScript (strict mode) |
 | Styling | Tailwind CSS v4 |
 | Code Editor | CodeMirror 6 |
