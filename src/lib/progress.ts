@@ -1,7 +1,7 @@
 import type { UserProgress, BadgeId, ExerciseResult, QuizResult } from '@/types/progress'
 import { DEFAULT_PROGRESS } from '@/types/progress'
 
-const STORAGE_KEY = 'belajar-cpp-progress'
+const STORAGE_KEY = 'belajar-python-progress'
 
 // ============================================================
 // CORE STORAGE

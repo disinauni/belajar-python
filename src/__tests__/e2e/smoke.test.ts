@@ -5,13 +5,13 @@ import { test, expect } from '@playwright/test'
 test.describe('Home page', () => {
   test('loads and shows hero section', async ({ page }) => {
     await page.goto('/id')
-    await expect(page).toHaveTitle(/Belajar C\+\+/)
+    await expect(page).toHaveTitle(/Belajar Python/)
     await expect(page.locator('main h1').first()).toBeVisible()
   })
 
   test('EN version loads', async ({ page }) => {
     await page.goto('/en')
-    await expect(page).toHaveTitle(/Learn C\+\+/)
+    await expect(page).toHaveTitle(/Learn Python/)
   })
 
   test('skip-to-content link is present', async ({ page }) => {

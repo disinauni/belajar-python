@@ -20,7 +20,7 @@ import {
 import { DEFAULT_PROGRESS } from '@/types/progress'
 import type { UserProgress } from '@/types/progress'
 
-const STORAGE_KEY = 'belajar-cpp-progress'
+const STORAGE_KEY = 'belajar-python-progress'
 
 beforeEach(() => {
   localStorage.clear()
