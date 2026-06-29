@@ -24,7 +24,7 @@
     "@astrojs/mdx": "latest",
     "@astrojs/react": "latest",
     "@astrojs/sitemap": "latest",
-    "@astrojs/vercel": "^10.0.0",
+    "@astrojs/vercel": "^11.0.0",
     "@codemirror/autocomplete": "^6.20.1",
     "@codemirror/commands": "^6.10.3",
     "@codemirror/lang-python": "^6.1.6",
