@@ -109,7 +109,7 @@ export const POST: APIRoute = async ({ request }) => {
       headers,
       body: JSON.stringify({
         source_code: Buffer.from(code).toString('base64'),
-        language_id: 54, // C++ (GCC)
+        language_id: 71, // Python 3
         stdin: stdin ? Buffer.from(stdin).toString('base64') : '',
       }),
     })

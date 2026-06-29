@@ -1,4 +1,4 @@
-// Judge0 API wrapper for running C++ code in the browser
+// Judge0 API wrapper for running Python code in the browser
 
 export interface RunCodeOptions {
   code: string
@@ -27,7 +27,7 @@ export type RunStatus =
   | 'api_error'      // Network/API issue
   | 'pending'        // Still running
 
-const CPP_LANGUAGE_ID = 54  // C++ (GCC 9.2.0) in Judge0
+const PYTHON_LANGUAGE_ID = 71  // Python 3 in Judge0
 
 function getApiBase(): string {
   return import.meta.env.JUDGE0_API_URL ?? 'https://judge0-ce.p.rapidapi.com'
@@ -61,7 +61,7 @@ export async function runCode(options: RunCodeOptions): Promise<RunCodeResult> {
     headers,
     body: JSON.stringify({
       source_code: base64Code,
-      language_id: CPP_LANGUAGE_ID,
+      language_id: PYTHON_LANGUAGE_ID,
       stdin: base64Stdin,
     }),
     signal: AbortSignal.timeout(timeoutMs),
