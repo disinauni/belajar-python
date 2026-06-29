@@ -19,17 +19,17 @@ const { lang } = Astro.params as { lang: Language }
       <!-- Platform description -->
       <section class="mb-12">
         <h2 class="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-          {lang === 'id' ? 'Apa itu Belajar C++?' : 'What is Learn C++?'}
+          {lang === 'id' ? 'Apa itu Belajar Python?' : 'What is Learn Python?'}
         </h2>
         <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
           {lang === 'id'
-            ? 'Belajar C++ adalah platform pembelajaran interaktif yang dirancang khusus untuk siswa SMP dan SMA Indonesia. Platform ini menyediakan materi C++ dari dasar hingga mahir, dengan penjelasan dalam Bahasa Indonesia yang mudah dipahami.'
-            : 'Learn C++ is an interactive learning platform designed specifically for Indonesian middle and high school students. It provides C++ materials from beginner to advanced levels, with explanations in easy-to-understand Bahasa Indonesia.'}
+            ? 'Belajar Python adalah platform pembelajaran interaktif yang dirancang khusus untuk siswa SMP dan SMA Indonesia. Platform ini menyediakan materi Python dari dasar hingga mahir, dengan penjelasan dalam Bahasa Indonesia yang mudah dipahami.'
+            : 'Learn Python is an interactive learning platform designed specifically for Indonesian middle and high school students. It provides Python materials from beginner to advanced levels, with explanations in easy-to-understand Bahasa Indonesia.'}
         </p>
         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
           {lang === 'id'
-            ? 'Semua konten gratis dan tidak memerlukan akun. Kamu bisa langsung mulai belajar dan menjalankan kode C++ di browser tanpa perlu menginstall apapun.'
-            : 'All content is free and requires no account. You can start learning right away and run C++ code in your browser without installing anything.'}
+            ? 'Semua konten gratis dan tidak memerlukan akun. Kamu bisa langsung mulai belajar dan menjalankan kode Python di browser tanpa perlu menginstall apapun.'
+            : 'All content is free and requires no account. You can start learning right away and run Python code in your browser without installing anything.'}
         </p>
       </section>
 
@@ -41,8 +41,8 @@ const { lang } = Astro.params as { lang: Language }
         <ul class="space-y-3">
           {[
             lang === 'id'
-              ? ['Editor kode interaktif', 'Tulis dan jalankan kode C++ langsung di browser']
-              : ['Interactive code editor', 'Write and run C++ code directly in your browser'],
+              ? ['Editor kode interaktif', 'Tulis dan jalankan kode Python langsung di browser']
+              : ['Interactive code editor', 'Write and run Python code directly in your browser'],
             lang === 'id'
               ? ['Kurikulum terstruktur', '7 unit dari dasar hingga struct dan file I/O']
               : ['Structured curriculum', '7 units from basics to structs and file I/O'],
@@ -102,7 +102,7 @@ const { lang } = Astro.params as { lang: Language }
             : 'This platform is open source. You can view the source code, report bugs, or contribute on GitHub.'}
         </p>
         <a
-          href="https://github.com/zedfar/belajar-cpp"
+          href="https://github.com/zedfar/belajar-python"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors"

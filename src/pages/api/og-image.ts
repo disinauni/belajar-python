@@ -5,11 +5,11 @@ import { createElement as h } from 'react'
 export const prerender = false
 
 export const GET: APIRoute = async ({ url }) => {
-  const title = url.searchParams.get('title') || 'Belajar C++'
-  const description = url.searchParams.get('description') || 'Platform pembelajaran C++ gratis dan interaktif'
+  const title = url.searchParams.get('title') || 'Belajar Python'
+  const description = url.searchParams.get('description') || 'Platform pembelajaran Python gratis dan interaktif'
   const lang = url.searchParams.get('lang') || 'id'
 
-  const subtitle = lang === 'id' ? 'Platform Pembelajaran C++' : 'C++ Learning Platform'
+  const subtitle = lang === 'id' ? 'Platform Pembelajaran Python' : 'Python Learning Platform'
 
   return new ImageResponse(
     h('div', {
@@ -44,7 +44,7 @@ export const GET: APIRoute = async ({ url }) => {
         }, 'C+'),
         h('span', {
           style: { color: '#94a3b8', fontSize: '20px' },
-        }, 'belajar-cpp.varnimyr.my.id'),
+        }, 'belajar-python.varnimyr.my.id'),
       ),
 
       // Middle: title + description

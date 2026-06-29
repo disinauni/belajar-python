@@ -13,7 +13,7 @@ const totalLessons = getTotalLessons()
 
 <PageLayout
   title={lang === 'id' ? 'Progress Belajar' : 'Learning Progress'}
-  description={lang === 'id' ? 'Pantau kemajuan belajar C++ kamu' : 'Track your C++ learning progress'}
+  description={lang === 'id' ? 'Pantau kemajuan belajar Python kamu' : 'Track your Python learning progress'}
   lang={lang}
 >
   <div class="max-w-3xl mx-auto" id="progress-page">
@@ -160,7 +160,7 @@ const totalLessons = getTotalLessons()
     { id: 'unit-4-complete',    label: { id: 'Tamat Unit 4',        en: 'Unit 4 Complete' },    desc: { id: 'Selesaikan semua lesson Unit 4', en: 'Finish all Unit 4 lessons' } },
     { id: 'unit-5-complete',    label: { id: 'Tamat Unit 5',        en: 'Unit 5 Complete' },    desc: { id: 'Selesaikan semua lesson Unit 5', en: 'Finish all Unit 5 lessons' } },
     { id: 'unit-6-complete',    label: { id: 'Tamat Unit 6',        en: 'Unit 6 Complete' },    desc: { id: 'Selesaikan semua lesson Unit 6', en: 'Finish all Unit 6 lessons' } },
-    { id: 'all-units-complete', label: { id: 'Master C++',          en: 'C++ Master' },         desc: { id: 'Selesaikan semua unit',          en: 'Complete all units' } },
+    { id: 'all-units-complete', label: { id: 'Master Python',          en: 'Python Master' },         desc: { id: 'Selesaikan semua unit',          en: 'Complete all units' } },
     { id: 'first-playground',   label: { id: 'Proyek Pertama',      en: 'First Project' },      desc: { id: 'Selesaikan 1 mini project',      en: 'Complete a mini project' } },
     { id: 'streak-3',           label: { id: 'Streak 3 Hari',       en: '3-Day Streak' },       desc: { id: 'Belajar 3 hari berturut-turut',  en: 'Study 3 days in a row' } },
     { id: 'streak-7',           label: { id: 'Streak 7 Hari',       en: '7-Day Streak' },       desc: { id: 'Belajar 7 hari berturut-turut',  en: 'Study 7 days in a row' } },
@@ -168,7 +168,7 @@ const totalLessons = getTotalLessons()
 
   function loadProgress() {
     try {
-      const raw = localStorage.getItem('belajar-cpp-progress')
+      const raw = localStorage.getItem('belajar-python-progress')
       return raw ? JSON.parse(raw) : null
     } catch { return null }
   }
@@ -240,7 +240,7 @@ const totalLessons = getTotalLessons()
           resetBtn.classList.remove('font-semibold')
         }, 4000)
       } else {
-        localStorage.removeItem('belajar-cpp-progress')
+        localStorage.removeItem('belajar-python-progress')
         renderProgress()
         resetBtn.dataset.confirm = 'false'
         resetBtn.textContent = lang === 'id' ? 'Reset progress' : 'Reset progress'

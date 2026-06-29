@@ -7,7 +7,7 @@ interface Props {
   ogImage?: string
 }
 const { title, description, lang, url, ogImage } = Astro.props
-const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://belajar-cpp.varnimyr.my.id'
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://belajar-python.varnimyr.my.id'
 const canonicalUrl = new URL(url, siteUrl).href
 const image = ogImage || `${siteUrl}/og-default.png`
 ---
@@ -39,7 +39,7 @@ const image = ogImage || `${siteUrl}/og-default.png`
   "description": description,
   "provider": {
     "@type": "Organization",
-    "name": "Belajar C++",
+    "name": "Belajar Python",
     "sameAs": siteUrl,
   },
   "inLanguage": lang === 'id' ? 'id-ID' : 'en-US',
@@ -47,7 +47,7 @@ const image = ogImage || `${siteUrl}/og-default.png`
   "url": canonicalUrl,
   "image": image,
   "educationalLevel": "Beginner",
-  "teaches": "C++ Programming",
+  "teaches": "Python Programming",
   "audience": {
     "@type": "EducationalAudience",
     "educationalRole": "student",

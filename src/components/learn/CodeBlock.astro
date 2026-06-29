@@ -9,10 +9,10 @@ interface Props {
   highlightLines?: number[]
   caption?: string
 }
-const { code, lang = 'cpp', filename, showLineNumbers = true, caption } = Astro.props
+const { code, lang = 'python', filename, showLineNumbers = true, caption } = Astro.props
 
 const langLabels: Record<string, string> = {
-  cpp: 'C++',
+  python: 'Python',
   c: 'C',
   js: 'JavaScript',
   javascript: 'JavaScript',

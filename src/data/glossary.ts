@@ -16,8 +16,8 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'Compiler',
     category: 'kompilasi',
     definition: {
-      id: 'Program yang mengubah kode C++ menjadi file executable yang bisa dijalankan oleh komputer. Di Windows biasanya menghasilkan file .exe.',
-      en: 'A program that converts C++ source code into an executable file that the computer can run.',
+      id: 'Program yang mengubah kode Python menjadi file executable yang bisa dijalankan oleh komputer. Di Windows biasanya menghasilkan file .exe.',
+      en: 'A program that converts Python source code into an executable file that the computer can run.',
     },
     example: 'g++ hello.cpp -o hello',
   },
@@ -58,33 +58,33 @@ export const GLOSSARY: GlossaryTerm[] = [
 
   // ── DASAR ────────────────────────────────────────────────────
   {
-    term: '#include',
+    term: 'import',
     category: 'dasar',
     definition: {
       id: 'Direktif yang memberitahu compiler untuk menyertakan isi sebuah file header ke dalam program kamu.',
       en: 'A directive that tells the compiler to include the contents of a header file in your program.',
     },
-    example: '#include <iostream>',
+    example: 'import <iostream>',
   },
   {
     term: 'Namespace',
     category: 'dasar',
     definition: {
-      id: 'Wadah yang mengelompokkan nama-nama (fungsi, variabel, kelas) agar tidak bertabrakan. `std::` adalah namespace standar C++.',
-      en: 'A container that groups names (functions, variables, classes) to avoid naming conflicts. `std::` is the C++ standard namespace.',
+      id: 'Wadah yang mengelompokkan nama-nama (fungsi, variabel, kelas) agar tidak bertabrakan. `` adalah namespace standar Python.',
+      en: 'A container that groups names (functions, variables, classes) to avoid naming conflicts. `` is the Python standard namespace.',
     },
     example: 'using namespace std;',
     seeAlso: ['std'],
   },
   {
-    term: 'std',
-    termEn: 'std (Standard Library)',
+    term: 'builtins',
+    termEn: 'Built-in Functions',
     category: 'dasar',
     definition: {
-      id: 'Namespace standar C++ yang berisi semua fungsi dan objek bawaan seperti `cout`, `cin`, `string`, dan lainnya.',
-      en: 'The C++ standard namespace containing all built-in functions and objects like `cout`, `cin`, `string`, and more.',
+      id: 'Fungsi dan tipe bawaan Python yang tersedia tanpa perlu import, seperti `print()`, `input()`, `len()`, `range()`, `int()`, `str()`, dan lainnya.',
+      en: 'Python built-in functions and types available without importing, such as `print()`, `input()`, `len()`, `range()`, `int()`, `str()`, and more.',
     },
-    example: 'std::cout << "Halo";',
+    example: 'print(len("hello"))  # 5',
   },
   {
     term: 'Variabel',
@@ -129,8 +129,8 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'Statement',
     category: 'dasar',
     definition: {
-      id: 'Satu perintah lengkap dalam C++, biasanya diakhiri dengan titik koma (`;`). Contoh: `int x = 5;` atau `cout << x;`.',
-      en: 'A single complete instruction in C++, usually ending with a semicolon (`;`). Examples: `int x = 5;` or `cout << x;`.',
+      id: 'Satu perintah lengkap dalam Python. Python menggunakan indentasi dan baris baru sebagai pemisah, bukan titik koma. Contoh: `x = 5` atau `print(x)`.',
+      en: 'A single complete instruction in Python. Python uses indentation and newlines as separators, not semicolons. Examples: `x = 5` or `print(x)`.',
     },
   },
   {
@@ -187,8 +187,8 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'string',
     category: 'tipe-data',
     definition: {
-      id: 'Tipe data untuk teks (rangkaian karakter). Ditulis dengan tanda kutip ganda (`"`). Perlu `#include <string>`.',
-      en: 'Data type for text (a sequence of characters). Written with double quotes (`"`). Requires `#include <string>`.',
+      id: 'Tipe data untuk teks (rangkaian karakter). Ditulis dengan tanda kutip ganda (`"`). Perlu `import <string>`.',
+      en: 'Data type for text (a sequence of characters). Written with double quotes (`"`). Requires `import <string>`.',
     },
     example: 'string nama = "Budi";',
   },
@@ -210,7 +210,7 @@ export const GLOSSARY: GlossaryTerm[] = [
       id: 'Struktur percabangan untuk mengeksekusi blok kode berbeda berdasarkan kondisi. Jika kondisi true, jalankan blok `if`; jika tidak, jalankan blok `else`.',
       en: 'A branching structure that executes different code blocks based on a condition. If the condition is true, run the `if` block; otherwise run the `else` block.',
     },
-    example: 'if (nilai >= 70) { cout << "Lulus"; } else { cout << "Tidak lulus"; }',
+    example: 'if nilai >= 70:\n    print("Lulus")\nelse:\n    print("Tidak lulus")',
   },
   {
     term: 'switch',
@@ -318,7 +318,7 @@ export const GLOSSARY: GlossaryTerm[] = [
       id: 'Tipe return yang berarti fungsi tidak mengembalikan nilai apapun.',
       en: 'A return type meaning the function does not return any value.',
     },
-    example: 'void sapa() { cout << "Halo!"; }',
+    example: 'def sapa():\n    print("Halo!")',
     seeAlso: ['Return Value'],
   },
   {
@@ -394,44 +394,44 @@ export const GLOSSARY: GlossaryTerm[] = [
 
   // ── INPUT/OUTPUT ─────────────────────────────────────────────
   {
-    term: 'cout',
+    term: 'print()',
     category: 'io',
     definition: {
-      id: 'Objek output standar C++ untuk menampilkan teks ke layar. Digunakan bersama operator `<<`. Bagian dari namespace `std`.',
-      en: 'The standard C++ output object for displaying text on screen. Used with the `<<` operator. Part of the `std` namespace.',
+      id: 'Fungsi bawaan Python untuk menampilkan teks atau nilai ke layar (stdout). Menerima beberapa argumen dan memisahkannya dengan spasi secara default.',
+      en: 'Python built-in function to display text or values on screen (stdout). Accepts multiple arguments and separates them with spaces by default.',
     },
-    example: 'cout << "Halo, Dunia!" << endl;',
-    seeAlso: ['cin', 'endl'],
+    example: 'print("Halo, Dunia!")\nprint("a =", 42, "b =", 3.14)',
+    seeAlso: ['input()', 'f-string'],
   },
   {
-    term: 'cin',
+    term: 'input()',
     category: 'io',
     definition: {
-      id: 'Objek input standar C++ untuk membaca input dari pengguna (keyboard). Digunakan bersama operator `>>`.',
-      en: 'The standard C++ input object for reading user input (keyboard). Used with the `>>` operator.',
+      id: 'Fungsi bawaan Python untuk membaca input dari pengguna (keyboard). Selalu mengembalikan string — konversi ke int/float jika diperlukan.',
+      en: 'Python built-in function to read user input (keyboard). Always returns a string — convert to int/float as needed.',
     },
-    example: 'cin >> nama;',
-    seeAlso: ['cout'],
+    example: 'nama = input("Siapa namamu? ")\numur = int(input("Umur: "))',
+    seeAlso: ['print()', 'int()', 'float()'],
   },
   {
-    term: 'endl',
+    term: 'f-string',
     category: 'io',
     definition: {
-      id: 'Pindah ke baris baru dalam output. Selain memindahkan baris, juga melakukan flush buffer. Alternatif: `"\\n"`.',
-      en: 'Moves to a new line in output. Besides moving to a new line, it also flushes the buffer. Alternative: `"\\n"`.',
+      id: 'Format string literal Python (prefix `f`) yang memungkinkan menyisipkan variabel dan ekspresi langsung ke dalam string menggunakan kurung kurawal `{}`.',
+      en: 'Python formatted string literal (prefix `f`) that allows embedding variables and expressions directly into strings using curly braces `{}`.',
     },
-    example: 'cout << "Baris 1" << endl << "Baris 2";',
-    seeAlso: ['cout'],
+    example: 'nama = "Budi"\nprint(f"Halo, {nama}! Umurmu {18} tahun.")',
+    seeAlso: ['print()', 'str()'],
   },
   {
     term: 'File I/O',
     category: 'io',
     definition: {
-      id: 'Kemampuan membaca dan menulis data ke/dari file. Menggunakan `ofstream` (output file) dan `ifstream` (input file) dari header `<fstream>`.',
-      en: 'The ability to read and write data to/from files. Uses `ofstream` (output file) and `ifstream` (input file) from the `<fstream>` header.',
+      id: 'Kemampuan membaca dan menulis data ke/dari file. Menggunakan `open()` dengan mode `"r"` (baca), `"w"` (tulis), atau `"a"` (tambah). Gunakan `with` agar file otomatis ditutup.',
+      en: 'The ability to read and write data to/from files. Uses `open()` with mode `"r"` (read), `"w"` (write), or `"a"` (append). Use `with` so the file closes automatically.',
     },
-    example: 'ofstream file("data.txt");',
-    seeAlso: ['cout', 'cin'],
+    example: 'with open("data.txt", "r") as f:\n    konten = f.read()',
+    seeAlso: ['print()', 'input()'],
   },
 ]
 

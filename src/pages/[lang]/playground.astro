@@ -15,42 +15,42 @@ const snippets = [
   {
     label: 'Hello World',
     desc: lang === 'id' ? 'Cetak teks pertamamu ke layar' : 'Print your first text to screen',
-    code: '#include <iostream>\n\nint main() {\n    std::cout << "Halo, Dunia!" << std::endl;\n    return 0;\n}',
+    code: 'print("Halo, Dunia!")\nprint("Selamat belajar Python!")',
   },
   {
     label: 'Input & Output',
-    desc: lang === 'id' ? 'Baca input dari user dengan std::cin' : 'Read user input with std::cin',
-    code: '#include <iostream>\n#include <string>\n\nint main() {\n    std::string nama;\n    std::cout << "Siapa namamu? ";\n    std::cin >> nama;\n    std::cout << "Halo, " << nama << "!" << std::endl;\n    return 0;\n}',
+    desc: lang === 'id' ? 'Baca input dari user dengan input()' : 'Read user input with input()',
+    code: 'nama = input("Siapa namamu? ")\numur = int(input("Berapa umurmu? "))\nprint(f"Halo, {nama}!")\nprint(f"Kamu berumur {umur} tahun.")',
   },
   {
     label: 'If-Else',
     desc: lang === 'id' ? 'Percabangan kondisi dan grade nilai' : 'Conditional branching and grade check',
-    code: '#include <iostream>\n\nint main() {\n    int nilai = 85;\n\n    if (nilai >= 90) {\n        std::cout << "Grade: A" << std::endl;\n    } else if (nilai >= 80) {\n        std::cout << "Grade: B" << std::endl;\n    } else if (nilai >= 70) {\n        std::cout << "Grade: C" << std::endl;\n    } else {\n        std::cout << "Grade: D" << std::endl;\n    }\n\n    return 0;\n}',
+    code: 'nilai = 85\n\nif nilai >= 90:\n    grade = "A"\nelif nilai >= 80:\n    grade = "B"\nelif nilai >= 70:\n    grade = "C"\nelse:\n    grade = "D"\n\nprint(f"Nilai: {nilai}, Grade: {grade}")',
   },
   {
     label: 'For Loop',
     desc: lang === 'id' ? 'Perulangan for, jumlah 1 sampai 10' : 'For loop, sum from 1 to 10',
-    code: '#include <iostream>\n\nint main() {\n    int jumlah = 0;\n    for (int i = 1; i <= 10; i++) {\n        jumlah += i;\n        std::cout << i << " ";\n    }\n    std::cout << std::endl;\n    std::cout << "Jumlah: " << jumlah << std::endl;\n    return 0;\n}',
+    code: 'jumlah = 0\nfor i in range(1, 11):\n    jumlah += i\n    print(i, end=" ")\nprint()\nprint(f"Jumlah: {jumlah}")',
   },
   {
     label: 'While Loop',
     desc: lang === 'id' ? 'Perulangan while, tabel kuadrat' : 'While loop, squares table',
-    code: '#include <iostream>\n\nint main() {\n    int n = 1;\n    while (n <= 5) {\n        std::cout << n << " x " << n << " = " << n * n << std::endl;\n        n++;\n    }\n    return 0;\n}',
+    code: 'n = 1\nwhile n <= 5:\n    print(f"{n} x {n} = {n * n}")\n    n += 1',
   },
   {
     label: lang === 'id' ? 'Fungsi' : 'Function',
     desc: lang === 'id' ? 'Membuat dan memanggil fungsi sendiri' : 'Define and call custom functions',
-    code: '#include <iostream>\n\nint tambah(int a, int b) {\n    return a + b;\n}\n\nbool adalahGenap(int n) {\n    return n % 2 == 0;\n}\n\nint main() {\n    std::cout << "3 + 5 = " << tambah(3, 5) << std::endl;\n    std::cout << "7 genap? " << adalahGenap(7) << std::endl;\n    std::cout << "8 genap? " << adalahGenap(8) << std::endl;\n    return 0;\n}',
+    code: 'def tambah(a, b):\n    return a + b\n\ndef adalah_genap(n):\n    return n % 2 == 0\n\nprint(f"3 + 5 = {tambah(3, 5)}")\nprint(f"7 genap? {adalah_genap(7)}")\nprint(f"8 genap? {adalah_genap(8)}")',
   },
   {
-    label: 'Array',
-    desc: lang === 'id' ? 'Array dan menghitung rata-rata nilai' : 'Array and calculating average',
-    code: '#include <iostream>\n\nint main() {\n    int nilai[] = {85, 92, 78, 95, 88};\n    int n = sizeof(nilai) / sizeof(nilai[0]);\n    int jumlah = 0;\n\n    for (int i = 0; i < n; i++) {\n        jumlah += nilai[i];\n    }\n\n    double rata = (double)jumlah / n;\n    std::cout << "Rata-rata: " << rata << std::endl;\n    return 0;\n}',
+    label: 'List',
+    desc: lang === 'id' ? 'List dan menghitung rata-rata nilai' : 'List and calculating average',
+    code: 'nilai = [85, 92, 78, 95, 88]\n\nrata = sum(nilai) / len(nilai)\nprint(f"Data: {nilai}")\nprint(f"Rata-rata: {rata:.1f}")\nprint(f"Tertinggi: {max(nilai)}")\nprint(f"Terendah: {min(nilai)}")',
   },
   {
-    label: 'String',
-    desc: lang === 'id' ? 'Operasi pada teks dengan std::string' : 'Text operations with std::string',
-    code: '#include <iostream>\n#include <string>\n\nint main() {\n    std::string nama = "Belajar C++";\n    std::cout << "Teks    : " << nama << std::endl;\n    std::cout << "Panjang : " << nama.length() << std::endl;\n    std::cout << "Huruf ke-0: " << nama[0] << std::endl;\n\n    std::string sapaan = "Halo, " + nama + "!";\n    std::cout << sapaan << std::endl;\n    return 0;\n}',
+    label: 'Dictionary',
+    desc: lang === 'id' ? 'Menyimpan data berpasangan key-value' : 'Store key-value data pairs',
+    code: 'siswa = {\n    "nama": "Budi",\n    "umur": 17,\n    "nilai": 88.5\n}\n\nfor key, value in siswa.items():\n    print(f"{key}: {value}")\n\nprint(f"\\nHalo, {siswa[\'nama\']}!")',
   },
 ]
 ---
@@ -98,7 +98,7 @@ const snippets = [
           <div class="flex items-center justify-between px-3 sm:px-4 py-2 bg-[#21252b] border-b border-slate-700">
             <!-- Left: filename + save indicator -->
             <div class="flex items-center gap-2.5">
-              <span class="text-sm text-slate-400 font-mono">main.cpp</span>
+              <span class="text-sm text-slate-400 font-mono">main.python</span>
               <span
                 id="save-indicator"
                 class="text-xs text-emerald-500 opacity-0 transition-opacity duration-500 pointer-events-none"
@@ -146,7 +146,7 @@ const snippets = [
               <!-- Download -->
               <button
                 id="download-btn"
-                title={lang === 'id' ? 'Unduh sebagai file .cpp' : 'Download as .cpp file'}
+                title={lang === 'id' ? 'Unduh sebagai file .python' : 'Download as .python file'}
                 class="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-xs bg-slate-700 hover:bg-slate-600 text-slate-300 transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 20 20" fill="currentColor">
@@ -206,7 +206,7 @@ const snippets = [
             </svg>
             <span class="text-xs font-medium text-slate-400">Input (stdin)</span>
             <span class="text-xs text-slate-600 truncate">
-              {lang === 'id' ? '— buka jika program menggunakan std::cin' : '— open if your program uses std::cin'}
+              {lang === 'id' ? '— buka jika program menggunakan input()' : '— open if your program uses input()'}
             </span>
           </button>
           <div id="stdin-content" class="hidden">
@@ -268,7 +268,7 @@ const snippets = [
             </li>
             <li class="flex items-start gap-1.5">
               <span class="text-emerald-500 flex-shrink-0 mt-px">›</span>
-              <span>{lang === 'id' ? 'Buka Input (stdin) jika program pakai std::cin' : 'Open Input (stdin) if program uses std::cin'}</span>
+              <span>{lang === 'id' ? 'Buka Input (stdin) jika program pakai input()' : 'Open Input (stdin) if program uses input()'}</span>
             </li>
             <li class="flex items-start gap-1.5">
               <span class="text-emerald-500 flex-shrink-0 mt-px">›</span>
@@ -364,7 +364,7 @@ const snippets = [
       bracketMatching, foldGutter,
     } from '@codemirror/language'
     import { closeBrackets, autocompletion } from '@codemirror/autocomplete'
-    import { cpp } from '@codemirror/lang-cpp'
+    import { python } from '@codemirror/lang-python'
     import { oneDark } from '@codemirror/theme-one-dark'
 
     // ─── Custom modal ─────────────────────────────────────────────────────────
@@ -503,8 +503,8 @@ const snippets = [
     const defaultCode = editorContainer?.dataset.defaultCode || ''
 
     // ─── localStorage keys ────────────────────────────────────────────────────
-    const LS_CODE = `belajar-cpp:pg:code:${lang}`
-    const LS_FONT = 'belajar-cpp:pg:font'
+    const LS_CODE = `belajar-python:pg:code:${lang}`
+    const LS_FONT = 'belajar-python:pg:font'
 
     // ─── Restore initial code (URL param > localStorage > default) ───────────
     let initialCode = defaultCode
@@ -553,7 +553,7 @@ const snippets = [
 
     function parseErrorLines(output: string): number[] {
       const seen = new Set<number>()
-      const re = /(?:main\.cpp|\.\/[^:]+):(\d+):/g
+      const re = /(?:main\.python|\.\/[^:]+):(\d+):/g
       let m: RegExpExecArray | null
       while ((m = re.exec(output)) !== null) seen.add(parseInt(m[1], 10))
       return [...seen]
@@ -813,7 +813,7 @@ const snippets = [
     downloadBtn?.addEventListener('click', () => {
       const blob = new Blob([getCode()], { type: 'text/plain' })
       const url = URL.createObjectURL(blob)
-      const a = Object.assign(document.createElement('a'), { href: url, download: 'belajar-cpp.cpp' })
+      const a = Object.assign(document.createElement('a'), { href: url, download: 'belajar-python.python' })
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
@@ -897,7 +897,7 @@ const snippets = [
               { key: 'Ctrl-Enter', run: () => { runCode(); return true } },
               { key: 'Meta-Enter', run: () => { runCode(); return true } },
             ]),
-            cpp(),
+            python(),
             oneDark,
             EditorView.theme({
               '&': { height: `${cmHeight}px`, overflow: 'hidden' },

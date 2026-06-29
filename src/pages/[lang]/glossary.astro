@@ -10,10 +10,10 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Language }
 
-const title = lang === 'id' ? 'Glosarium C++' : 'C++ Glossary'
+const title = lang === 'id' ? 'Glosarium Python' : 'Python Glossary'
 const description = lang === 'id'
-  ? 'Kamus istilah C++ — definisi lengkap untuk semua istilah pemrograman yang kamu pelajari, dari variabel hingga fungsi.'
-  : 'C++ glossary — complete definitions for all programming terms you learn, from variables to functions.'
+  ? 'Kamus istilah Python — definisi lengkap untuk semua istilah pemrograman yang kamu pelajari, dari variabel hingga fungsi.'
+  : 'Python glossary — complete definitions for all programming terms you learn, from variables to functions.'
 
 // Group terms by category, in order
 const grouped = CATEGORY_ORDER.map(cat => ({
@@ -33,8 +33,8 @@ const totalTerms = GLOSSARY.length
       </h1>
       <p class="text-lg text-slate-600 dark:text-slate-400">
         {lang === 'id'
-          ? `${totalTerms} istilah penting dalam pemrograman C++`
-          : `${totalTerms} essential terms in C++ programming`}
+          ? `${totalTerms} istilah penting dalam pemrograman Python`
+          : `${totalTerms} essential terms in Python programming`}
       </p>
     </div>
 
