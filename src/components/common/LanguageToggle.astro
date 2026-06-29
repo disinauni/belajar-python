@@ -27,6 +27,6 @@ const switchedPath = currentPath.replace(new RegExp(`^/${lang}(/|$)`), `/${other
   document.querySelector('[data-lang-toggle]')?.addEventListener('click', () => {
     const href = document.querySelector('[data-lang-toggle]')?.getAttribute('href') || ''
     const newLang = href.startsWith('/en') ? 'en' : 'id'
-    localStorage.setItem('belajar-cpp-lang', newLang)
+    localStorage.setItem('belajar-python-lang', newLang)
   })
 </script>

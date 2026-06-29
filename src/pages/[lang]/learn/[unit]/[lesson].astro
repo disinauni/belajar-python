@@ -250,7 +250,7 @@ const difficultyColor = entry.data.difficulty === 'intermediate'
       markDone()
       showBadgeToast(newBadge)
       // Clear saved scroll — lesson is done
-      localStorage.removeItem(`belajar-cpp:scroll:${slug}`)
+      localStorage.removeItem(`belajar-python:scroll:${slug}`)
     })
   }
 
@@ -270,7 +270,7 @@ const difficultyColor = entry.data.difficulty === 'intermediate'
 
   // ── Scroll position save/restore ──────────────────────────────────────────
   const lessonSlug = window.location.pathname.split('/').slice(-2).join('/')
-  const SCROLL_KEY = `belajar-cpp:scroll:${lessonSlug}`
+  const SCROLL_KEY = `belajar-python:scroll:${lessonSlug}`
   const MIN_SCROLL = 250
 
   // Save position (debounced 600ms)

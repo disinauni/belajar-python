@@ -151,7 +151,7 @@ const totalHours = CURRICULUM_ID.reduce((sum, u) => {
   <script is:inline define:vars={{ totalLessons, lang }}>
     // Update progress from localStorage
     try {
-      const raw = localStorage.getItem('belajar-cpp-progress')
+      const raw = localStorage.getItem('belajar-python-progress')
       if (raw) {
         const progress = JSON.parse(raw)
         const completed = progress.completedLessons || []

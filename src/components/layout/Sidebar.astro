@@ -154,7 +154,7 @@ const currentUnitSlug = currentSlug ? currentSlug.split('/')[0] : null
 
   // Update lesson status dots from localStorage progress
   try {
-    const raw = localStorage.getItem('belajar-cpp-progress')
+    const raw = localStorage.getItem('belajar-python-progress')
     if (raw) {
       const progress = JSON.parse(raw)
       const completed = progress.completedLessons || []

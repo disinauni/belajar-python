@@ -168,7 +168,7 @@ const totalTime = unit.lessons.reduce((sum, l) => sum + l.estimatedTime, 0)
 
   <script is:inline define:vars={{ unitSlug, lessonCount: unit.lessons.length, lang }}>
     try {
-      const raw = localStorage.getItem('belajar-cpp-progress')
+      const raw = localStorage.getItem('belajar-python-progress')
       if (raw) {
         const progress = JSON.parse(raw)
         const completed = (progress.completedLessons || []).filter(s => s.startsWith(unitSlug + '/'))
