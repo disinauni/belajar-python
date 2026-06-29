@@ -24,7 +24,7 @@ test.describe('Home page', () => {
 test.describe('Curriculum page', () => {
   test('shows all 7 units', async ({ page }) => {
     await page.goto('/id/curriculum')
-    await expect(page.locator('h1')).toBeVisible()
+    await expect(page.locator('main h1').first()).toBeVisible()
     // Should have at least unit-0 through unit-6 visible
     const unitCards = page.locator('[data-unit-card]')
     await expect(unitCards).toHaveCount(7)
