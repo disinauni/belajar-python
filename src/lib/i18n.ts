@@ -100,7 +100,7 @@ export const uiStrings = {
       features: {
         interactive: {
           title: 'Kode Interaktif',
-          description: 'Jalankan kode C++ langsung di browser tanpa install apapun.',
+          description: 'Jalankan kode Python langsung di browser tanpa install apapun.',
         },
         bilingual: {
           title: 'Bahasa Indonesia',

@@ -46,7 +46,7 @@
   <!-- ── TOP SECTION ── -->
 
   <!-- Title / declaration -->
-  <text x="350" y="28" text-anchor="middle" fill="var(--label)" font-size="12" font-weight="700" font-family="'Courier New', Courier, monospace" letter-spacing="0.3">int nilai[5] = {85, 92, 78, 95, 88};</text>
+  <text x="350" y="28" text-anchor="middle" fill="var(--label)" font-size="12" font-weight="700" font-family="'Courier New', Courier, monospace" letter-spacing="0.3">nilai = [85, 92, 78, 95, 88]</text>
 
   <!-- Cell geometry: 5 cells × 80px wide, 60px tall, starting x=90, y=50 -->
   <!-- Cell [0] — blue -->

@@ -11,7 +11,7 @@ export interface CurriculumConfig {
 export interface GlossaryEntry {
   term: string
   definition: Record<Language, string>
-  example?: string    // C++ code example
+  example?: string    // Python code example
   relatedTerms?: string[]
   unit?: number       // first introduced in which unit
 }

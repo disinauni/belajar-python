@@ -11,49 +11,51 @@ export interface GlossaryTerm {
 }
 
 export const GLOSSARY: GlossaryTerm[] = [
-  // ── KOMPILASI & RUNTIME ──────────────────────────────────────
+  // ── INTERPRETER & RUNTIME ────────────────────────────────────
   {
-    term: 'Compiler',
+    term: 'Interpreter',
     category: 'kompilasi',
     definition: {
-      id: 'Program yang mengubah kode Python menjadi file executable yang bisa dijalankan oleh komputer. Di Windows biasanya menghasilkan file .exe.',
-      en: 'A program that converts Python source code into an executable file that the computer can run.',
+      id: 'Program yang membaca dan menjalankan kode Python baris per baris secara langsung, tanpa perlu dikompilasi dulu menjadi file executable.',
+      en: 'A program that reads and executes Python code line by line directly, without needing to compile it into an executable file first.',
     },
-    example: 'g++ hello.cpp -o hello',
-  },
-  {
-    term: 'Compile Time',
-    category: 'kompilasi',
-    definition: {
-      id: 'Proses saat kode kamu dikompilasi oleh compiler. Error yang terjadi di tahap ini disebut compile-time error dan mencegah program dijalankan.',
-      en: 'The process when your code is compiled by the compiler. Errors at this stage are called compile-time errors and prevent the program from running.',
-    },
-    seeAlso: ['Runtime'],
+    example: 'python3 hello.py',
   },
   {
     term: 'Runtime',
     category: 'kompilasi',
     definition: {
-      id: 'Saat program sedang berjalan (dieksekusi). Error yang terjadi saat program berjalan disebut runtime error.',
-      en: 'When the program is actively running (executing). Errors that occur while the program runs are called runtime errors.',
+      id: 'Saat program sedang berjalan (dieksekusi). Error yang terjadi saat program berjalan disebut runtime error — misalnya `ZeroDivisionError` atau `NameError`.',
+      en: 'When the program is actively running (executing). Errors that occur while the program runs are called runtime errors — e.g. `ZeroDivisionError` or `NameError`.',
     },
-    seeAlso: ['Compile Time'],
+    example: 'print(10 / 0)  # ZeroDivisionError',
   },
   {
     term: 'Sintaks (Syntax)',
     category: 'kompilasi',
     definition: {
-      id: 'Aturan penulisan kode yang harus diikuti. Seperti tata bahasa dalam bahasa manusia — salah satu karakter saja bisa menyebabkan error.',
-      en: 'The rules for writing code that must be followed. Like grammar in human languages — even one wrong character can cause an error.',
+      id: 'Aturan penulisan kode yang harus diikuti. Seperti tata bahasa dalam bahasa manusia — salah satu karakter saja bisa menyebabkan `SyntaxError`.',
+      en: 'The rules for writing code that must be followed. Like grammar in human languages — even one wrong character can cause a `SyntaxError`.',
     },
+    example: 'if x > 0  # SyntaxError: missing colon',
   },
   {
     term: 'Bug',
     category: 'kompilasi',
     definition: {
-      id: 'Kesalahan dalam program yang menyebabkan perilaku yang tidak diinginkan. Bisa berupa compile error, runtime error, atau logic error.',
-      en: 'An error in a program that causes unintended behavior. Can be a compile error, runtime error, or logic error.',
+      id: 'Kesalahan dalam program yang menyebabkan perilaku yang tidak diinginkan. Bisa berupa `SyntaxError`, `RuntimeError`, atau logic error (program berjalan tapi hasilnya salah).',
+      en: 'An error in a program that causes unintended behavior. Can be a `SyntaxError`, `RuntimeError`, or logic error (program runs but produces wrong results).',
     },
+  },
+  {
+    term: 'Exception',
+    category: 'kompilasi',
+    definition: {
+      id: 'Error yang terjadi saat runtime dan menghentikan program jika tidak ditangani. Ditangkap menggunakan blok `try/except`. Contoh: `ValueError`, `TypeError`, `IndexError`.',
+      en: 'An error that occurs at runtime and stops the program if not handled. Caught using a `try/except` block. Examples: `ValueError`, `TypeError`, `IndexError`.',
+    },
+    example: 'try:\n    x = int("abc")\nexcept ValueError:\n    print("Bukan angka!")',
+    seeAlso: ['Runtime'],
   },
 
   // ── DASAR ────────────────────────────────────────────────────
@@ -61,40 +63,31 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'import',
     category: 'dasar',
     definition: {
-      id: 'Direktif yang memberitahu compiler untuk menyertakan isi sebuah file header ke dalam program kamu.',
-      en: 'A directive that tells the compiler to include the contents of a header file in your program.',
+      id: 'Kata kunci untuk mengimpor modul atau library ke dalam program. Memberi akses ke fungsi dan kelas yang sudah ada di modul tersebut.',
+      en: 'A keyword to import a module or library into your program. Gives access to functions and classes already in that module.',
     },
-    example: 'import <iostream>',
+    example: 'import math\nfrom random import randint',
   },
   {
-    term: 'Namespace',
+    term: 'Modul',
+    termEn: 'Module',
     category: 'dasar',
     definition: {
-      id: 'Wadah yang mengelompokkan nama-nama (fungsi, variabel, kelas) agar tidak bertabrakan. `` adalah namespace standar Python.',
-      en: 'A container that groups names (functions, variables, classes) to avoid naming conflicts. `` is the Python standard namespace.',
+      id: 'File Python berisi kode (fungsi, kelas, variabel) yang bisa di-import ke program lain. Contoh modul bawaan: `math`, `random`, `os`, `json`.',
+      en: 'A Python file containing code (functions, classes, variables) that can be imported into another program. Built-in examples: `math`, `random`, `os`, `json`.',
     },
-    example: 'using namespace std;',
-    seeAlso: ['std'],
-  },
-  {
-    term: 'builtins',
-    termEn: 'Built-in Functions',
-    category: 'dasar',
-    definition: {
-      id: 'Fungsi dan tipe bawaan Python yang tersedia tanpa perlu import, seperti `print()`, `input()`, `len()`, `range()`, `int()`, `str()`, dan lainnya.',
-      en: 'Python built-in functions and types available without importing, such as `print()`, `input()`, `len()`, `range()`, `int()`, `str()`, and more.',
-    },
-    example: 'print(len("hello"))  # 5',
+    example: 'import math\nprint(math.sqrt(16))  # 4.0',
+    seeAlso: ['import'],
   },
   {
     term: 'Variabel',
     termEn: 'Variable',
     category: 'dasar',
     definition: {
-      id: 'Tempat penyimpanan data dalam memori yang diberi nama. Nilainya bisa berubah selama program berjalan.',
-      en: 'A named storage location in memory. Its value can change while the program runs.',
+      id: 'Tempat penyimpanan data yang diberi nama. Python tidak perlu deklarasi tipe — tipe ditentukan otomatis dari nilai yang diberikan.',
+      en: 'A named storage location for data. Python requires no type declaration — the type is determined automatically from the assigned value.',
     },
-    example: 'int umur = 15;',
+    example: 'umur = 15\nnama = "Budi"\nlulus = True',
     seeAlso: ['Konstanta'],
   },
   {
@@ -102,46 +95,58 @@ export const GLOSSARY: GlossaryTerm[] = [
     termEn: 'Constant',
     category: 'dasar',
     definition: {
-      id: 'Seperti variabel, tetapi nilainya tidak bisa diubah setelah ditetapkan. Dideklarasikan dengan kata kunci `const`.',
-      en: 'Like a variable, but its value cannot be changed after it is set. Declared with the `const` keyword.',
+      id: 'Variabel yang nilainya tidak dimaksudkan untuk diubah. Python tidak punya keyword `const` — konvensinya menggunakan nama HURUF_KAPITAL.',
+      en: 'A variable whose value is not meant to be changed. Python has no `const` keyword — the convention is to use ALL_CAPS names.',
     },
-    example: 'const double PI = 3.14159;',
+    example: 'PI = 3.14159\nMAX_NILAI = 100',
     seeAlso: ['Variabel'],
   },
   {
     term: 'Operator',
     category: 'dasar',
     definition: {
-      id: 'Simbol yang melakukan operasi pada nilai. Contoh: `+` (tambah), `-` (kurang), `*` (kali), `/` (bagi), `%` (modulo), `==` (sama dengan).',
-      en: 'A symbol that performs an operation on values. Examples: `+` (add), `-` (subtract), `*` (multiply), `/` (divide), `%` (modulo), `==` (equal to).',
+      id: 'Simbol yang melakukan operasi pada nilai. Contoh: `+` (tambah), `-` (kurang), `*` (kali), `/` (bagi), `//` (bagi bulat), `%` (modulo), `**` (pangkat), `==` (sama dengan).',
+      en: 'A symbol that performs an operation on values. Examples: `+` (add), `-` (subtract), `*` (multiply), `/` (divide), `//` (floor divide), `%` (modulo), `**` (power), `==` (equal).',
     },
+    example: 'print(10 // 3)   # 3\nprint(2 ** 8)    # 256',
   },
   {
     term: 'Ekspresi',
     termEn: 'Expression',
     category: 'dasar',
     definition: {
-      id: 'Kombinasi nilai, variabel, dan operator yang menghasilkan suatu nilai. Contoh: `5 + 3`, `x * 2`, `a > b`.',
-      en: 'A combination of values, variables, and operators that produces a value. Examples: `5 + 3`, `x * 2`, `a > b`.',
+      id: 'Kombinasi nilai, variabel, dan operator yang menghasilkan suatu nilai. Contoh: `5 + 3`, `x * 2`, `a > b`, `len("halo")`.',
+      en: 'A combination of values, variables, and operators that produces a value. Examples: `5 + 3`, `x * 2`, `a > b`, `len("halo")`.',
     },
   },
   {
     term: 'Statement',
     category: 'dasar',
     definition: {
-      id: 'Satu perintah lengkap dalam Python. Python menggunakan indentasi dan baris baru sebagai pemisah, bukan titik koma. Contoh: `x = 5` atau `print(x)`.',
-      en: 'A single complete instruction in Python. Python uses indentation and newlines as separators, not semicolons. Examples: `x = 5` or `print(x)`.',
+      id: 'Satu perintah lengkap dalam Python. Python menggunakan indentasi dan baris baru sebagai pemisah, bukan titik koma seperti C++ atau Java.',
+      en: 'A single complete instruction in Python. Python uses indentation and newlines as separators, not semicolons like C++ or Java.',
     },
+    example: 'x = 5\nprint(x)',
   },
   {
     term: 'Komentar',
     termEn: 'Comment',
     category: 'dasar',
     definition: {
-      id: 'Teks dalam kode yang diabaikan oleh compiler. Digunakan untuk menjelaskan kode. `//` untuk satu baris, `/* */` untuk beberapa baris.',
-      en: 'Text in code ignored by the compiler. Used to explain the code. `//` for single line, `/* */` for multiple lines.',
+      id: 'Teks dalam kode yang diabaikan oleh interpreter. Gunakan `#` untuk komentar satu baris, atau tanda kutip tiga (`"""`) untuk docstring multi-baris.',
+      en: 'Text in code ignored by the interpreter. Use `#` for single-line comments, or triple quotes (`"""`) for multi-line docstrings.',
     },
-    example: '// Ini komentar',
+    example: '# Ini komentar satu baris\n"""Ini\ndocstring\nmulti-baris"""',
+  },
+  {
+    term: 'Indentasi',
+    termEn: 'Indentation',
+    category: 'dasar',
+    definition: {
+      id: 'Spasi di awal baris yang menentukan blok kode di Python. Python menggunakan indentasi (biasanya 4 spasi) sebagai pengganti kurung kurawal `{}` dalam bahasa lain.',
+      en: 'Spaces at the start of a line that define a code block in Python. Python uses indentation (usually 4 spaces) instead of curly braces `{}` like other languages.',
+    },
+    example: 'if x > 0:\n    print("positif")  # harus diindentasi',
   },
 
   // ── TIPE DATA ────────────────────────────────────────────────
@@ -149,57 +154,59 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'int',
     category: 'tipe-data',
     definition: {
-      id: 'Tipe data untuk bilangan bulat (tanpa desimal). Contoh: -10, 0, 42. Biasanya memakan 4 byte memori.',
-      en: 'Data type for whole numbers (no decimals). Examples: -10, 0, 42. Usually takes 4 bytes of memory.',
+      id: 'Tipe data untuk bilangan bulat (tanpa desimal). Di Python, `int` tidak terbatas ukurannya — bisa menyimpan bilangan sebesar apapun. Tidak perlu deklarasi tipe.',
+      en: 'Data type for whole numbers (no decimals). In Python, `int` has no size limit — it can store arbitrarily large numbers. No type declaration needed.',
     },
-    example: 'int nilai = 90;',
-  },
-  {
-    term: 'double',
-    category: 'tipe-data',
-    definition: {
-      id: 'Tipe data untuk bilangan desimal dengan presisi tinggi (64-bit). Lebih akurat dari `float`.',
-      en: 'Data type for decimal numbers with high precision (64-bit). More accurate than `float`.',
-    },
-    example: 'double pi = 3.14159265;',
-    seeAlso: ['float'],
+    example: 'nilai = 90\ntahun = 2024\nbesar = 10 ** 100  # googol',
   },
   {
     term: 'float',
     category: 'tipe-data',
     definition: {
-      id: 'Tipe data untuk bilangan desimal dengan presisi standar (32-bit). Lebih hemat memori dari `double` tapi kurang presisi.',
-      en: 'Data type for decimal numbers with standard precision (32-bit). Uses less memory than `double` but less precise.',
+      id: 'Tipe data untuk bilangan desimal. Di Python, `float` menggunakan presisi 64-bit (setara `double` di C++). Tidak perlu deklarasi tipe.',
+      en: 'Data type for decimal numbers. In Python, `float` uses 64-bit precision (equivalent to `double` in C++). No type declaration needed.',
     },
-    example: 'float suhu = 36.5f;',
-    seeAlso: ['double'],
+    example: 'suhu = 36.5\npi = 3.14159',
+    seeAlso: ['int'],
   },
   {
-    term: 'char',
+    term: 'str',
+    termEn: 'String',
     category: 'tipe-data',
     definition: {
-      id: 'Tipe data untuk satu karakter. Ditulis dengan tanda kutip tunggal (`\'`). Contoh: `\'A\'`, `\'5\'`, `\'!\'`.',
-      en: 'Data type for a single character. Written with single quotes (`\'`). Examples: `\'A\'`, `\'5\'`, `\'!\'`.',
+      id: 'Tipe data untuk teks (rangkaian karakter). Bisa ditulis dengan tanda kutip tunggal atau ganda. Built-in di Python — tidak perlu import.',
+      en: 'Data type for text (a sequence of characters). Can be written with single or double quotes. Built-in in Python — no import needed.',
     },
-    example: "char huruf = 'A';",
-  },
-  {
-    term: 'string',
-    category: 'tipe-data',
-    definition: {
-      id: 'Tipe data untuk teks (rangkaian karakter). Ditulis dengan tanda kutip ganda (`"`). Perlu `import <string>`.',
-      en: 'Data type for text (a sequence of characters). Written with double quotes (`"`). Requires `import <string>`.',
-    },
-    example: 'string nama = "Budi";',
+    example: 'nama = "Budi"\nsalam = \'Halo\'\npanjang = len(nama)  # 4',
+    seeAlso: ['f-string'],
   },
   {
     term: 'bool',
     category: 'tipe-data',
     definition: {
-      id: 'Tipe data Boolean yang hanya punya dua nilai: `true` (benar) atau `false` (salah). Sering digunakan dalam kondisi.',
-      en: 'Boolean data type with only two values: `true` or `false`. Often used in conditions.',
+      id: 'Tipe data Boolean dengan dua nilai: `True` atau `False` (huruf kapital pertama). Hasil dari operasi perbandingan seperti `x > 0` atau `x == y`.',
+      en: 'Boolean data type with two values: `True` or `False` (capitalized). Result of comparison operations like `x > 0` or `x == y`.',
     },
-    example: 'bool lulus = true;',
+    example: 'lulus = True\ncek = 90 >= 70  # True',
+  },
+  {
+    term: 'None',
+    category: 'tipe-data',
+    definition: {
+      id: 'Nilai khusus yang berarti "tidak ada nilai" atau "kosong". Setara dengan `null` di bahasa lain. Dikembalikan oleh fungsi yang tidak punya `return`.',
+      en: 'A special value meaning "no value" or "empty". Equivalent to `null` in other languages. Returned by functions with no `return` statement.',
+    },
+    example: 'hasil = None\ndef sapa():\n    print("Halo")  # returns None',
+  },
+  {
+    term: 'Type Hint',
+    category: 'tipe-data',
+    definition: {
+      id: 'Anotasi opsional untuk menunjukkan tipe variabel atau parameter fungsi. Tidak wajib dan tidak mempengaruhi eksekusi — hanya untuk keterbacaan dan alat seperti mypy.',
+      en: 'Optional annotation to indicate the type of a variable or function parameter. Not required and does not affect execution — only for readability and tools like mypy.',
+    },
+    example: 'def tambah(a: int, b: int) -> int:\n    return a + b',
+    seeAlso: ['int', 'float', 'str'],
   },
 
   // ── KONTROL ALUR ─────────────────────────────────────────────
@@ -207,57 +214,60 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'if-else',
     category: 'kontrol',
     definition: {
-      id: 'Struktur percabangan untuk mengeksekusi blok kode berbeda berdasarkan kondisi. Jika kondisi true, jalankan blok `if`; jika tidak, jalankan blok `else`.',
-      en: 'A branching structure that executes different code blocks based on a condition. If the condition is true, run the `if` block; otherwise run the `else` block.',
+      id: 'Struktur percabangan untuk mengeksekusi blok kode berbeda berdasarkan kondisi. Gunakan `elif` untuk kondisi tambahan.',
+      en: 'A branching structure that executes different code blocks based on a condition. Use `elif` for additional conditions.',
     },
-    example: 'if nilai >= 70:\n    print("Lulus")\nelse:\n    print("Tidak lulus")',
+    example: 'if nilai >= 70:\n    print("Lulus")\nelif nilai >= 50:\n    print("Remidi")\nelse:\n    print("Tidak lulus")',
   },
   {
-    term: 'switch',
+    term: 'match/case',
+    termEn: 'Match Statement',
     category: 'kontrol',
     definition: {
-      id: 'Percabangan berdasarkan nilai tepat dari sebuah variabel. Alternatif dari banyak `if-else` untuk nilai diskrit.',
-      en: 'Branching based on the exact value of a variable. An alternative to many `if-else` chains for discrete values.',
+      id: 'Percabangan berdasarkan pola (Python 3.10+). Alternatif elegan dari banyak `if-elif` untuk nilai diskrit. Lebih fleksibel dari `switch` di bahasa lain.',
+      en: 'Pattern-based branching (Python 3.10+). An elegant alternative to many `if-elif` chains for discrete values. More flexible than `switch` in other languages.',
     },
-    seeAlso: ['if-else', 'break'],
+    example: 'match hari:\n    case "Senin": print("Awal minggu")\n    case "Jumat": print("Akhir minggu")\n    case _: print("Hari biasa")',
+    seeAlso: ['if-else'],
   },
   {
     term: 'while',
     category: 'kontrol',
     definition: {
-      id: 'Perulangan yang terus berjalan selama kondisinya `true`. Kondisi dicek di awal — jika langsung false, loop tidak dieksekusi sama sekali.',
-      en: 'A loop that keeps running as long as its condition is `true`. The condition is checked first — if immediately false, the loop never executes.',
+      id: 'Perulangan yang terus berjalan selama kondisinya `True`. Kondisi dicek di awal — jika langsung `False`, loop tidak dieksekusi sama sekali.',
+      en: 'A loop that keeps running as long as its condition is `True`. The condition is checked first — if immediately `False`, the loop never executes.',
     },
-    example: 'while (x > 0) { x--; }',
-    seeAlso: ['for', 'do-while'],
+    example: 'x = 1\nwhile x <= 5:\n    print(x)\n    x += 1',
+    seeAlso: ['for', 'break'],
   },
   {
     term: 'for',
     category: 'kontrol',
     definition: {
-      id: 'Perulangan dengan tiga bagian: inisialisasi, kondisi, dan update. Cocok untuk jumlah iterasi yang sudah diketahui.',
-      en: 'A loop with three parts: initialization, condition, and update. Best when the number of iterations is known.',
+      id: 'Perulangan untuk iterasi atas sebuah urutan (list, string, range, dll). Berbeda dari C++ — Python `for` adalah for-each, bukan for dengan inisialisasi/kondisi/update.',
+      en: 'A loop for iterating over a sequence (list, string, range, etc.). Unlike C++ — Python `for` is a for-each, not a for loop with init/condition/update.',
     },
-    example: 'for (int i = 0; i < 10; i++) { ... }',
-    seeAlso: ['while', 'do-while'],
+    example: 'for i in range(5):\n    print(i)  # 0 1 2 3 4\n\nfor nama in ["Andi", "Budi"]:\n    print(nama)',
+    seeAlso: ['while', 'range()'],
   },
   {
-    term: 'do-while',
+    term: 'range()',
     category: 'kontrol',
     definition: {
-      id: 'Perulangan yang selalu dieksekusi minimal satu kali, karena kondisi dicek di akhir bukan di awal.',
-      en: 'A loop that always executes at least once, because the condition is checked at the end, not the beginning.',
+      id: 'Fungsi bawaan yang menghasilkan urutan bilangan. `range(n)` menghasilkan 0 sampai n-1. `range(a, b)` dari a sampai b-1. `range(a, b, step)` dengan langkah tertentu.',
+      en: 'A built-in function that generates a sequence of numbers. `range(n)` generates 0 to n-1. `range(a, b)` from a to b-1. `range(a, b, step)` with a custom step.',
     },
-    example: 'do { x++; } while (x < 10);',
-    seeAlso: ['while', 'for'],
+    example: 'range(5)        # 0,1,2,3,4\nrange(1, 6)     # 1,2,3,4,5\nrange(0, 10, 2) # 0,2,4,6,8',
+    seeAlso: ['for'],
   },
   {
     term: 'break',
     category: 'kontrol',
     definition: {
-      id: 'Perintah untuk keluar dari loop atau switch secara paksa, langsung menuju kode setelah blok loop/switch.',
-      en: 'A command to forcefully exit a loop or switch, jumping directly to the code after the loop/switch block.',
+      id: 'Perintah untuk keluar dari loop secara paksa, langsung menuju kode setelah blok loop.',
+      en: 'A command to forcefully exit a loop, jumping directly to the code after the loop block.',
     },
+    example: 'for i in range(10):\n    if i == 5:\n        break  # berhenti di 5',
     seeAlso: ['continue'],
   },
   {
@@ -267,6 +277,7 @@ export const GLOSSARY: GlossaryTerm[] = [
       id: 'Perintah untuk melewati sisa iterasi saat ini dan langsung lanjut ke iterasi berikutnya dalam loop.',
       en: 'A command to skip the rest of the current iteration and immediately move to the next iteration in a loop.',
     },
+    example: 'for i in range(5):\n    if i == 2:\n        continue  # lewati 2\n    print(i)  # 0 1 3 4',
     seeAlso: ['break'],
   },
 
@@ -276,19 +287,20 @@ export const GLOSSARY: GlossaryTerm[] = [
     termEn: 'Function',
     category: 'fungsi',
     definition: {
-      id: 'Blok kode yang diberi nama dan bisa dipanggil berkali-kali. Memungkinkan kode digunakan ulang dan lebih terorganisir.',
-      en: 'A named block of code that can be called multiple times. Allows code reuse and better organization.',
+      id: 'Blok kode yang diberi nama dengan kata kunci `def` dan bisa dipanggil berkali-kali. Python tidak butuh deklarasi tipe return.',
+      en: 'A named block of code defined with the `def` keyword that can be called multiple times. Python requires no return type declaration.',
     },
-    example: 'int tambah(int a, int b) { return a + b; }',
-    seeAlso: ['Parameter', 'Return Value', 'Overloading'],
+    example: 'def tambah(a, b):\n    return a + b\n\nhasil = tambah(3, 5)  # 8',
+    seeAlso: ['Parameter', 'Return Value'],
   },
   {
     term: 'Parameter',
     category: 'fungsi',
     definition: {
-      id: 'Variabel yang dideklarasikan di dalam tanda kurung fungsi. Parameter menerima nilai (argumen) saat fungsi dipanggil.',
-      en: 'A variable declared inside the function\'s parentheses. Parameters receive values (arguments) when the function is called.',
+      id: 'Variabel yang dideklarasikan di dalam tanda kurung fungsi. Python tidak perlu tipe data pada parameter — bisa menerima nilai apa saja.',
+      en: 'A variable declared inside the function\'s parentheses. Python requires no type on parameters — it can receive any value.',
     },
+    example: 'def sapa(nama, umur=17):  # umur punya default value\n    print(f"Halo {nama}, umur {umur}")',
     seeAlso: ['Argumen', 'Fungsi'],
   },
   {
@@ -299,97 +311,93 @@ export const GLOSSARY: GlossaryTerm[] = [
       id: 'Nilai nyata yang dikirim ke fungsi saat pemanggilan. Argumen mengisi parameter yang didefinisikan di fungsi.',
       en: 'The actual value sent to a function when it is called. Arguments fill in the parameters defined in the function.',
     },
+    example: 'tambah(3, 5)     # 3 dan 5 adalah argumen\ntambah(a=3, b=5) # keyword argument',
     seeAlso: ['Parameter'],
   },
   {
     term: 'Return Value',
     category: 'fungsi',
     definition: {
-      id: 'Nilai yang dikembalikan oleh fungsi ke pemanggil menggunakan kata kunci `return`. Tipe return ditulis sebelum nama fungsi.',
-      en: 'The value returned by a function to its caller using the `return` keyword. The return type is written before the function name.',
+      id: 'Nilai yang dikembalikan oleh fungsi ke pemanggil menggunakan kata kunci `return`. Fungsi tanpa `return` mengembalikan `None` secara implisit.',
+      en: 'The value returned by a function to its caller using the `return` keyword. Functions without `return` implicitly return `None`.',
     },
-    example: 'return a + b;',
-    seeAlso: ['void'],
-  },
-  {
-    term: 'void',
-    category: 'fungsi',
-    definition: {
-      id: 'Tipe return yang berarti fungsi tidak mengembalikan nilai apapun.',
-      en: 'A return type meaning the function does not return any value.',
-    },
-    example: 'def sapa():\n    print("Halo!")',
-    seeAlso: ['Return Value'],
-  },
-  {
-    term: 'Overloading',
-    termEn: 'Function Overloading',
-    category: 'fungsi',
-    definition: {
-      id: 'Mendefinisikan beberapa fungsi dengan nama yang sama tetapi parameter yang berbeda (tipe atau jumlah). Compiler memilih versi yang tepat secara otomatis.',
-      en: 'Defining multiple functions with the same name but different parameters (type or count). The compiler automatically selects the right version.',
-    },
-    seeAlso: ['Fungsi', 'Parameter'],
-  },
-  {
-    term: 'Pass by Value',
-    category: 'fungsi',
-    definition: {
-      id: 'Cara pengiriman argumen ke fungsi dimana salinan nilai dikirim. Perubahan pada parameter di dalam fungsi tidak mempengaruhi variabel asli.',
-      en: 'A way of passing arguments to a function where a copy of the value is sent. Changes to the parameter inside the function do not affect the original variable.',
-    },
-    seeAlso: ['Pass by Reference'],
-  },
-  {
-    term: 'Pass by Reference',
-    category: 'fungsi',
-    definition: {
-      id: 'Cara pengiriman argumen dimana referensi ke variabel asli dikirim (menggunakan `&`). Perubahan di dalam fungsi mempengaruhi variabel asli.',
-      en: 'A way of passing arguments where a reference to the original variable is sent (using `&`). Changes inside the function affect the original variable.',
-    },
-    example: 'void gandakan(int& x) { x *= 2; }',
-    seeAlso: ['Pass by Value'],
+    example: 'def kuadrat(x):\n    return x ** 2\n\nprint(kuadrat(4))  # 16',
+    seeAlso: ['None', 'Fungsi'],
   },
   {
     term: 'Scope',
     category: 'fungsi',
     definition: {
-      id: 'Area dalam kode dimana sebuah variabel bisa diakses. Variabel di dalam `{}` hanya bisa diakses di dalam blok itu (local scope).',
-      en: 'The area in code where a variable can be accessed. Variables inside `{}` can only be accessed within that block (local scope).',
+      id: 'Area dalam kode dimana sebuah variabel bisa diakses. Variabel di dalam fungsi hanya bisa diakses di dalam fungsi itu (local scope). Python menggunakan indentasi, bukan `{}`.',
+      en: 'The area in code where a variable can be accessed. Variables inside a function can only be accessed within that function (local scope). Python uses indentation, not `{}`.',
     },
+    example: 'x = 10  # global scope\ndef fungsi():\n    x = 5   # local scope (berbeda!)\n    print(x)  # 5\nprint(x)  # 10',
     seeAlso: ['Variabel'],
   },
-
-  // ── ARRAY & STRUCT ───────────────────────────────────────────
   {
-    term: 'Array',
+    term: 'Lambda',
+    category: 'fungsi',
+    definition: {
+      id: 'Fungsi anonim (tanpa nama) yang ditulis dalam satu baris. Berguna untuk operasi sederhana yang tidak perlu `def` tersendiri.',
+      en: 'An anonymous (nameless) function written in one line. Useful for simple operations that do not need a separate `def`.',
+    },
+    example: 'kuadrat = lambda x: x ** 2\nprint(kuadrat(5))  # 25',
+    seeAlso: ['Fungsi'],
+  },
+
+  // ── KOLEKSI DATA ─────────────────────────────────────────────
+  {
+    term: 'List',
     category: 'array-struct',
     definition: {
-      id: 'Kumpulan nilai dengan tipe yang sama yang disimpan secara berurutan di memori. Diakses menggunakan indeks yang dimulai dari 0.',
-      en: 'A collection of values of the same type stored sequentially in memory. Accessed using an index starting from 0.',
+      id: 'Koleksi nilai yang terurut dan bisa diubah (mutable). Dibuat dengan tanda kurung siku `[]`. Bisa menyimpan tipe data berbeda dalam satu list.',
+      en: 'An ordered, changeable (mutable) collection of values. Created with square brackets `[]`. Can store different data types in one list.',
     },
-    example: 'int nilai[5] = {80, 90, 75, 95, 85};',
-    seeAlso: ['Indeks'],
+    example: 'nilai = [85, 92, 78, 95]\nnilai.append(88)\nprint(nilai[0])  # 85',
+    seeAlso: ['Indeks', 'Tuple'],
   },
   {
     term: 'Indeks',
     termEn: 'Index',
     category: 'array-struct',
     definition: {
-      id: 'Nomor posisi elemen dalam array. Selalu dimulai dari 0, bukan 1. Array dengan 5 elemen memiliki indeks 0 sampai 4.',
-      en: 'The position number of an element in an array. Always starts from 0, not 1. An array with 5 elements has indices 0 through 4.',
+      id: 'Nomor posisi elemen dalam list atau string. Selalu dimulai dari 0. Indeks negatif mengakses dari belakang: `-1` adalah elemen terakhir.',
+      en: 'The position number of an element in a list or string. Always starts from 0. Negative indices access from the end: `-1` is the last element.',
     },
-    seeAlso: ['Array'],
+    example: 'nilai = [85, 92, 78]\nprint(nilai[0])   # 85 (pertama)\nprint(nilai[-1])  # 78 (terakhir)',
+    seeAlso: ['List'],
   },
   {
-    term: 'Struct',
+    term: 'Tuple',
     category: 'array-struct',
     definition: {
-      id: 'Tipe data buatan sendiri yang mengelompokkan beberapa variabel berbeda tipe menjadi satu kesatuan. Digunakan untuk merepresentasikan objek nyata.',
-      en: 'A custom data type that groups several variables of different types into one unit. Used to represent real-world objects.',
+      id: 'Koleksi nilai yang terurut dan tidak bisa diubah (immutable). Dibuat dengan tanda kurung `()`. Lebih cepat dari list dan cocok untuk data yang tidak berubah.',
+      en: 'An ordered, unchangeable (immutable) collection of values. Created with parentheses `()`. Faster than list and good for data that should not change.',
     },
-    example: 'struct Siswa { string nama; int umur; double nilai; };',
-    seeAlso: ['Array'],
+    example: 'koordinat = (3, 4)\nwarna = ("merah", "hijau", "biru")',
+    seeAlso: ['List'],
+  },
+  {
+    term: 'Dictionary',
+    termEn: 'Dict',
+    category: 'array-struct',
+    definition: {
+      id: 'Koleksi pasangan kunci-nilai (key-value). Dibuat dengan kurung kurawal `{}`. Akses nilai dengan kunci, bukan indeks angka.',
+      en: 'A collection of key-value pairs. Created with curly braces `{}`. Access values by key, not numeric index.',
+    },
+    example: 'siswa = {"nama": "Budi", "umur": 17}\nprint(siswa["nama"])  # "Budi"\nsisswa["nilai"] = 90',
+    seeAlso: ['List'],
+  },
+  {
+    term: 'Class',
+    termEn: 'Class (OOP)',
+    category: 'array-struct',
+    definition: {
+      id: 'Template untuk membuat objek. Mendefinisikan atribut (data) dan method (fungsi) yang dimiliki objek. Pengganti `struct` dari bahasa seperti C.',
+      en: 'A template for creating objects. Defines the attributes (data) and methods (functions) an object has. Replaces `struct` from languages like C.',
+    },
+    example: 'class Siswa:\n    def __init__(self, nama):\n        self.nama = nama\n\ns = Siswa("Budi")',
+    seeAlso: ['Return Value'],
   },
 
   // ── INPUT/OUTPUT ─────────────────────────────────────────────
@@ -421,7 +429,7 @@ export const GLOSSARY: GlossaryTerm[] = [
       en: 'Python formatted string literal (prefix `f`) that allows embedding variables and expressions directly into strings using curly braces `{}`.',
     },
     example: 'nama = "Budi"\nprint(f"Halo, {nama}! Umurmu {18} tahun.")',
-    seeAlso: ['print()', 'str()'],
+    seeAlso: ['print()', 'str'],
   },
   {
     term: 'File I/O',
@@ -442,9 +450,9 @@ export const CATEGORY_LABELS: Record<GlossaryCategory, { id: string; en: string 
   'tipe-data': { id: 'Tipe Data', en: 'Data Types' },
   'kontrol': { id: 'Kontrol Alur', en: 'Flow Control' },
   'fungsi': { id: 'Fungsi', en: 'Functions' },
-  'array-struct': { id: 'Array & Struct', en: 'Array & Struct' },
+  'array-struct': { id: 'Koleksi Data', en: 'Collections' },
   'io': { id: 'Input/Output', en: 'Input/Output' },
-  'kompilasi': { id: 'Kompilasi', en: 'Compilation' },
+  'kompilasi': { id: 'Interpreter & Runtime', en: 'Interpreter & Runtime' },
 }
 
 export const CATEGORY_ORDER: GlossaryCategory[] = [
