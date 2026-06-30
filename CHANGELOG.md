@@ -4,6 +4,24 @@ Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format m
 
 ## [Unreleased]
 
+## [2026-06-30] — Post-Migration Cleanup
+
+### Fixed
+- `glossary.ts` rewrite penuh: 42 entri yang masih berisi syntax/konsep C++ ditulis ulang ke Python
+  - `Compiler` → `Interpreter`, `import <iostream>` → `import math`, komentar `//` → `#`
+  - Tipe data: `int nilai = 90;` → `nilai = 90`, hapus `double`/`char`, tambah `None`/`Type Hint`
+  - Loop: `for (init;cond;update)` → `for item in urutan:`, hapus `do-while`, `switch` → `match/case`
+  - Fungsi: `int tambah(int,int){}` → `def tambah(a,b):`, hapus `Pass by Reference`, tambah `Lambda`
+  - Koleksi: `Array`/`Struct` (C++) → `List`/`Dictionary`/`Tuple`/`Class` (Python)
+  - Label kategori: "Array & Struct" → "Koleksi Data", "Kompilasi" → "Interpreter & Runtime"
+- `i18n.ts`: "Jalankan kode C++" → "Jalankan kode Python"
+- `array-memory.svg`: deklarasi `int nilai[5] = {...};` → `nilai = [...]` (Python list)
+- `loop-comparison.svg`: kolom DO-WHILE diganti WHILE TRUE/BREAK, label `for (init;cond;update)` → `for item in urutan:`
+- `types/curriculum.ts`: komentar `// C++ code example` → `// Python code example`
+- `README.md`: badge Astro v5→v7, hapus referensi C++ di deskripsi, nama unit 5-6 diperbarui
+- `package.json`: semua `"latest"` diganti semver eksplisit (`^major.minor.patch`) untuk mencegah ERESOLVE di masa depan
+- `unit-5/06-string-lanjut.mdx`: typo komentar output `join()` — `apelmangkajeruk` → `apelmanggajeruk`
+
 ## [2026-06-29] — Python Migration
 
 ### Changed (Breaking — full rewrite from belajar-cpp)
