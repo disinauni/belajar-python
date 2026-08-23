@@ -4,6 +4,13 @@ Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format m
 
 ## [Unreleased]
 
+## [2026-08-24] — Dependency & Build Fixes
+
+### Fixed
+- Badge logo di `/api/og-image` masih hardcoded `'C+'` sisa dari belajar-cpp, tidak pernah diperbaiki sejak migrasi — sebelum sempat dipakai, ketahuan endpoint ini sebenarnya **dead code** (selalu 500 di Vercel production karena WASM bundling issue pada `@vercel/og`, `og:image` selalu pakai `og-default.png` statis) sehingga file `src/pages/api/og-image.ts` dan dependency `@vercel/og` dihapus sepenuhnya, bukan sekadar diperbaiki badge-nya.
+- `npm audit`: `sharp`/`undici` di-patch lewat `npm audit fix` non-forced (13 → 3 high severity). Sisa `path-to-regexp`/`@vercel/routing-utils` dibiarkan (build-time only, belum ada fix non-breaking dari upstream Astro).
+- **Vercel production build gagal total** ("no longer installed by default now that Sätteri is the default Markdown processor") setelah penghapusan `@vercel/og` di atas mengubah dependency tree sehingga `@astrojs/markdown-remark` (dibutuhkan untuk config `markdown.remarkPlugins` legacy) cuma ke-resolve transitif, tidak top-level. Dipasang sebagai dependency langsung untuk memastikan resolusi deterministik.
+
 ## [2026-06-30] — Post-Migration Cleanup
 
 ### Fixed
