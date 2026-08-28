@@ -8,12 +8,13 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
   [![Version](https://img.shields.io/badge/version-v1.0.0--beta.1-orange)](./CHANGELOG.md)
+  [![CI](https://github.com/disinauni/belajar-python/actions/workflows/ci.yml/badge.svg)](https://github.com/disinauni/belajar-python/actions/workflows/ci.yml)
+  [![Deploy](https://img.shields.io/badge/Live-belajar--python.disinauni.my.id-black?logo=vercel)](https://belajar-python.disinauni.my.id)
   [![Astro](https://img.shields.io/badge/Astro-v7-FF5D01?logo=astro&logoColor=white)](https://astro.build)
   [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
   [![Tests](https://img.shields.io/badge/unit%20tests-63%20passing-brightgreen?logo=vitest)](./src/__tests__)
   [![E2E](https://img.shields.io/badge/e2e-17%20passing-brightgreen?logo=playwright)](./src/__tests__/e2e)
-  [![Deploy](https://img.shields.io/badge/Live-belajar--python.disinauni.my.id-black?logo=vercel)](https://belajar-python.disinauni.my.id)
 
 </div>
 
@@ -24,6 +25,8 @@
 **Belajar Python** hadir untuk mengisi kekosongan tutorial Python modern dalam Bahasa Indonesia. Kebanyakan sumber yang ada masih menggunakan penjelasan yang rumit, tidak interaktif, atau tidak relevan dengan kebutuhan siswa saat ini.
 
 Platform ini mengajarkan **Python modern (Python 3)** dari nol, langsung bisa dicoba di browser tanpa install apapun.
+
+Bagian dari [ekosistem disinauni](https://disinauni.my.id) bersama [Belajar C++](https://github.com/disinauni/belajar-cpp), [Belajar SQL](https://github.com/disinauni/belajar-sql), [Belajar Golang](https://github.com/disinauni/belajar-golang), dan [Belajar Rust](https://github.com/disinauni/belajar-rust).
 
 **Ditujukan untuk:**
 - Siswa SMP & SMA yang belajar Python untuk pertama kali
@@ -230,7 +233,7 @@ Tipe exercise yang tersedia: `multiple-choice`, `fill-blank`, `code-output`, `fr
 
 ## Deployment
 
-Project ini di-deploy ke **[belajar-python.disinauni.my.id](https://belajar-python.disinauni.my.id)**. Setiap push ke `main` akan trigger deployment otomatis.
+Live di **[belajar-python.disinauni.my.id](https://belajar-python.disinauni.my.id)**. Setiap push ke `main` akan trigger deployment otomatis via Vercel.
 
 ```bash
 # Build production
@@ -251,5 +254,5 @@ Dirilis di bawah [MIT License](./LICENSE). Bebas digunakan, dimodifikasi, dan di
 ---
 
 <div align="center">
-  <sub>Dibuat dengan ❤️ untuk pelajar Indonesia &middot; <a href="https://belajar-python.disinauni.my.id">belajar-python.disinauni.my.id</a></sub>
+  <sub>Dibuat dengan ❤️ untuk pelajar Indonesia &middot; <a href="https://belajar-python.disinauni.my.id">belajar-python.disinauni.my.id</a> &middot; bagian dari <a href="https://disinauni.my.id">disinauni</a></sub>
 </div>
