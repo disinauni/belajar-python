@@ -3,7 +3,7 @@
   "description": "Platform pembelajaran Python gratis, interaktif, dan bilingual untuk siswa SMP & SMA Indonesia",
   "version": "1.0.0-beta.1",
   "license": "MIT",
-  "homepage": "https://belajar-python.varnimyr.my.id",
+  "homepage": "https://belajar-python.disinauni.my.id",
   "repository": {
     "type": "git",
     "url": "https://github.com/disinauni/belajar-python.git"
