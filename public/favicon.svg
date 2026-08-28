@@ -1,38 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1d4ed8"/>
-      <stop offset="100%" stop-color="#4f46e5"/>
+      <stop offset="0%" stop-color="#4b8bd4"/>
+      <stop offset="100%" stop-color="#1f4e8c"/>
     </linearGradient>
   </defs>
 
-  <!-- Rounded square background -->
   <rect width="32" height="32" rx="7" fill="url(#bg)"/>
 
-  <!-- Left bracket < -->
-  <polyline
-    points="10,10 5.5,16 10,22"
-    stroke="white"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <!-- coiled snake, two-tone body (blue/white head, yellow tail) -->
+  <path d="M12 8.5
+           C9 8.5 7.5 10.5 7.5 12.8
+           C7.5 15.1 9 16.4 12 16.4
+           L17.5 16.4"
+        stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M17.5 16.4
+           C20.5 16.4 22.5 17.7 22.5 20
+           C22.5 22.3 21 24.3 17.8 24.3
+           C15.3 24.3 14 23 14 21.2"
+        stroke="#f7d54a" stroke-width="3" stroke-linecap="round" fill="none"/>
 
-  <!-- Right bracket > -->
-  <polyline
-    points="22,10 26.5,16 22,22"
-    stroke="white"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-
-  <!-- Slash / -->
-  <line
-    x1="19" y1="9"
-    x2="13" y2="23"
-    stroke="#93c5fd"
-    stroke-width="2"
-    stroke-linecap="round"
-  />
+  <!-- eye -->
+  <circle cx="11" cy="11.2" r="1.3" fill="#0f172a"/>
 </svg>
