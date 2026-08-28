@@ -4,6 +4,11 @@ Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format m
 
 ## [Unreleased]
 
+### Changed
+- Migrasi organisasi GitHub dari akun personal `zedfar` ke org [`disinauni`](https://github.com/disinauni) (`github.com/disinauni/belajar-python`), termasuk migrasi domain production dari `varnimyr.my.id` ke `disinauni.my.id`.
+- Favicon & og-image diganti dari desain generik `</>` (sebelumnya identik persis dengan belajar-cpp dan belajar-golang) menjadi desain khas Python: ular melingkar dua-warna (putih & kuning keemasan), terinspirasi dualitas warna biru/kuning identitas Python tanpa menjiplak logo resminya.
+- README diseragamkan strukturnya dengan keluarga situs belajar-* lainnya: badge CI/Deploy/Tests/E2E lengkap, paragraf keanggotaan [ekosistem disinauni](https://disinauni.my.id), wording section Deployment & footer konsisten lintas repo.
+
 ## [2026-08-24] — Dependency & Build Fixes
 
 ### Fixed
