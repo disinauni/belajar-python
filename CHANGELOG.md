@@ -12,6 +12,7 @@ Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format m
 
 ### Fixed
 - Tombol "Mulai Belajar" di homepage mengarah ke slug lesson yang salah (`01-apa-itu-programming`, seharusnya `01-apa-itu-python` sesuai `curriculum.ts` & nama file MDX) — broken link (404) yang sudah ada sejak lama, sama persis dengan bug yang ditemukan di belajar-golang, ketahuan setelah audit menyeluruh ke semua repo saudaranya.
+- CI E2E test berisiko gagal random ("strict mode violation: locator('h1') resolved to 5 elements") — Astro Dev Toolbar (aktif karena CI menjalankan `astro dev`, bukan build production; adapter Vercel tidak mendukung `astro preview`) menyuntik elemen `<h1>` tambahan dari panel Islands/Audit/Settings. Diperbaiki dengan `devToolbar.enabled: !process.env.CI` di `astro.config.mjs` — toolbar tetap aktif untuk dev lokal biasa.
 
 ## [2026-08-24] — Dependency & Build Fixes
 
