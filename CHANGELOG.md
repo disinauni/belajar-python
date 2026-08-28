@@ -8,6 +8,10 @@ Semua perubahan penting pada proyek belajar-python dicatat di file ini. Format m
 - Migrasi organisasi GitHub dari akun personal `zedfar` ke org [`disinauni`](https://github.com/disinauni) (`github.com/disinauni/belajar-python`), termasuk migrasi domain production dari `varnimyr.my.id` ke `disinauni.my.id`.
 - Favicon & og-image diganti dari desain generik `</>` (sebelumnya identik persis dengan belajar-cpp dan belajar-golang) menjadi desain khas Python: ular melingkar dua-warna (putih & kuning keemasan), terinspirasi dualitas warna biru/kuning identitas Python tanpa menjiplak logo resminya.
 - README diseragamkan strukturnya dengan keluarga situs belajar-* lainnya: badge CI/Deploy/Tests/E2E lengkap, paragraf keanggotaan [ekosistem disinauni](https://disinauni.my.id), wording section Deployment & footer konsisten lintas repo.
+- Sistem warna `primary` di seluruh UI situs diganti dari biru generik (`#3b82f6`, identik dengan belajar-cpp/sql/golang) ke scale biru custom yang dibangun dari dua titik gradient favicon (`#4b8bd4`/`#1f4e8c`) — mencakup `tailwind.config.ts`, `theme-color` meta tag, state tombol snippet aktif di playground, warna inline-code di prosa lesson, dan gradient/grid/pills di og-image. Warna `accent` (ungu) dan diagram SVG di dalam materi lesson sengaja dipertahankan (scope disepakati UI situs dulu).
+
+### Fixed
+- Tombol "Mulai Belajar" di homepage mengarah ke slug lesson yang salah (`01-apa-itu-programming`, seharusnya `01-apa-itu-python` sesuai `curriculum.ts` & nama file MDX) — broken link (404) yang sudah ada sejak lama, sama persis dengan bug yang ditemukan di belajar-golang, ketahuan setelah audit menyeluruh ke semua repo saudaranya.
 
 ## [2026-08-24] — Dependency & Build Fixes
 
