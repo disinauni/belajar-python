@@ -92,7 +92,7 @@ Platform ini mengajarkan **Python modern (Python 3)** dari nol, langsung bisa di
 
 ```bash
 # Clone repository
-git clone https://github.com/zedfar/belajar-python.git
+git clone https://github.com/disinauni/belajar-python.git
 cd belajar-python
 
 # Install dependencies
@@ -173,10 +173,10 @@ belajar-python/
 
 Kontribusi sangat welcome! Beberapa cara untuk berkontribusi:
 
-- 🐛 **Laporkan bug** — [Buka issue](https://github.com/zedfar/belajar-python/issues)
+- 🐛 **Laporkan bug** — [Buka issue](https://github.com/disinauni/belajar-python/issues)
 - ✍️ **Tulis lesson** — Tambah atau perbaiki konten di `src/content/lessons-id/`
 - 🌐 **Terjemahan** — Bantu terjemahkan lesson ke English di `src/content/lessons-en/`
-- 💡 **Saran fitur** — Diskusikan di [Issues](https://github.com/zedfar/belajar-python/issues)
+- 💡 **Saran fitur** — Diskusikan di [Issues](https://github.com/disinauni/belajar-python/issues)
 
 ### Menulis Lesson Baru
 
